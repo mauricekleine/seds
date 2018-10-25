@@ -1,34 +1,49 @@
-export default ({ children, ...props }) => (
-  <div {...props}>
-    {children}
+import css from "styled-jsx/css";
 
-    <style jsx>{`
-      div {
-        margin: 16px auto;
-        width: 100%;
-      }
+const { className: content, styles: contentStyles } = css.resolve`
+  flex: 8;
 
-      // Bootstrap container styles
-      @media (min-width: 1200px) {
-        div {
-          max-width: 1140px;
-        }
-      }
-      @media (min-width: 992px) {
-        div {
-          max-width: 960px;
-        }
-      }
-      @media (min-width: 768px) {
-        div {
-          max-width: 720px;
-        }
-      }
-      @media (min-width: 576px) {
-        div {
-          max-width: 540px;
-        }
-      }
-    `}</style>
+  @media (min-width: 576px) {
+    flex: 6;
+  }
+`;
+
+const { className: gutter, styles: gutterStyles } = css.resolve`
+  flex: 0;
+
+  @media (min-width: 576px) {
+    flex: 1;
+  }
+`;
+
+const { className: wrapper, styles: wrapperStyles } = css.resolve`
+  display: flex;
+  margin: 8px;
+
+  @media (min-width: 576px) {
+
+  }
+  @media (min-width: 768px) {
+    margin: 8px 16px;
+  }
+  @media (min-width: 992px) {
+
+  }
+  @media (min-width: 1200px) {
+
+  }
+`;
+
+export default ({ children }) => (
+  <div className={wrapper}>
+    <div className={gutter} />
+
+    <div className={content}>{children}</div>
+
+    <div className={gutter} />
+
+    {contentStyles}
+    {gutterStyles}
+    {wrapperStyles}
   </div>
 );
