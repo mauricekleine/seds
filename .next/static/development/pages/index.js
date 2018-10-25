@@ -66,7 +66,7 @@ var _jsxFileName = "/Users/maurice/Projects/seds/pages/index.js";
       lineNumber: 1
     },
     __self: this
-  }, "Welcome to next.js!");
+  }, "SEDS - Towards a greener tomorrow");
 });
     (function (Component, route) {
       if(!Component) return

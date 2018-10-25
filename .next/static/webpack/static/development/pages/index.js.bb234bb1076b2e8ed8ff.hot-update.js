@@ -1,8 +1,5 @@
 webpackHotUpdate("static/development/pages/index.js",{
 
-/***/ "./node_modules/process/browser.js":
-false,
-
 /***/ "./pages/index.js":
 /*!************************!*\
   !*** ./pages/index.js ***!
@@ -23,7 +20,7 @@ var _jsxFileName = "/Users/maurice/Projects/seds/pages/index.js";
       lineNumber: 1
     },
     __self: this
-  }, "Welcome to next.js!");
+  }, "SEDS - Towards a greener tomorrow");
 });
     (function (Component, route) {
       if(!Component) return
@@ -48,4 +45,4 @@ var _jsxFileName = "/Users/maurice/Projects/seds/pages/index.js";
 /***/ })
 
 })
-//# sourceMappingURL=index.js.04200cdb10afb126e6e5.hot-update.js.map
+//# sourceMappingURL=index.js.bb234bb1076b2e8ed8ff.hot-update.js.map
