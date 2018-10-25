@@ -4,7 +4,8 @@ export default ({ children, ...props }) => (
 
     <style jsx>{`
       div {
-        margin: 8px;
+        margin: 16px auto;
+        width: 66%;
       }
     `}</style>
   </div>
