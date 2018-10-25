@@ -1,0 +1,31 @@
+{
+  "name": "seds",
+  "version": "1.0.0",
+  "description": "The official website for SEDS (sedsngo.org)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "postinstall": "npm run getcontent",
+    "getcontent": "babel-node api/getcontent.js install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauricekleine/seds.git"
+  },
+  "author": "Maurice Kleine <info@mauricekleine.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mauricekleine/seds/issues"
+  },
+  "homepage": "https://sedsngo.org",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "contentful": "^7.0.5",
+    "dotenv": "^6.1.0",
+    "next": "^7.0.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
+  }
+}
