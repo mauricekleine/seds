@@ -4,12 +4,11 @@
   "description": "The official website for SEDS (sedsngo.org)",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "export": "npm run postinstall && npm run build && next export",
-    "postinstall": "npm run getcontent",
-    "getcontent": "node getContent.js"
+    "dev": "next",
+    "export": "npm run getcontent && npm run build && next export",
+    "getcontent": "node getContent.js",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
