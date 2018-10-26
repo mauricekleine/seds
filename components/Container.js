@@ -3,7 +3,7 @@ import css from "styled-jsx/css";
 const { className: content, styles: contentStyles } = css.resolve`
   flex: 8;
 
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     flex: 6;
   }
 `;
@@ -11,7 +11,7 @@ const { className: content, styles: contentStyles } = css.resolve`
 const { className: gutter, styles: gutterStyles } = css.resolve`
   flex: 0;
 
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     flex: 1;
   }
 `;
@@ -24,7 +24,7 @@ const { className: wrapper, styles: wrapperStyles } = css.resolve`
 
   }
   @media (min-width: 768px) {
-    margin: 8px 16px;
+
   }
   @media (min-width: 992px) {
 

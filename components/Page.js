@@ -4,7 +4,7 @@ import Container from "./Container";
 
 const { className, styles } = css.resolve`
   div {
-    background: red;
+    background: rgb(121, 171, 111);
     flex: 1;
   }
 `;

@@ -21,12 +21,8 @@ if (!fs.existsSync(filePath)) {
     content_type: type
   });
 
-  if (entries.total === 1) {
-    const { fields } = entries.items[0];
-
-    fs.writeFileSync(
-      path.join(filePath, `${type}.json`),
-      JSON.stringify(fields)
-    );
-  }
+  fs.writeFileSync(
+    path.join(filePath, `${type}.json`),
+    JSON.stringify(entries)
+  );
 });
