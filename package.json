@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "postinstall": "npm run getcontent",
-    "getcontent": "babel-node api/getcontent.js install"
+    "getcontent": "node getContent.js"
   },
   "repository": {
     "type": "git",
