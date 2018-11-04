@@ -1,49 +1,52 @@
-import css from "styled-jsx/css";
+import styled from "styled-components";
 
-const { className: content, styles: contentStyles } = css.resolve`
-  flex: 8;
+const Content = styled.div`
+  flex: 12;
+
+  @media (min-width: 576px) {
+    flex: 10;
+  }
 
   @media (min-width: 768px) {
+    flex: 8;
+  }
+
+  @media (min-width: 992px) {
     flex: 6;
   }
 `;
 
-const { className: gutter, styles: gutterStyles } = css.resolve`
+const Gutter = styled.div`
   flex: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 576px) {
     flex: 1;
+  }
+
+  @media (min-width: 768px) {
+    flex: 2;
+  }
+
+  @media (min-width: 992px) {
+    flex: 3;
   }
 `;
 
-const { className: wrapper, styles: wrapperStyles } = css.resolve`
+const Wrapper = styled.div`
   display: flex;
-  margin: 8px;
+  margin: 0 16px;
 
-  @media (min-width: 576px) {
-
-  }
-  @media (min-width: 768px) {
-
-  }
-  @media (min-width: 992px) {
-
-  }
   @media (min-width: 1200px) {
 
   }
 `;
 
-export default ({ children }) => (
-  <div className={wrapper}>
-    <div className={gutter} />
+export default ({ children, ...props }) => (
+  <Wrapper>
+    <Gutter />
 
-    <div className={content}>{children}</div>
+    <Content {...props}>{children}</Content>
 
-    <div className={gutter} />
-
-    {contentStyles}
-    {gutterStyles}
-    {wrapperStyles}
-  </div>
+    <Gutter />
+  </Wrapper>
 );

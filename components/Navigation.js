@@ -1,98 +1,64 @@
 import Link from "next/link";
-import { Component } from "react";
-import css from "styled-jsx/css";
+import { Component, Fragment } from "react";
+import styled from "styled-components";
 
 import Container from "./Container";
 
-const { className: navBar, styles: navBarStyles } = css.resolve`
-  background-color: #ffffff;
-  position: absolute;
-  width: 100%;
-
-  .hidden {
-    display: none;
-  }
-
-  @media (min-width: 576px) {
-    position: relative;
-
-    .hidden {
-      display: initial;
-    }
-  }
+const NavbarContainer = styled(Container)`
+  background-color: ${({ theme: { colors } }) => colors.descriptive};
+  display: flex;
+  justify-content: space-between;
 `;
 
-const { className: navBarToggle, styles: navBarToggleStyles } = css.resolve`
-  @media (min-width: 576px) {
-    display: none;
-  }
+const NavbarItem = styled.a`
+  color: ${({ theme: { colors } }) => colors.light};
+  font-size: 16px;
+  font-weight: initial;
+  line-height: 40px;
 `;
 
-const { className: navItem, styles: navItemStyles } = css.resolve`
-  display: block;
+const LogoContainer = styled(Container)`
+  background-color: ${({ theme: { colors } }) => colors.light};
+`;
 
-  @media (min-width: 576px) {
-    display: inline-block;
-    margin-right: 16px;
-  }
+const NavbarWrapper = styled.div`
+  background-color: ${({ theme: { colors } }) => colors.descriptive};
 `;
 
 export default class Navigation extends Component {
   links = [
-    { href: "/", title: "Home" },
-    { href: "/about", title: "About SEDS" },
-    { href: "/environment", title: "Environment" },
-    { href: "/education", title: "Children's education" },
+    { href: "/about", title: "About us" },
+    {
+      children: [
+        { href: "/environment", title: "Environment" },
+        { href: "/education", title: "Children's education" }
+      ],
+      href: "#",
+      title: "Projects"
+    },
     { href: "/reports", title: "Reports" },
-    { href: "/contact", title: "Contact us" }
+    { href: "/contact", title: "Contact" }
   ];
-  state = { showMenu: false };
-
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  }
-
-  handleClickOutside = this.handleClickOutside.bind(this);
-  handleClickOutside(event) {
-    if (this.ref && !this.ref.contains(event.target)) {
-      this.setState({ showMenu: false });
-    }
-  }
 
   render() {
-    const { showMenu } = this.state;
-
     return (
-      <div ref={ref => (this.ref = ref)}>
-        <div className={navBarToggle}>
-          <Container>
-            <a onClick={() => this.setState({ showMenu: !showMenu })}>Toggle</a>
-          </Container>
-        </div>
+      <Fragment>
+        <LogoContainer>
+          <Link href="/" prefetch>
+            <img alt="SEDS" height="60px" src="/static/logo.png" />
+          </Link>
+        </LogoContainer>
 
-        <div className={`${navBar}${!showMenu ? " hidden" : ""}`}>
-          <Container>
+        <NavbarWrapper>
+          <NavbarContainer>
             {this.links.map(({ href, title }) => (
               <Link href={href} key={href} prefetch>
-                <a
-                  className={navItem}
-                  onClick={() => this.setState({ showMenu: !showMenu })}
-                >
-                  {title}
-                </a>
+                <NavbarItem>{title}</NavbarItem>
               </Link>
             ))}
-          </Container>
-        </div>
-
-        {navBarStyles}
-        {navBarToggleStyles}
-        {navItemStyles}
-      </div>
+          </NavbarContainer>
+        </NavbarWrapper>
+      </Fragment>
     );
   }
 }

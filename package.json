@@ -21,11 +21,15 @@
   },
   "homepage": "https://sedsngo.org",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
     "babel-cli": "^6.26.0",
     "contentful": "^7.0.5",
     "dotenv": "^6.1.0",
     "next": "^7.0.2",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.0.3"
   }
 }
