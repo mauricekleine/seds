@@ -1,7 +1,6 @@
 import NextApp, { Container as AppContainer } from "next/app";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 
-import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 
@@ -46,6 +45,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: 18px;
     line-height: 24px;
   }
+
+  hr {
+    border-color: #79AB6F;
+    border-style: inherit;
+    border-width: 1px;
+  }
 `;
 
 const PageContainer = styled.div`
@@ -79,9 +84,7 @@ export default class App extends NextApp {
             <Navigation />
 
             <PageContainer>
-              <Container>
-                <Component {...pageProps} />
-              </Container>
+              <Component {...pageProps} />
             </PageContainer>
 
             <Footer />

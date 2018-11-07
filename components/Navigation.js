@@ -4,10 +4,13 @@ import styled from "styled-components";
 
 import Container from "./Container";
 
-const NavbarContainer = styled(Container)`
-  background-color: ${({ theme: { colors } }) => colors.descriptive};
+const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const NavbarContainer = styled(Container)`
+  background-color: ${({ theme: { colors } }) => colors.descriptive};
 `;
 
 const NavbarItem = styled.a`
@@ -15,10 +18,6 @@ const NavbarItem = styled.a`
   font-size: 16px;
   font-weight: initial;
   line-height: 40px;
-`;
-
-const LogoContainer = styled(Container)`
-  background-color: ${({ theme: { colors } }) => colors.light};
 `;
 
 const NavbarWrapper = styled.div`
@@ -43,19 +42,21 @@ export default class Navigation extends Component {
   render() {
     return (
       <Fragment>
-        <LogoContainer>
+        <Container>
           <Link href="/" prefetch>
             <img alt="SEDS" height="60px" src="/static/logo.png" />
           </Link>
-        </LogoContainer>
+        </Container>
 
         <NavbarWrapper>
           <NavbarContainer>
-            {this.links.map(({ href, title }) => (
-              <Link href={href} key={href} prefetch>
-                <NavbarItem>{title}</NavbarItem>
-              </Link>
-            ))}
+            <Navbar>
+              {this.links.map(({ href, title }) => (
+                <Link href={href} key={href} prefetch>
+                  <NavbarItem>{title}</NavbarItem>
+                </Link>
+              ))}
+            </Navbar>
           </NavbarContainer>
         </NavbarWrapper>
       </Fragment>

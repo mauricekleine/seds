@@ -1,7 +1,108 @@
+import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEnvelope,
+  faMapMarker,
+  faPhone
+} from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
+
 import Container from "./Container";
+import Flex from "./Flex";
+import Icon from "./Icon";
+
+const Address = styled.address`
+  font-style: normal;
+`;
+
+const ContactContainer = styled(Container)`
+  border-top: 1px solid ${({ theme: { colors } }) => colors.descriptive};
+`;
+
+const ContactFlexContainer = styled(Flex)`
+  flex-direction: column;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+  }
+`;
+
+const CopyrightContainer = styled(Container)`
+  background-color: ${({ theme: { colors } }) => colors.descriptive};
+  color: ${({ theme: { colors } }) => colors.light};
+  padding: 8px 16px;
+  text-align: center;
+`;
 
 export default () => (
-  <Container>
-    Copyright {new Date().getFullYear()} - All information on this site is part of SEDS
-  </Container>
+  <div>
+    <ContactContainer>
+      <ContactFlexContainer>
+        <Flex direction="column" flex={5} style={{ paddingRight: 16 }}>
+          <h3>Address</h3>
+
+          <Address>
+            <Flex>
+              <Flex justifyContent="center" flex={1}>
+                <Icon icon={faMapMarker} size="lg" style={{ paddingTop: 4 }} />
+              </Flex>
+
+              <Flex direction="column" flex={7}>
+                <strong>Social Education and Development Society</strong>
+                <span>Anandapuram H.O.</span>
+                <span>Somandepalli Mandal</span>
+                <span>Anantapur District, 515124</span>
+                <span>Andhra Pradesh - INDIA</span>
+              </Flex>
+            </Flex>
+          </Address>
+        </Flex>
+
+        <Flex direction="column" flex={4}>
+          <h3>Contact info</h3>
+
+          <Flex>
+            <Flex justifyContent="center" flex={1}>
+              <Icon icon={faEnvelope} size="lg" style={{ paddingTop: 2 }} />
+            </Flex>
+
+            <Flex direction="column" flex={7}>
+              <span>info@sedsngo.org</span>
+            </Flex>
+          </Flex>
+
+          <Flex>
+            <Flex justifyContent="center" flex={1}>
+              <Icon icon={faPhone} size="lg" style={{ paddingTop: 2 }} />
+            </Flex>
+
+            <Flex direction="column" flex={7}>
+              <span>+91 9440579566</span>
+            </Flex>
+          </Flex>
+        </Flex>
+
+        <Flex direction="column" flex={3}>
+          <h3>Social media</h3>
+
+          <a
+            href="https://www.facebook.com/pages/SEDS-Social-Education-and-Development-Society-SEDS/190839020942963"
+            target="_blank"
+          >
+            <Icon color="#3B5998" icon={faFacebookSquare} size="2x" />
+          </a>
+        </Flex>
+      </ContactFlexContainer>
+    </ContactContainer>
+
+    <Container>
+      <hr />
+      
+      <h3>Our projects</h3>
+    </Container>
+
+    <CopyrightContainer>
+      Copyright {new Date().getFullYear()} - All information on this site is
+      part of SEDS
+    </CopyrightContainer>
+  </div>
 );

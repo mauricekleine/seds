@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Content = styled.div`
   flex: 12;
+  padding: 0 16px;
 
   @media (min-width: 576px) {
     flex: 10;
@@ -12,7 +13,6 @@ const Content = styled.div`
   }
 
   @media (min-width: 992px) {
-    flex: 6;
   }
 `;
 
@@ -28,13 +28,12 @@ const Gutter = styled.div`
   }
 
   @media (min-width: 992px) {
-    flex: 3;
   }
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  margin: 0 16px;
+  position: relative;
 
   @media (min-width: 1200px) {
 
@@ -42,10 +41,10 @@ const Wrapper = styled.div`
 `;
 
 export default ({ children, ...props }) => (
-  <Wrapper>
+  <Wrapper {...props}>
     <Gutter />
 
-    <Content {...props}>{children}</Content>
+    <Content>{children}</Content>
 
     <Gutter />
   </Wrapper>
