@@ -2,21 +2,12 @@ import {
   faHandHoldingUsd,
   faHandshake
 } from "@fortawesome/free-solid-svg-icons";
-import styled from "styled-components";
 
 import Card, { CardTitle } from "../components/Card";
 import Container from "../components/Container";
-import Flex from "../components/Flex";
+import Flex, { FlexContainer } from "../components/Flex";
 import Icon from "../components/Icon";
 import Image from "../components/Image";
-
-const CardContainer = styled(Flex)`
-  flex-direction: column;
-
-  @media (min-width: 992px) {
-    flex-direction: row;
-  }
-`;
 
 export default () => (
   <div>
@@ -30,8 +21,8 @@ export default () => (
         years near the town of Penukonda in Andhra Pradesh.
       </p>
 
-      <CardContainer>
-        <Flex flex={1} style={{ marginRight: 8 }}>
+      <FlexContainer parent>
+        <Flex flex={1}>
           <Card>
             <Icon icon={faHandshake} size="2x" transform={{ rotate: -32 }} />
 
@@ -46,7 +37,7 @@ export default () => (
           </Card>
         </Flex>
 
-        <Flex flex={1} style={{ marginLeft: 8, marginRight: 8 }}>
+        <Flex flex={1}>
           <Card>
             <Icon icon={faHandHoldingUsd} size="2x" />
 
@@ -61,7 +52,7 @@ export default () => (
           </Card>
         </Flex>
 
-        <Flex flex={1} style={{ marginLeft: 8 }}>
+        <Flex flex={1}>
           <Card>
             <Icon icon={faHandshake} size="2x" transform={{ rotate: -32 }} />
 
@@ -75,7 +66,7 @@ export default () => (
             <a>Come join us!</a>
           </Card>
         </Flex>
-      </CardContainer>
+      </FlexContainer>
     </Container>
   </div>
 );

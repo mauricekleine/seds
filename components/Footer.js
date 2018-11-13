@@ -4,10 +4,11 @@ import {
   faMapMarker,
   faPhone
 } from "@fortawesome/free-solid-svg-icons";
+import { Fragment } from "react";
 import styled from "styled-components";
 
 import Container from "./Container";
-import Flex from "./Flex";
+import Flex, { FlexContainer } from "./Flex";
 import Icon from "./Icon";
 
 const Address = styled.address`
@@ -16,14 +17,8 @@ const Address = styled.address`
 
 const ContactContainer = styled(Container)`
   border-top: 1px solid ${({ theme: { colors } }) => colors.descriptive};
-`;
-
-const ContactFlexContainer = styled(Flex)`
-  flex-direction: column;
-
-  @media (min-width: 992px) {
-    flex-direction: row;
-  }
+  margin-top: 24px;
+  padding-top: 16px;
 `;
 
 const CopyrightContainer = styled(Container)`
@@ -34,10 +29,10 @@ const CopyrightContainer = styled(Container)`
 `;
 
 export default () => (
-  <div>
+  <Fragment>
     <ContactContainer>
-      <ContactFlexContainer>
-        <Flex direction="column" flex={5} style={{ paddingRight: 16 }}>
+      <FlexContainer parent>
+        <Flex direction="column" flex={1}>
           <h3>Address</h3>
 
           <Address>
@@ -57,7 +52,7 @@ export default () => (
           </Address>
         </Flex>
 
-        <Flex direction="column" flex={4}>
+        <Flex direction="column" flex={1}>
           <h3>Contact info</h3>
 
           <Flex>
@@ -81,7 +76,7 @@ export default () => (
           </Flex>
         </Flex>
 
-        <Flex direction="column" flex={3}>
+        <Flex direction="column" flex={1}>
           <h3>Social media</h3>
 
           <a
@@ -91,7 +86,7 @@ export default () => (
             <Icon color="#3B5998" icon={faFacebookSquare} size="2x" />
           </a>
         </Flex>
-      </ContactFlexContainer>
+      </FlexContainer>
     </ContactContainer>
 
     <Container>
@@ -104,5 +99,5 @@ export default () => (
       Copyright {new Date().getFullYear()} - All information on this site is
       part of SEDS
     </CopyrightContainer>
-  </div>
+  </Fragment>
 );

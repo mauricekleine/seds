@@ -1,16 +1,48 @@
+import { faFileDownload } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
+
+import Card, { CardTitle } from "../components/Card";
+import Container from "../components/Container";
+import Flex from "../components/Flex";
+import Icon from "../components/Icon";
+
 import { items as reports } from "../data/reports.json";
 
+const ReportFileType = styled.p`
+  color: ${({ theme: { colors } }) => colors.dark};
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 8px;
+  line-height: 24px;
+`;
+
+const ReportIcon = styled(Icon).attrs({ icon: faFileDownload })`
+  color: ${({ theme: { colors } }) => colors.action};
+`;
+
+const ReportTitle = styled(CardTitle)`
+  color: ${({ theme: { colors } }) => colors.dark}
+  margin: 0;
+`;
+
 export default () => (
-  <div>
-    Download Reports
-    <ul>
-      {reports.map(({ fields: { file, title} }) => (
-        <li key={title}>
-          <a href={file.fields.file.url} target="_blank">
-            {title}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
+  <Container>
+    <h2>Reports</h2>
+
+    {reports.map(({ fields: { file, title }, sys: { id } }) => (
+      <a href={file.fields.file.url} key={id} target="_blank">
+        <Card>
+          <Flex alignItems="center" justifyContent="space-between">
+            <ReportTitle>{title}</ReportTitle>
+
+            <ReportIcon size="lg" />
+          </Flex>
+
+          <ReportFileType>
+            .{file.fields.file.fileName.split(".").pop()}
+          </ReportFileType>
+        </Card>
+      </a>
+    ))}
+  </Container>
 );

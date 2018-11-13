@@ -6,7 +6,7 @@ const ImageContainer = styled(Container)`
   background: url(${({ name }) => `/static/${name}@1x.jpg`}) no-repeat center
     center;
   background-size: cover;
-  height: 160px;
+  height: 240px;
 
   @media (min-width: 576px) {
     background: url(${({ name }) => `/static/${name}@2x.jpg`}) no-repeat center

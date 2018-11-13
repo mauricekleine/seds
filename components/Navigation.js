@@ -15,13 +15,10 @@ const NavbarContainer = styled(Container)`
 
 const NavbarItem = styled.a`
   color: ${({ theme: { colors } }) => colors.light};
+  cursor: pointer;
   font-size: 16px;
   font-weight: initial;
   line-height: 40px;
-`;
-
-const NavbarWrapper = styled.div`
-  background-color: ${({ theme: { colors } }) => colors.descriptive};
 `;
 
 export default class Navigation extends Component {
@@ -44,21 +41,21 @@ export default class Navigation extends Component {
       <Fragment>
         <Container>
           <Link href="/" prefetch>
-            <img alt="SEDS" height="60px" src="/static/logo.png" />
+            <a>
+              <img alt="SEDS" height="60px" src="/static/logo.png" />
+            </a>
           </Link>
         </Container>
 
-        <NavbarWrapper>
-          <NavbarContainer>
-            <Navbar>
-              {this.links.map(({ href, title }) => (
-                <Link href={href} key={href} prefetch>
-                  <NavbarItem>{title}</NavbarItem>
-                </Link>
-              ))}
-            </Navbar>
-          </NavbarContainer>
-        </NavbarWrapper>
+        <NavbarContainer>
+          <Navbar>
+            {this.links.map(({ href, title }) => (
+              <Link href={href} key={href} prefetch>
+                <NavbarItem>{title}</NavbarItem>
+              </Link>
+            ))}
+          </Navbar>
+        </NavbarContainer>
       </Fragment>
     );
   }
