@@ -7,6 +7,10 @@ import Navigation from "../components/Navigation";
 import theme from "../theme";
 
 const GlobalStyle = createGlobalStyle`
+  *:focus {
+    outline: none;
+  }
+
   a {
     color: ${({ theme: { colors } }) => colors.action}
     font-weight: 600;

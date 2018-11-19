@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { large } from "../theme/media";
+
 const Flex = styled.div`
   align-items: ${({ alignItems }) => alignItems};
   display: flex;
@@ -7,7 +9,7 @@ const Flex = styled.div`
   flex-direction: ${({ direction }) => direction};
   justify-content: ${({ justifyContent }) => justifyContent};
 
-  @media (min-width: 992px) {
+  ${large`
     > div:first-child {
       margin-right: ${({ parent }) => parent && "8px"};
     }
@@ -19,15 +21,15 @@ const Flex = styled.div`
     > div:last-child {
       margin-left: ${({ parent }) => parent && "8px"};
     }
-  }
+  `};
 `;
 
 export const FlexContainer = styled(Flex)`
   flex-direction: column;
 
-  @media (min-width: 992px) {
+  ${large`
     flex-direction: row;
-  }
+  `};
 `;
 
 export default Flex;

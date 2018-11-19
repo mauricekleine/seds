@@ -1,43 +1,35 @@
 import styled from "styled-components";
 
+import { small, medium } from "../theme/media";
+
 const Content = styled.div`
   flex: 12;
   padding: 0 16px;
 
-  @media (min-width: 576px) {
+  ${small`
     flex: 10;
-  }
+  `};
 
-  @media (min-width: 768px) {
+  ${medium`
     flex: 8;
-  }
-
-  @media (min-width: 992px) {
-  }
+  `};
 `;
 
 const Gutter = styled.div`
   flex: 0;
 
-  @media (min-width: 576px) {
+  ${small`
     flex: 1;
-  }
+  `};
 
-  @media (min-width: 768px) {
+  ${medium`
     flex: 2;
-  }
-
-  @media (min-width: 992px) {
-  }
+  `};
 `;
 
 const Wrapper = styled.div`
   display: flex;
   position: relative;
-
-  @media (min-width: 1200px) {
-
-  }
 `;
 
 export default ({ children, ...props }) => (

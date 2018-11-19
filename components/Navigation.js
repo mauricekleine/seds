@@ -4,7 +4,44 @@ import styled from "styled-components";
 
 import Container from "./Container";
 
+const Caret = styled.div`
+  border-left: 6px solid transparent;
+  border-radius: 6px;
+  border-right: 6px solid transparent;
+  border-top: 6px solid ${({ theme: { colors } }) => colors.light};
+  display: inline-block;
+  margin: 2px 0 0 4px;
+`;
+
+const Dropdown = styled.div`
+  background-color: #ffffff;
+  border: 1px solid rgba(150, 150, 150, 0.3);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.06);
+  left: 16px;
+  padding: 8px 16px;
+  position: absolute;
+  right: 16px;
+  top: 48px;
+  z-index: 1;
+
+  a {
+    color: ${({ theme: { colors } }) => colors.dark};
+    display: block;
+
+    &:after {
+      border-bottom: 6px solid transparent;
+      border-radius: 6px;
+      border-top: 6px solid transparent;
+      border-left: 6px solid ${({ theme: { colors } }) => colors.descriptive};
+      content: " ";
+      display: inline-block;
+      margin-left: 6px;
+    }
+  }
+`;
+
 const Navbar = styled.div`
+  align-items: center;
   display: flex;
   justify-content: space-between;
 `;
@@ -17,26 +54,41 @@ const NavbarItem = styled.a`
   color: ${({ theme: { colors } }) => colors.light};
   cursor: pointer;
   font-size: 16px;
-  font-weight: initial;
+  font-weight: normal;
   line-height: 40px;
 `;
 
+const Toggle = styled.button.attrs({ type: "button" })`
+  align-items: center;
+  background-color: transparent;
+  box-shadow: none;
+  color: ${({ theme: { colors } }) => colors.light};
+  display: flex;
+  font-weight: normal;
+`;
+
 export default class Navigation extends Component {
-  links = [
-    { href: "/about", title: "About us" },
-    {
-      children: [
-        { href: "/environment", title: "Environment" },
-        { href: "/education", title: "Children's education" }
-      ],
-      href: "#",
-      title: "Projects"
-    },
-    { href: "/reports", title: "Reports" },
-    { href: "/contact", title: "Contact" }
-  ];
+  state = { showMenu: false };
+
+  closeMenu = this.closeMenu.bind(this);
+  closeMenu() {
+    this.setState({ showMenu: false }, () => {
+      document.removeEventListener("click", this.closeMenu);
+    });
+  }
+
+  showMenu = this.showMenu.bind(this);
+  showMenu(event) {
+    event.preventDefault();
+
+    this.setState({ showMenu: true }, () => {
+      document.addEventListener("click", this.closeMenu);
+    });
+  }
 
   render() {
+    const { showMenu } = this.state;
+
     return (
       <Fragment>
         <Container>
@@ -49,11 +101,33 @@ export default class Navigation extends Component {
 
         <NavbarContainer>
           <Navbar>
-            {this.links.map(({ href, title }) => (
-              <Link href={href} key={href} prefetch>
-                <NavbarItem>{title}</NavbarItem>
-              </Link>
-            ))}
+            <Link href="/about" prefetch>
+              <NavbarItem>About us</NavbarItem>
+            </Link>
+
+            <Toggle onClick={this.showMenu}>
+              Projects <Caret />
+            </Toggle>
+
+            {showMenu && (
+              <Dropdown>
+                <Link href="/environment" prefetch>
+                  <NavbarItem>Environment</NavbarItem>
+                </Link>
+
+                <Link href="/education" prefetch>
+                  <NavbarItem>Children's education</NavbarItem>
+                </Link>
+              </Dropdown>
+            )}
+
+            <Link href="/reports" prefetch>
+              <NavbarItem>Reports</NavbarItem>
+            </Link>
+
+            <Link href="/contact" prefetch>
+              <NavbarItem>Contact</NavbarItem>
+            </Link>
           </Navbar>
         </NavbarContainer>
       </Fragment>
