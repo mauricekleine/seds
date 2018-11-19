@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme: { colors } }) => colors.dark}
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    font-weight: 300;
     line-height: 24px;
     margin: 0;
   }
