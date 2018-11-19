@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import styled from "styled-components";
 
 import Container from "../components/Container";
@@ -7,13 +6,17 @@ import Image from "../components/Image";
 const IntroBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.descriptive};
   color: ${({ theme }) => theme.colors.light};
-  font-weight: bold;
+  font-weight: 600;
   margin-right: 24px;
   padding: 16px 0;
 `;
 
+const PageWrapper = styled.div`
+  margin-bottom: 16px;
+`
+
 export default ({ children, image, intro, title }) => (
-  <Fragment>
+  <PageWrapper>
     <Image name={image} />
 
     <Container>
@@ -25,5 +28,5 @@ export default ({ children, image, intro, title }) => (
     </IntroBlock>
 
     <Container>{children}</Container>
-  </Fragment>
+  </PageWrapper>
 );

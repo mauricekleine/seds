@@ -9,16 +9,30 @@ import theme from "../theme";
 const GlobalStyle = createGlobalStyle`
   a {
     color: ${({ theme: { colors } }) => colors.action}
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: none;
   }
 
-  body, html {
+  body, button, html {
     color: ${({ theme: { colors } }) => colors.dark}
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 24px;
     margin: 0;
+  }
+
+  button {
+    background-color: ${({ theme: { colors } }) => colors.light}
+    border: 0;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.06);
+    font-weight: 600;
+    height: 40px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
   }
 
   h1, h2, h3 {
@@ -28,6 +42,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: 32px;
+    letter-spacing: 1px;
     line-height: 40px;
 
     @media (min-width: 576px) {
@@ -38,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
   h2 {
     font-size: 24px;
+    letter-spacing: 1px;
     line-height: 32px;
   }
 
@@ -50,6 +66,26 @@ const GlobalStyle = createGlobalStyle`
     border-color: #79AB6F;
     border-style: inherit;
     border-width: 1px;
+  }
+
+  input {
+    height: 40px;
+    padding: 0 8px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+
+    span {
+      float: right;
+      font-weight: normal;
+    }
+  }
+
+  textarea {
+    padding: 8px;
   }
 `;
 

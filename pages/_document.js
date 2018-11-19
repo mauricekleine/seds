@@ -28,7 +28,7 @@ export default class Document extends NextDocument {
           />
 
           <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu:500"
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Ubuntu:500"
             rel="stylesheet"
           />
 

@@ -17,7 +17,6 @@ const Address = styled.address`
 
 const ContactContainer = styled(Container)`
   border-top: 1px solid ${({ theme: { colors } }) => colors.descriptive};
-  margin-top: 24px;
   padding-top: 16px;
 `;
 
