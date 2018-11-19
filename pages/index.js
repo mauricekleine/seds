@@ -3,6 +3,7 @@ import {
   faHandshake
 } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
+import Link from "next/link";
 
 import Card, { CardTitle } from "../components/Card";
 import Container from "../components/Container";
@@ -38,7 +39,9 @@ export default () => (
               social development programmes.
             </p>
 
-            <a>Come join us!</a>
+            <Link href="/volunteers" prefetch>
+              Come join us!
+            </Link>
           </Card>
         </Flex>
 
@@ -54,21 +57,6 @@ export default () => (
             </p>
 
             <a>Support us!</a>
-          </Card>
-        </Flex>
-
-        <Flex flex={1}>
-          <Card>
-            <Icon icon={faHandshake} size="2x" transform={{ rotate: -32 }} />
-
-            <CardTitle>Volunteers & Interns</CardTitle>
-
-            <p>
-              We welcome volunteers from around the World to participate in our
-              social development programmes.
-            </p>
-
-            <a>Come join us!</a>
           </Card>
         </Flex>
       </FlexContainer>
