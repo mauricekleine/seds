@@ -1,4 +1,5 @@
 import { faFileDownload } from "@fortawesome/free-solid-svg-icons";
+import Head from "next/head";
 import styled from "styled-components";
 
 import Card, { CardTitle } from "../components/Card";
@@ -27,6 +28,10 @@ const ReportTitle = styled(CardTitle)`
 
 export default () => (
   <Container>
+    <Head>
+      <title>SEDS - Reports</title>
+    </Head>
+
     <h2>Reports</h2>
 
     {reports.map(({ fields: { file, title }, sys: { id } }) => (

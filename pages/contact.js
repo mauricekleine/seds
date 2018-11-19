@@ -1,3 +1,4 @@
+import Head from "next/head";
 import styled from "styled-components";
 
 import Container from "../components/Container";
@@ -19,6 +20,10 @@ const Title = styled.h2`
 
 export default () => (
   <ContactContainer>
+    <Head>
+      <title>SEDS - Contact Us</title>
+    </Head>
+
     <Title>Get in touch</Title>
     <SubTitle>We'd love to hear from you</SubTitle>
 

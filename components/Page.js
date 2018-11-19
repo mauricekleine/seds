@@ -1,3 +1,4 @@
+import Head from "next/head";
 import styled from "styled-components";
 
 import Container from "../components/Container";
@@ -13,10 +14,14 @@ const IntroBlock = styled.div`
 
 const PageWrapper = styled.div`
   margin-bottom: 16px;
-`
+`;
 
 export default ({ children, image, intro, title }) => (
   <PageWrapper>
+    <Head>
+      <title>SEDS - {title}</title>
+    </Head>
+
     <Image name={image} />
 
     <Container>

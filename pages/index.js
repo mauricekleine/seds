@@ -2,6 +2,7 @@ import {
   faHandHoldingUsd,
   faHandshake
 } from "@fortawesome/free-solid-svg-icons";
+import Head from "next/head";
 
 import Card, { CardTitle } from "../components/Card";
 import Container from "../components/Container";
@@ -11,6 +12,10 @@ import Image from "../components/Image";
 
 export default () => (
   <div>
+    <Head>
+      <title>SEDS</title>
+    </Head>
+
     <Image name="students" title="Towards a greener tomorrow" />
 
     <Container>
