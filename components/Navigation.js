@@ -3,6 +3,7 @@ import { Component, Fragment } from "react";
 import styled from "styled-components";
 
 import Container from "./Container";
+import Links from "./Links";
 
 const Caret = styled.div`
   border-left: 6px solid transparent;
@@ -23,21 +24,6 @@ const Dropdown = styled.div`
   right: 16px;
   top: 48px;
   z-index: 1;
-
-  a {
-    color: ${({ theme: { colors } }) => colors.dark};
-    display: block;
-
-    &:after {
-      border-bottom: 6px solid transparent;
-      border-radius: 6px;
-      border-top: 6px solid transparent;
-      border-left: 6px solid ${({ theme: { colors } }) => colors.descriptive};
-      content: " ";
-      display: inline-block;
-      margin-left: 6px;
-    }
-  }
 `;
 
 const Navbar = styled.div`
@@ -111,21 +97,7 @@ export default class Navigation extends Component {
 
             {showMenu && (
               <Dropdown>
-                <Link href="/education" prefetch>
-                  <NavbarItem>Children's education</NavbarItem>
-                </Link>
-                
-                <Link href="/clean-development-mechanism" prefetch>
-                  <NavbarItem>Clean development mechanism</NavbarItem>
-                </Link>
-                
-                <Link href="/low-carbon-farming" prefetch>
-                  <NavbarItem>Low carbon farming</NavbarItem>
-                </Link>
-
-                <Link href="/natural-resource-management" prefetch>
-                  <NavbarItem>Natural resource management</NavbarItem>
-                </Link>
+                <Links />
               </Dropdown>
             )}
 

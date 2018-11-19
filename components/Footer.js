@@ -10,6 +10,7 @@ import styled from "styled-components";
 import Container from "./Container";
 import Flex, { FlexContainer } from "./Flex";
 import Icon from "./Icon";
+import Links from "./Links";
 
 const Address = styled.address`
   font-style: normal;
@@ -26,6 +27,13 @@ const CopyrightContainer = styled(Container)`
   padding: 8px 16px;
   text-align: center;
 `;
+
+const ProjectsContainer = styled(Container)`
+  border-top: 1px solid ${({ theme: { colors } }) => colors.descriptive};
+  margin: 16px 0 24px;
+  padding-top: 16px;
+  text-align: center;
+  `;
 
 export default () => (
   <Fragment>
@@ -88,11 +96,11 @@ export default () => (
       </FlexContainer>
     </ContactContainer>
 
-    <Container>
-      <hr />
-      
+    <ProjectsContainer>
       <h3>Our projects</h3>
-    </Container>
+
+      <Links />
+    </ProjectsContainer>
 
     <CopyrightContainer>
       Copyright {new Date().getFullYear()} - All information on this site is
