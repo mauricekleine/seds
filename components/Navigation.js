@@ -111,12 +111,20 @@ export default class Navigation extends Component {
 
             {showMenu && (
               <Dropdown>
-                <Link href="/environment" prefetch>
-                  <NavbarItem>Environment</NavbarItem>
-                </Link>
-
                 <Link href="/education" prefetch>
                   <NavbarItem>Children's education</NavbarItem>
+                </Link>
+                
+                <Link href="/clean-development-mechanism" prefetch>
+                  <NavbarItem>Clean development mechanism</NavbarItem>
+                </Link>
+                
+                <Link href="/low-carbon-farming" prefetch>
+                  <NavbarItem>Low carbon farming</NavbarItem>
+                </Link>
+
+                <Link href="/natural-resource-management" prefetch>
+                  <NavbarItem>Natural resource management</NavbarItem>
                 </Link>
               </Dropdown>
             )}
