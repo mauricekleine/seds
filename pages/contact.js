@@ -1,7 +1,10 @@
 import Head from "next/head";
+import { Fragment } from "react";
 import styled from "styled-components";
 
+import { DonorCard, VolunteerCard } from "../components/Cards";
 import Container from "../components/Container";
+import Flex, { FlexContainer } from "../components/Flex";
 import { FormGroup } from "../components/Forms";
 
 const ContactContainer = styled(Container)`
@@ -19,48 +22,62 @@ const Title = styled.h2`
 `;
 
 export default () => (
-  <ContactContainer>
-    <Head>
-      <title>SEDS - Contact Us</title>
-    </Head>
+  <Fragment>
+    <Container>
+      <Head>
+        <title>SEDS - Contact Us</title>
+      </Head>
 
-    <Title>Get in touch</Title>
-    <SubTitle>We'd love to hear from you</SubTitle>
+      <FlexContainer parent>
+        <Flex flex={1}>
+          <VolunteerCard />
+        </Flex>
 
-    <form>
-      <FormGroup>
-        <label>Your name</label>
+        <Flex flex={1}>
+          <DonorCard />
+        </Flex>
+      </FlexContainer>
+    </Container>
 
-        <input placeholder="Your name" />
-      </FormGroup>
+    <ContactContainer>
+      <Title>Get in touch</Title>
+      <SubTitle>We'd love to hear from you</SubTitle>
 
-      <FormGroup>
-        <label>Your email</label>
+      <form>
+        <FormGroup>
+          <label>Your name</label>
 
-        <input placeholder="Your email" />
-      </FormGroup>
+          <input placeholder="Your name" />
+        </FormGroup>
 
-      <FormGroup>
-        <label>
-          Your phone number <span>optional</span>
-        </label>
+        <FormGroup>
+          <label>Your email</label>
 
-        <input placeholder="Your phone number" />
-      </FormGroup>
+          <input placeholder="Your email" />
+        </FormGroup>
 
-      <FormGroup>
-        <label>Your message</label>
+        <FormGroup>
+          <label>
+            Your phone number <span>optional</span>
+          </label>
 
-        <p>
-          Want us to keep you posted on the latest at SEDS, or you want to get
-          in touch with us. Just leave us a message here. We are always happy to
-          make new friends
-        </p>
+          <input placeholder="Your phone number" />
+        </FormGroup>
 
-        <textarea rows="5" placeholder="Your message" />
-      </FormGroup>
+        <FormGroup>
+          <label>Your message</label>
 
-      <button type="submit">Send message</button>
-    </form>
-  </ContactContainer>
+          <p>
+            Want us to keep you posted on the latest at SEDS, or you want to get
+            in touch with us. Just leave us a message here. We are always happy
+            to make new friends
+          </p>
+
+          <textarea rows="5" placeholder="Your message" />
+        </FormGroup>
+
+        <button type="submit">Send message</button>
+      </form>
+    </ContactContainer>
+  </Fragment>
 );

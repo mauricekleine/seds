@@ -2,7 +2,7 @@ import { faFileDownload } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
 import styled from "styled-components";
 
-import Card, { CardTitle } from "../components/Card";
+import Card, { CardTitle } from "../components/Cards";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
 import Icon from "../components/Icon";

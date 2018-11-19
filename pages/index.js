@@ -1,14 +1,9 @@
-import {
-  faHandHoldingUsd,
-  faHandshake
-} from "@fortawesome/free-solid-svg-icons";
-import Head from "next/head";
-import Link from "next/link";
 
-import Card, { CardTitle } from "../components/Card";
+import Head from "next/head";
+
+import { DonorCard, VolunteerCard } from "../components/Cards";
 import Container from "../components/Container";
 import Flex, { FlexContainer } from "../components/Flex";
-import Icon from "../components/Icon";
 import Image from "../components/Image";
 
 export default () => (
@@ -29,35 +24,11 @@ export default () => (
 
       <FlexContainer parent>
         <Flex flex={1}>
-          <Card>
-            <Icon icon={faHandshake} size="2x" transform={{ rotate: -32 }} />
-
-            <CardTitle>Volunteers & Interns</CardTitle>
-
-            <p>
-              We welcome volunteers from around the World to participate in our
-              social development programmes.
-            </p>
-
-            <Link href="/volunteers" prefetch>
-              Come join us!
-            </Link>
-          </Card>
+          <VolunteerCard />
         </Flex>
 
         <Flex flex={1}>
-          <Card>
-            <Icon icon={faHandHoldingUsd} size="2x" />
-
-            <CardTitle>Donors</CardTitle>
-
-            <p>
-              Help us to implement projects in watershed management and
-              reforestation.
-            </p>
-
-            <a>Support us!</a>
-          </Card>
+          <DonorCard />
         </Flex>
       </FlexContainer>
     </Container>

@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 export const ProjectLink = styled.a`
   color: ${({ theme: { colors } }) => colors.dark};
+  cursor: pointer;
   display: block;
   font-weight: normal;
   line-height: 40px;

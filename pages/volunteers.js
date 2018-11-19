@@ -18,7 +18,7 @@ export default () => (
     <p>
       Contact us about volunteering opportunities via{" "}
       <Link href="/contact" prefetch>
-        this form
+        <a>this form</a>
       </Link>
       .
     </p>

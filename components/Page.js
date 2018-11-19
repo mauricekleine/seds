@@ -22,7 +22,7 @@ export default ({ children, image, intro, title }) => (
       <title>SEDS - {title}</title>
     </Head>
 
-    <Image name={image} />
+    {image && <Image name={image} />}
 
     <Container>
       <h1>{title}</h1>
