@@ -22,11 +22,15 @@ export default ({ children, image, intro, title }) => (
       <title>SEDS - {title}</title>
     </Head>
 
-    <Container fullWidth>
-      {image && <Image name={image} title={title} />}
-    </Container>
+    {image && (
+      <Container fullWidth>
+        <Image name={image} />
+      </Container>
+    )}
 
-    <Container>{!image && <h1>{title}</h1>}</Container>
+    <Container>
+      <h1>{title}</h1>
+    </Container>
 
     <IntroBlock>{intro}</IntroBlock>
 

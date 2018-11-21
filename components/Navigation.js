@@ -103,9 +103,6 @@ const Toggle = styled.button.attrs({ type: "button" })`
   ${medium`color: ${({ theme: { colors } }) => colors.dark};`};
 `;
 
-const Wrapper = styled.div`
-`;
-
 const Navbar = ({ showMenu }) => (
   <StyledNavbar>
     <Link href="/about" prefetch>
@@ -149,7 +146,7 @@ export default class Navigation extends Component {
     const { showMenu } = this.state;
 
     return (
-      <Wrapper>
+      <Fragment>
         <LogoContainer>
           <Flex>
             <Flex flex={1}>
@@ -175,7 +172,7 @@ export default class Navigation extends Component {
             <Links />
           </Dropdown>
         )}
-      </Wrapper>
+      </Fragment>
     );
   }
 }

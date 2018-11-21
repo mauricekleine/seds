@@ -1,13 +1,17 @@
 import styled from "styled-components";
 
 import Container from "../components/Container";
-import { medium } from "../theme/media";
+import { small, medium } from "../theme/media";
 
 const ImageContainer = styled(Container)`
   background: url(${({ name }) => `/static/${name}@1x.jpg`}) no-repeat center
     center;
   background-size: cover;
   height: 240px;
+
+  ${small`
+    height: 320px;
+  `};
 
   ${medium`
     background: url(${({ name }) => `/static/${name}@2x.jpg`}) no-repeat center
