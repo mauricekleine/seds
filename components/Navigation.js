@@ -157,7 +157,7 @@ export default class Navigation extends Component {
               </Link>
             </Flex>
 
-            <DesktopMenu flex={2}>
+            <DesktopMenu flex={1.2}>
               <Navbar showMenu={this.showMenu} />
             </DesktopMenu>
           </Flex>
