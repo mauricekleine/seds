@@ -6,7 +6,7 @@ import Container from "./Container";
 import Flex from "./Flex";
 import Links from "./Links";
 
-import { medium } from "../theme/media";
+import { small, medium } from "../theme/media";
 
 const Caret = styled.div`
   border-left: 6px solid transparent;
@@ -34,14 +34,33 @@ const Dropdown = styled.div`
   padding: 8px 16px;
   position: absolute;
   right: 16px;
-  top: 120px;
+  top: 112px;
   z-index: 1;
 
   ${medium`
     margin: 0 auto;
-    top: 80px;
-    width: 50%;
+    top: 72px;
+    width: 256px;
   `}
+
+  &:before {
+    border-bottom: 12px solid ${({ theme: { colors } }) => colors.light};
+    border-left: 12px solid transparent;
+    border-radius: 12px;
+    border-right: 12px solid transparent;
+    content: " ";
+    left: 32%;
+    position: absolute;
+    top: -10px;
+
+    ${small`
+      left: 40%;
+    `}
+
+    ${medium`
+      left: 64%;
+    `}
+  }
 `;
 
 const LogoContainer = styled(Container)`
@@ -82,6 +101,9 @@ const Toggle = styled.button.attrs({ type: "button" })`
   font-weight: normal;
 
   ${medium`color: ${({ theme: { colors } }) => colors.dark};`};
+`;
+
+const Wrapper = styled.div`
 `;
 
 const Navbar = ({ showMenu }) => (
@@ -127,7 +149,7 @@ export default class Navigation extends Component {
     const { showMenu } = this.state;
 
     return (
-      <Fragment>
+      <Wrapper>
         <LogoContainer>
           <Flex>
             <Flex flex={1}>
@@ -153,7 +175,7 @@ export default class Navigation extends Component {
             <Links />
           </Dropdown>
         )}
-      </Fragment>
+      </Wrapper>
     );
   }
 }

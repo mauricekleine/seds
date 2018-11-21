@@ -4,12 +4,12 @@ import styled from "styled-components";
 import Container from "../components/Container";
 import Image from "../components/Image";
 
-const IntroBlock = styled.div`
+const IntroBlock = styled(Container)`
   background-color: ${({ theme }) => theme.colors.descriptive};
   color: ${({ theme }) => theme.colors.light};
   font-weight: 600;
   margin-right: 24px;
-  padding: 16px 0;
+  padding: 16px 8px;
 `;
 
 const PageWrapper = styled.div`
@@ -22,15 +22,13 @@ export default ({ children, image, intro, title }) => (
       <title>SEDS - {title}</title>
     </Head>
 
-    {image && <Image name={image} />}
-
-    <Container>
-      <h1>{title}</h1>
+    <Container fullWidth>
+      {image && <Image name={image} title={title} />}
     </Container>
 
-    <IntroBlock>
-      <Container>{intro}</Container>
-    </IntroBlock>
+    <Container>{!image && <h1>{title}</h1>}</Container>
+
+    <IntroBlock>{intro}</IntroBlock>
 
     <Container>{children}</Container>
   </PageWrapper>

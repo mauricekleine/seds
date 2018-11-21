@@ -69,8 +69,8 @@ const GlobalStyle = createGlobalStyle`
 
   hr {
     border-color: #79AB6F;
-    border-style: inherit;
-    border-width: 1px;
+    border-style: solid;
+    border-width: 0.5px;
   }
 
   input {

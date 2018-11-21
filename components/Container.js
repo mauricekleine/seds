@@ -4,7 +4,7 @@ import { small, medium, large } from "../theme/media";
 
 const Content = styled.div`
   flex: 12;
-  padding: 0 16px;
+  padding: ${({ fullWidth }) => !fullWidth && "0 16px"};
 
   ${small`
     flex: 10;
@@ -12,10 +12,11 @@ const Content = styled.div`
 
   ${medium`
     flex: 8;
-  `};
+    padding: 0 16px;
+   `};
 
   ${large`
-    flex: 6;
+    flex: 7;
   `};
 `;
 
@@ -31,7 +32,7 @@ const Gutter = styled.div`
   `};
 
   ${large`
-    flex: 3;
+    flex: 2.5;
   `};
 `;
 
@@ -40,12 +41,12 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-export default ({ children, ...props }) => (
+export default ({ children, fullWidth, ...props }) => (
   <Wrapper {...props}>
-    <Gutter />
+    <Gutter fullWidth={fullWidth} />
 
-    <Content>{children}</Content>
+    <Content fullWidth={fullWidth}>{children}</Content>
 
-    <Gutter />
+    <Gutter fullWidth={fullWidth} />
   </Wrapper>
 );

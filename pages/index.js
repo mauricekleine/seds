@@ -1,4 +1,3 @@
-
 import Head from "next/head";
 
 import { DonorCard, VolunteerCard } from "../components/Cards";
@@ -12,7 +11,9 @@ export default () => (
       <title>SEDS</title>
     </Head>
 
-    <Image name="students" title="Towards a greener tomorrow" />
+    <Container fullWidth>
+      <Image name="students" title="Towards a greener tomorrow" />
+    </Container>
 
     <Container>
       <p>

@@ -29,11 +29,10 @@ const CopyrightContainer = styled(Container)`
 `;
 
 const ProjectsContainer = styled(Container)`
-  border-top: 1px solid ${({ theme: { colors } }) => colors.descriptive};
   margin: 16px 0 24px;
   padding-top: 16px;
   text-align: center;
-  `;
+`;
 
 export default () => (
   <Fragment>
@@ -97,6 +96,8 @@ export default () => (
     </ContactContainer>
 
     <ProjectsContainer>
+      <hr />
+
       <h3>Our projects</h3>
 
       <Links />

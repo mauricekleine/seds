@@ -13,6 +13,7 @@ const ImageContainer = styled(Container)`
     background: url(${({ name }) => `/static/${name}@2x.jpg`}) no-repeat center
       center;
     background-size: cover;
+    height: 400px;
   `};
 `;
 
@@ -20,11 +21,12 @@ const ImageTitle = styled.div`
   background-color: rgba(48, 48, 48, 0.75);
   bottom: 0;
   left: 0;
+  padding: 16px;
   position: absolute;
-  width: 100%;
 
-  h2 {
+  h1 {
     color: ${({ theme: { colors } }) => colors.light};
+    margin: 0;
   }
 `;
 
@@ -32,9 +34,7 @@ export default ({ name, title }) => (
   <ImageContainer name={name}>
     {title && (
       <ImageTitle>
-        <Container>
-          <h2>{title}</h2>
-        </Container>
+        <h1>{title}</h1>
       </ImageTitle>
     )}
   </ImageContainer>
