@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { small, medium } from "../theme/media";
+import { small, medium, large } from "../theme/media";
 
 const Content = styled.div`
   flex: 12;
@@ -13,6 +13,10 @@ const Content = styled.div`
   ${medium`
     flex: 8;
   `};
+
+  ${large`
+    flex: 6;
+  `};
 `;
 
 const Gutter = styled.div`
@@ -24,6 +28,10 @@ const Gutter = styled.div`
 
   ${medium`
     flex: 2;
+  `};
+
+  ${large`
+    flex: 3;
   `};
 `;
 

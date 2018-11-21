@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  body, button, html {
+  body, html {
     color: ${({ theme: { colors } }) => colors.dark}
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -76,6 +76,12 @@ const GlobalStyle = createGlobalStyle`
   input {
     height: 40px;
     padding: 0 8px;
+  }
+
+  input, textarea, select, button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   label {

@@ -34,20 +34,24 @@ export default () => (
 
     <h2>Reports</h2>
 
-    {reports.map(({ fields: { file, title }, sys: { id } }) => (
-      <a href={file.fields.file.url} key={id} target="_blank">
-        <Card>
-          <Flex alignItems="center" justifyContent="space-between">
-            <ReportTitle>{title}</ReportTitle>
+    {reports
+      .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>
+        code1 > code2 ? 1 : -1
+      )
+      .map(({ fields: { file, title }, sys: { id } }) => (
+        <a href={file.fields.file.url} key={id} target="_blank">
+          <Card>
+            <Flex alignItems="center" justifyContent="space-between">
+              <ReportTitle>{title}</ReportTitle>
 
-            <ReportIcon size="lg" />
-          </Flex>
+              <ReportIcon size="lg" />
+            </Flex>
 
-          <ReportFileType>
-            .{file.fields.file.fileName.split(".").pop()}
-          </ReportFileType>
-        </Card>
-      </a>
-    ))}
+            <ReportFileType>
+              .{file.fields.file.fileName.split(".").pop()}
+            </ReportFileType>
+          </Card>
+        </a>
+      ))}
   </Container>
 );

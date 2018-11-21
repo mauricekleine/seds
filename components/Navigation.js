@@ -34,11 +34,12 @@ const Dropdown = styled.div`
   padding: 8px 16px;
   position: absolute;
   right: 16px;
-  top: 48px;
+  top: 120px;
   z-index: 1;
 
   ${medium`
     margin: 0 auto;
+    top: 80px;
     width: 50%;
   `}
 `;
@@ -137,7 +138,7 @@ export default class Navigation extends Component {
               </Link>
             </Flex>
 
-            <DesktopMenu flex={1}>
+            <DesktopMenu flex={2}>
               <Navbar showMenu={this.showMenu} />
             </DesktopMenu>
           </Flex>
@@ -145,13 +146,13 @@ export default class Navigation extends Component {
 
         <MobileMenu>
           <Navbar showMenu={this.showMenu} />
-
-          {showMenu && (
-            <Dropdown>
-              <Links />
-            </Dropdown>
-          )}
         </MobileMenu>
+
+        {showMenu && (
+          <Dropdown>
+            <Links />
+          </Dropdown>
+        )}
       </Fragment>
     );
   }
