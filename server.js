@@ -28,7 +28,8 @@ app.prepare().then(() => {
 
     const contents = {
       to: "info@sedsngo.org",
-      from,
+      from: "SEDS Contact Form <info@sedsngo.org>",
+      replyTo: email,
       subject: `New message from ${from}`,
       text: message,
       html: `
