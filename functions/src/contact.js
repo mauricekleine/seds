@@ -51,8 +51,8 @@ exports.handler = async event => {
 
   sendgrid
     .send(contents)
-    .then(() => {
-      return { statusCode: 200 };
+    .then(result => {
+      return { statusCode: 200, body: result };
     })
     .catch(error => {
       return { statusCode: 500 };
