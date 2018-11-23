@@ -9,18 +9,15 @@ require("dotenv").config({
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
+const dev = process.env.NODE_ENV !== "production";
 const handle = app.getRequestHandler();
+const port = parseInt(process.env.PORT, 10) || 3000;
 
 app.prepare().then(() => {
   const server = express();
 
   server.use(bodyParser.json());
-
-  server.get("*", (req, res) => {
-    return handle(req, res);
-  });
 
   server.post("/api/contact", (req, res) => {
     const { email, message, name, phonenumber } = req.body;
@@ -71,8 +68,12 @@ app.prepare().then(() => {
       });
   });
 
-  server.listen(3000, err => {
+  server.get("*", (req, res) => {
+    return handle(req, res);
+  });
+
+  server.listen(port, err => {
     if (err) throw err;
-    console.log("> Read on http://localhost:3000");
+    console.log(`> Ready on http://localhost:${port}`);
   });
 });

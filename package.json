@@ -4,7 +4,7 @@
   "description": "The official website for SEDS (sedsngo.org)",
   "main": "index.js",
   "scripts": {
-    "build": "next build",
+    "build": "npm run getcontent && next build",
     "dev": "node server.js",
     "export": "npm run getcontent && npm run build && next export",
     "getcontent": "node getContent.js",
