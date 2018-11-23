@@ -80,13 +80,18 @@ export default class Contact extends Component {
               { setSubmitting }
             ) => {
               try {
-                const res = await fetch("/api/contact", {
-                  method: "post",
+                const url =
+                  process.env.NODE_ENV === "production"
+                    ? "https://sedsngo.org/.netlify/functions/"
+                    : "http://localhost:9000/";
+
+                const res = await fetch(`${url}contact`, {
+                  body: JSON.stringify({ email, message, name, phonenumber }),
                   headers: {
                     Accept: "application/json, text/plain, */*",
                     "Content-Type": "application/json"
                   },
-                  body: JSON.stringify({ email, message, name, phonenumber })
+                  method: "post"
                 });
 
                 if (res.status === 200) {
@@ -165,10 +170,7 @@ export default class Contact extends Component {
                   <ErrorMessage name="message" component="div" />
                 </FormGroup>
 
-                <button
-                  disabled={hasSubmitted || isSubmitting}
-                  type="submit"
-                >
+                <button disabled={hasSubmitted || isSubmitting} type="submit">
                   {hasSubmitted
                     ? "We've received your message!"
                     : "Send message"}
