@@ -2,6 +2,7 @@
 .env
 .next/
 data/
+functions/build/
 node_modules/
 out/
 
