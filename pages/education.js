@@ -2,7 +2,7 @@ import Page from "../components/Page";
 
 export default () => (
   <Page
-    image="students-2"
+    image={{ name: "students-2" }}
     intro="The SEDS school operates out of the SEDS campus and provides a good quality education to children from the surrounding villages. The school follows the Andhra Pradesh State Board prescribed syllabus and uses English for the medium of instruction. In keeping with our environmental focus, hill-top field visits, ecology lessons, stage plays and songs with a conservation theme all an important part of the coursework."
     title="Children's education"
   >

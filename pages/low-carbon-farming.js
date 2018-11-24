@@ -2,7 +2,7 @@ import Page from "../components/Page";
 
 export default () => (
   <Page
-    image="farming"
+    image={{ name: "farming" }}
     intro="With the Low Carbon Farming (LCF) programme, SEDS propagates traditional innovative farming methods to break the cycle of heavy pesticide usage, soil depletion and successively reduced crop yields. Conventional wisdom advocates intensive use of pesticides and fertilizer to increase crop yield and force more out of smaller plots of land. This however, depletes the soil, forcing the farmer to use greater amounts of fertilizer and pesticide with each crop to maintain the yield."
     title="Low Carbon Farming"
   >

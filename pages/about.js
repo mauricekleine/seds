@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 import CompareImage from "../components/CompareImage";
 import Page from "../components/Page";
 
 export default () => (
   <Page
-    image="rajen-manil"
+    image={{ name: "rajen-manil" }}
     intro="The Social Education and Development Society (SEDS) is a
   Non-Governmental Organisation that has been actively involved in
   socially transforming initiatives and rural development for over 38
@@ -12,11 +14,24 @@ export default () => (
   >
     <p>
       Founded in 1980 by Rajen Joshua and Manil Jayasena Joshua, SEDS has
-      pioneered and implemented projects in watershed management, reforestation,
-      clean development mechanism, low carbon farming, rural health, vocational
-      training, village self-help groups, and children's education that have
-      done so much to improve the lives of people in 350 villages across 5
-      mandals in Anantapur district.
+      pioneered and implemented projects in{" "}
+      <Link href="/natural-resource-management" prefetch>
+        watershed management, reforestation
+      </Link>
+      ,{" "}
+      <Link href="/clean-development-mechanism" prefetch>
+        clean development mechanism
+      </Link>
+      ,{" "}
+      <Link href="/low-carbon-farming" prefetch>
+        low carbon farming
+      </Link>
+      , rural health, vocational training, village self-help groups, and{" "}
+      <Link href="/education" prefetch>
+        children's education
+      </Link>{" "}
+      that have done so much to improve the lives of people in 350 villages
+      across 5 mandals in Anantapur district.
     </p>
 
     <p>
@@ -27,15 +42,16 @@ export default () => (
       for a better tomorrow.
     </p>
 
-    <CompareImage name="checkdam" />
-
-    <small>Left: early 80s. Right: same checkdam in late 90s</small>
+    <CompareImage
+      caption="Left: early 80s. Right: same checkdam in late 90s"
+      name="checkdam"
+    />
 
     <h2>History</h2>
 
     <p>
       When Rajen Joshua came to Anantpur as a part of a group of young
-      volunteers , it was the second-most drought prone area in the country. The
+      volunteers, it was the second-most drought prone area in the country. The
       hilltops were barren and it was extremely difficult to grow crops. He
       decided to stay on and try to change the situation. The local people were
       extremely sceptical about his ideas for rainwater conservation and
@@ -59,6 +75,11 @@ export default () => (
       SEDS school was started to provide quality and subsidised education to the
       children of the surrounding villages.
     </p>
+
+    <CompareImage
+      caption="Natural resource management"
+      name="valley"
+    />
 
     <p>
       The Clean Development Mechanism program is one of the most important in

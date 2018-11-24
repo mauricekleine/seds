@@ -39,8 +39,6 @@ const Gutter = styled.div`
 const Wrapper = styled.div`
   display: flex;
   position: relative;
-
-  ${medium`${({ fullWidth }) => fullWidth && "margin-top: 24px;"}`};
 `;
 
 export default ({ children, fullWidth, ...props }) => (

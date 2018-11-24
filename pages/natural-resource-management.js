@@ -1,8 +1,9 @@
+import CompareImage from "../components/CompareImage";
 import Page from "../components/Page";
 
 export default () => (
   <Page
-    image="tap"
+    image={{ name: "tap" }}
     intro="Natural Resource Management, especially watershed management, was the first initiative that SEDS was involved in. Anantpur was the second-most drought prone area in the country. Barren land and loose topsoil made growing crops a very difficult task. The first task was to conserve the little rain that the land received. At first, trenches were dug at the base of hills where it had been observed that rainwater washed down."
     title="Natural Resource Management"
   >
@@ -18,6 +19,8 @@ export default () => (
       also serve to supplement the diet of the cultivators.
     </p>
 
+    <CompareImage caption="Reforestation near 'Rajen's hill" name="wasteland" />
+
     <p>
       Our NRM programmes have been so visibly successful that the villagers
       today act as the guardians of tree cover, not allowing anyone to cut
@@ -26,5 +29,7 @@ export default () => (
       governing bodies from other districts as well. Vital steps towards a
       greener tomorrow.
     </p>
+
+    <CompareImage caption="Reforestation near 'Rajen's hill" name="shed" />
   </Page>
 );
