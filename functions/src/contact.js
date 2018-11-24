@@ -52,8 +52,7 @@ exports.handler = async event => {
   };
 
   try {
-    const result = await sendgrid.send(contents);
-    console.log(result);
+    await sendgrid.send(contents);
     return { statusCode: 200 };
   } catch (err) {
     console.log(err);
