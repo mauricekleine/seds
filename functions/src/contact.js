@@ -11,6 +11,8 @@ exports.handler = async event => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
+  console.log({ event, body: event.body });
+
   const { email, message, name, phonenumber } = querystring.parse(event.body);
   const from = name && email ? `${name} <${email}>` : `${name || email}`;
 

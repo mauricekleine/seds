@@ -80,12 +80,7 @@ export default class Contact extends Component {
               { setSubmitting }
             ) => {
               try {
-                const url =
-                  process.env.NODE_ENV === "production"
-                    ? "https://sedsngo.org/.netlify/functions/"
-                    : "http://localhost:9000/";
-
-                const res = await fetch(`${url}contact`, {
+                const res = await fetch(`/.netlify/functions/contact`, {
                   body: JSON.stringify({ email, message, name, phonenumber }),
                   headers: {
                     Accept: "application/json, text/plain, */*",
