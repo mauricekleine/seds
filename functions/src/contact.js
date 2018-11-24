@@ -1,4 +1,3 @@
-const querystring = require("querystring");
 const sendgrid = require("@sendgrid/mail");
 require("dotenv").config({
   path: ".env"
@@ -11,12 +10,8 @@ exports.handler = async event => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  console.log({ body: querystring.parse(event.body) });
-
-  const { email, message, name, phonenumber } = querystring.parse(event.body);
+  const { email, message, name, phonenumber } = JSON.parse(event.body);
   const from = name && email ? `${name} <${email}>` : `${name || email}`;
-
-  console.log({ email, message, name, phonenumber });
 
   const contents = {
     to: "info@sedsngo.org",
