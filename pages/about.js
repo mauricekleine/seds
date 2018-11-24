@@ -1,5 +1,4 @@
-import ReactCompareImage from "react-compare-image";
-
+import CompareImage from "../components/CompareImage";
 import Page from "../components/Page";
 
 export default () => (
@@ -28,10 +27,8 @@ export default () => (
       for a better tomorrow.
     </p>
 
-    <ReactCompareImage
-      leftImage="/static/checkdam-before.jpg"
-      rightImage="/static/checkdam-after.jpg"
-    />
+    <CompareImage name="checkdam" />
+
     <small>Left: early 80s. Right: same checkdam in late 90s</small>
 
     <h2>History</h2>

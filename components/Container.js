@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { small, medium, large } from "../theme/media";
 
-const Content = styled.div`
+const Content = styled.section`
   flex: 12;
   padding: ${({ fullWidth }) => !fullWidth && "0 16px"};
 

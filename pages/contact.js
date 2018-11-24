@@ -50,6 +50,11 @@ export default class Contact extends Component {
       <Fragment>
         <Container>
           <Head>
+            <meta
+              name="description"
+              content="Want us to keep you posted on the latest at SEDS, or you want to get in touch with us. Just leave us a message here. We are always happy to make new friends"
+            />
+
             <title>SEDS - Contact Us</title>
           </Head>
 

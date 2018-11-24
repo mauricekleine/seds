@@ -18,18 +18,11 @@ export default class Document extends NextDocument {
     const { styleTags } = this.props;
 
     return (
-      <html>
+      <html lang="en">
         <Head>
-          <meta charSet="utf-8" />
-
           <meta
             name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,600|Ubuntu:500"
-            rel="stylesheet"
+            content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
 
           {styleTags}

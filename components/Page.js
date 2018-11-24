@@ -19,6 +19,8 @@ const PageWrapper = styled.div`
 export default ({ children, image, intro, title }) => (
   <PageWrapper>
     <Head>
+      <meta name="description" content={intro} />
+
       <title>SEDS - {title}</title>
     </Head>
 

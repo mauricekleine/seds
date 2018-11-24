@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Component, Fragment } from "react";
+import { Component } from "react";
 import styled from "styled-components";
 
 import Container from "./Container";
@@ -84,7 +84,7 @@ const NavbarItem = styled.a`
   ${medium`color: ${({ theme: { colors } }) => colors.dark};`};
 `;
 
-const StyledNavbar = styled.div`
+const StyledNavbar = styled.nav`
   align-items: center;
   display: flex;
   flex: 1;
@@ -146,7 +146,7 @@ export default class Navigation extends Component {
     const { showMenu } = this.state;
 
     return (
-      <Fragment>
+      <header>
         <LogoContainer>
           <Flex>
             <Flex flex={1}>
@@ -172,7 +172,7 @@ export default class Navigation extends Component {
             <Links />
           </Dropdown>
         )}
-      </Fragment>
+      </header>
     );
   }
 }

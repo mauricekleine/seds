@@ -100,7 +100,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const PageContainer = styled.div`
+const PageContainer = styled.main`
   flex: 1;
 `;
 
@@ -111,18 +111,18 @@ const Wrapper = styled.div`
 `;
 
 export default class App extends NextApp {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
+  componentDidMount() {
+    import("webfontloader").then(WebFont =>
+      WebFont.load({
+        google: {
+          families: ["Open Sans:300,600", "Ubuntu:500"]
+        }
+      })
+    );
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component } = this.props;
 
     return (
       <AppContainer>
@@ -131,7 +131,7 @@ export default class App extends NextApp {
             <Navigation />
 
             <PageContainer>
-              <Component {...pageProps} />
+              <Component />
             </PageContainer>
 
             <Footer />

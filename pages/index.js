@@ -8,6 +8,14 @@ import Image from "../components/Image";
 export default () => (
   <div>
     <Head>
+      <meta
+        name="description"
+        content="The Social Education and Development Society (SEDS) is a
+        Non-Governmental Organisation that has been actively involved in
+        socially transforming initiatives and rural development for over 38
+        years near the town of Penukonda in Andhra Pradesh."
+      />
+
       <title>SEDS</title>
     </Head>
 

@@ -4,7 +4,6 @@ import {
   faMapMarker,
   faPhone
 } from "@fortawesome/free-solid-svg-icons";
-import { Fragment } from "react";
 import styled from "styled-components";
 
 import Container from "./Container";
@@ -35,7 +34,7 @@ const ProjectsContainer = styled(Container)`
 `;
 
 export default () => (
-  <Fragment>
+  <footer>
     <ContactContainer>
       <FlexContainer parent>
         <Flex direction="column" flex={1}>
@@ -87,6 +86,7 @@ export default () => (
 
           <a
             href="https://www.facebook.com/pages/SEDS-Social-Education-and-Development-Society-SEDS/190839020942963"
+            rel="noopener"
             target="_blank"
           >
             <Icon color="#3B5998" icon={faFacebookSquare} size="2x" />
@@ -107,5 +107,5 @@ export default () => (
       Copyright {new Date().getFullYear()} - All information on this site is
       part of SEDS
     </CopyrightContainer>
-  </Fragment>
+  </footer>
 );
