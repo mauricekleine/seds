@@ -11,10 +11,12 @@ exports.handler = async event => {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
-  console.log({ event, body: event.body });
+  console.log({ body: querystring.parse(event.body) });
 
   const { email, message, name, phonenumber } = querystring.parse(event.body);
   const from = name && email ? `${name} <${email}>` : `${name || email}`;
+
+  console.log({ email, message, name, phonenumber });
 
   const contents = {
     to: "info@sedsngo.org",
