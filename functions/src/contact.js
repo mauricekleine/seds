@@ -49,12 +49,12 @@ exports.handler = async event => {
   `
   };
 
-  sendgrid
-    .send(contents)
-    .then(result => {
-      return { statusCode: 200, body: result };
-    })
-    .catch(error => {
-      return { statusCode: 500 };
-    });
+  try {
+    const result = await sendgrid.send(contents);
+    console.log(result);
+    return { statusCode: 200 };
+  } catch (err) {
+    console.log(err);
+    return { statusCode: 500 };
+  }
 };
