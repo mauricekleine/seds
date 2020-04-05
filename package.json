@@ -4,9 +4,9 @@
   "description": "The official website for SEDS (sedsngo.org)",
   "main": "index.js",
   "scripts": {
-    "build": "next build && netlify-lambda build ./functions/src",
+    "build": "next build",
     "dev": "next dev && npm run netlify-lambda serve ./functions/src",
-    "deploy": "npm run build && npm run export",
+    "deploy": "next build && netlify-lambda build ./functions/src && npm run export",
     "export": "next export",
     "start": "next start"
   },
@@ -26,7 +26,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@sendgrid/mail": "^6.5.5",
-    "concurrently": "^4.1.2",
     "contentful": "^7.14.2",
     "dotenv": "^6.2.0",
     "formik": "^1.5.8",
