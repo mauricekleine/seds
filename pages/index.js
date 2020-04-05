@@ -6,7 +6,7 @@ import Flex, { FlexContainer } from "../components/Flex";
 import Image from "../components/Image";
 
 export default () => (
-  <div>
+  <>
     <Head>
       <meta
         name="description"
@@ -41,5 +41,5 @@ export default () => (
         </Flex>
       </FlexContainer>
     </Container>
-  </div>
+  </>
 );

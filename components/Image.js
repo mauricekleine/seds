@@ -4,8 +4,7 @@ import Container from "../components/Container";
 import { small, medium } from "../theme/media";
 
 const ImageContainer = styled(Container)`
-  background: url(${({ name }) => `/static/${name}@1x.jpg`}) no-repeat center
-    center;
+  background: url(${({ name }) => `/${name}@1x.jpg`}) no-repeat center center;
   background-size: cover;
   height: 240px;
 
@@ -14,7 +13,7 @@ const ImageContainer = styled(Container)`
   `};
 
   ${medium`
-    background: url(${({ name }) => `/static/${name}@2x.jpg`}) no-repeat center
+    background: url(${({ name }) => `/${name}@2x.jpg`}) no-repeat center
       center;
     background-size: cover;
     height: 400px;

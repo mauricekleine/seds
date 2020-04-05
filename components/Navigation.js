@@ -152,7 +152,7 @@ export default class Navigation extends Component {
             <Flex flex={1}>
               <Link href="/" prefetch>
                 <a>
-                  <img alt="SEDS" height="60px" src="/static/logo.png" />
+                  <img alt="SEDS" height="60px" src="/logo.png" />
                 </a>
               </Link>
             </Flex>

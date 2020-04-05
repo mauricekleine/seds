@@ -1,11 +1,11 @@
-import NextDocument, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
-export default class Document extends NextDocument {
+class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
 
-    const page = renderPage(App => props =>
+    const page = renderPage((App) => (props) =>
       sheet.collectStyles(<App {...props} />)
     );
 
@@ -18,7 +18,7 @@ export default class Document extends NextDocument {
     const { styleTags } = this.props;
 
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta
             name="viewport"
@@ -33,7 +33,9 @@ export default class Document extends NextDocument {
 
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
+
+export default MyDocument;

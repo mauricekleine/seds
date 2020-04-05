@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&family=Ubuntu:wght@500&display=swap");
+
+*:focus {
+  outline: none;
+}
+
+a {
+  color: #1d6dc2;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+body,
+html {
+  color: #4a4a4a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 0;
+}
+
+button {
+  background-color: "#ffffff";
+  border: 0;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+  height: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 32px;
+  letter-spacing: 1px;
+  line-height: 40px;
+
+  @media (min-width: 576px) {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+hr {
+  border-color: #79ab6f;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+input {
+  height: 40px;
+  padding: 0 8px;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+label > span {
+  float: right;
+  font-weight: normal;
+}
+
+textarea {
+  padding: 8px;
+}

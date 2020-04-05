@@ -1,104 +1,11 @@
-import NextApp, { Container as AppContainer } from "next/app";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 
 import theme from "../theme";
 
-const GlobalStyle = createGlobalStyle`
-  *:focus {
-    outline: none;
-  }
-
-  a {
-    color: ${({ theme: { colors } }) => colors.action}
-    font-weight: 600;
-    text-decoration: none;
-  }
-
-  body, html {
-    color: ${({ theme: { colors } }) => colors.dark}
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 24px;
-    margin: 0;
-  }
-
-  button {
-    background-color: ${({ theme: { colors } }) => colors.light}
-    border: 0;
-    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.06);
-    font-weight: 600;
-    height: 40px;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 16px;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 500;
-  }
-
-  h1 {
-    font-size: 32px;
-    letter-spacing: 1px;
-    line-height: 40px;
-
-    @media (min-width: 576px) {
-      font-size: 48px;
-      line-height: 56px;
-    }
-  }
-
-  h2 {
-    font-size: 24px;
-    letter-spacing: 1px;
-    line-height: 32px;
-  }
-
-  h3 {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  hr {
-    border-color: #79AB6F;
-    border-style: solid;
-    border-width: 0.5px;
-  }
-
-  input {
-    height: 40px;
-    padding: 0 8px;
-  }
-
-  input, textarea, select, button {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-
-    span {
-      float: right;
-      font-weight: normal;
-    }
-  }
-
-  textarea {
-    padding: 8px;
-  }
-`;
+import "./styles.css";
 
 const PageContainer = styled.main`
   flex: 1;
@@ -110,36 +17,18 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
-export default class App extends NextApp {
-  componentDidMount() {
-    import("webfontloader").then(WebFont =>
-      WebFont.load({
-        google: {
-          families: ["Open Sans:300,600", "Ubuntu:500"]
-        }
-      })
-    );
-  }
+const App = ({ Component }) => (
+  <ThemeProvider theme={theme}>
+    <Wrapper>
+      <Navigation />
 
-  render() {
-    const { Component } = this.props;
+      <PageContainer>
+        <Component />
+      </PageContainer>
 
-    return (
-      <AppContainer>
-        <ThemeProvider theme={theme}>
-          <Wrapper>
-            <Navigation />
+      <Footer />
+    </Wrapper>
+  </ThemeProvider>
+);
 
-            <PageContainer>
-              <Component />
-            </PageContainer>
-
-            <Footer />
-
-            <GlobalStyle />
-          </Wrapper>
-        </ThemeProvider>
-      </AppContainer>
-    );
-  }
-}
+export default App;

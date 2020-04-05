@@ -1,7 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
 
-import CompareImage from "../components/CompareImage";
 import Container from "../components/Container";
 import Image from "../components/Image";
 

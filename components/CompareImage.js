@@ -8,7 +8,7 @@ export default class CompareImage extends Component {
   componentDidMount() {
     this.setState({
       imageDimensions:
-        document.documentElement.clientWidth < mediumWidth ? 1 : 2
+        document.documentElement.clientWidth < mediumWidth ? 1 : 2,
     });
   }
 
@@ -20,8 +20,8 @@ export default class CompareImage extends Component {
       <Fragment>
         {imageDimensions && (
           <ReactCompareImage
-            leftImage={`/static/before-after/${name}-before@${imageDimensions}x.jpg`}
-            rightImage={`/static/before-after/${name}-after@${imageDimensions}x.jpg`}
+            leftImage={`/before-after/${name}-before@${imageDimensions}x.jpg`}
+            rightImage={`/before-after/${name}-after@${imageDimensions}x.jpg`}
           />
         )}
 
