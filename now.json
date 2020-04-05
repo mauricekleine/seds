@@ -1,0 +1,10 @@
+{
+  "build": {
+    "env": {
+      "CONTENTFUL_SPACE": "@contentful_space",
+      "CONTENTFUL_TOKEN": "@contentful_token",
+      "SENDGRID_API_KEY": "@sendgrid_api_key"
+    }
+  },
+  "trailingSlash": false
+}

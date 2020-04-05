@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "The official website for SEDS (sedsngo.org)",
   "main": "index.js",
+  "private": true,
   "scripts": {
+    "dev": "next dev",
     "build": "next build",
-    "dev": "next dev && npm run netlify-lambda serve ./functions/src",
-    "deploy": "next build && netlify-lambda build ./functions/src && npm run export",
-    "export": "next export",
     "start": "next start"
   },
   "repository": {
@@ -25,16 +24,32 @@
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@now/node": "^1.5.0",
     "@sendgrid/mail": "^6.5.5",
     "contentful": "^7.14.2",
     "dotenv": "^6.2.0",
     "formik": "^1.5.8",
-    "netlify-lambda": "^1.6.3",
     "next": "^9.0.0",
     "react": "^16.13.1",
     "react-compare-image": "^0.7.1",
     "react-dom": "^16.13.1",
     "styled-components": "^4.4.1",
     "yup": "^0.26.10"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.32",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.2",
+    "now": "^17.1.1",
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }

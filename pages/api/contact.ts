@@ -1,16 +1,14 @@
-const sendgrid = require("@sendgrid/mail");
-require("dotenv").config({
-  path: ".env"
-});
+import { NowRequest, NowResponse } from "@now/node";
+import sendgrid from "@sendgrid/mail";
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-exports.handler = async event => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+export default async (request: NowRequest, response: NowResponse) => {
+  if (request.method !== "POST") {
+    return response.status(405).end();
   }
 
-  const { email, message, name, phonenumber } = JSON.parse(event.body);
+  const { email, message, name, phonenumber } = request.body;
   const from = name && email ? `${name} <${email}>` : `${name || email}`;
 
   const contents = {
@@ -34,25 +32,27 @@ exports.handler = async event => {
           <td>${email}</td>
         </tr>
 
-        ${phonenumber &&
+        ${
+          phonenumber &&
           `<tr>
           <td>Phonenumber</td>
           <td>${phonenumber}</td>
-        </tr>`}
+        </tr>`
+        }
       </table>
     
       <h3>Message</h3>
 
       <p>${message}</p>
     </div>
-  `
+  `,
   };
 
   try {
     await sendgrid.send(contents);
-    return { statusCode: 200 };
+
+    return response.status(200).end();
   } catch (err) {
-    console.log(err);
-    return { statusCode: 500 };
+    return response.status(500).end();
   }
 };
