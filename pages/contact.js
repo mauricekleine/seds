@@ -2,10 +2,10 @@ import {
   ErrorMessage as FormikErrorMessage,
   Field,
   Form,
-  Formik
+  Formik,
 } from "formik";
 import Head from "next/head";
-import { Component, Fragment } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { object, string } from "yup";
 
@@ -37,153 +37,146 @@ const Title = styled.h2`
   margin-bottom: 0;
 `;
 
-export default class Contact extends Component {
-  state = {
-    hasApiErrors: false,
-    hasSubmitted: false
-  };
+const Contact = () => {
+  const [hasApiErrors, setHasApiErrors] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+  return (
+    <>
+      <Container>
+        <Head>
+          <meta
+            name="description"
+            content="Want us to keep you posted on the latest at SEDS, or you want to get in touch with us. Just leave us a message here. We are always happy to make new friends"
+          />
 
-  render() {
-    const { hasApiErrors, hasSubmitted } = this.state;
+          <title>SEDS - Contact Us</title>
+        </Head>
 
-    return (
-      <Fragment>
-        <Container>
-          <Head>
-            <meta
-              name="description"
-              content="Want us to keep you posted on the latest at SEDS, or you want to get in touch with us. Just leave us a message here. We are always happy to make new friends"
-            />
+        <FlexContainer parent>
+          <Flex flex={1}>
+            <VolunteerCard />
+          </Flex>
 
-            <title>SEDS - Contact Us</title>
-          </Head>
+          <Flex flex={1}>
+            <DonorCard />
+          </Flex>
+        </FlexContainer>
+      </Container>
 
-          <FlexContainer parent>
-            <Flex flex={1}>
-              <VolunteerCard />
-            </Flex>
+      <ContactContainer>
+        <Title>Get in touch</Title>
+        <SubTitle>We'd love to hear from you</SubTitle>
 
-            <Flex flex={1}>
-              <DonorCard />
-            </Flex>
-          </FlexContainer>
-        </Container>
+        <Formik
+          initialValues={{
+            email: "",
+            message: "",
+            name: "",
+            phonenumber: "",
+          }}
+          onSubmit={async (
+            { email, message, name, phonenumber },
+            { setSubmitting }
+          ) => {
+            try {
+              const res = await fetch(`/.netlify/functions/contact`, {
+                body: JSON.stringify({ email, message, name, phonenumber }),
+                headers: {
+                  Accept: "application/json, text/plain, */*",
+                  "Content-Type": "application/json",
+                },
+                method: "post",
+              });
 
-        <ContactContainer>
-          <Title>Get in touch</Title>
-          <SubTitle>We'd love to hear from you</SubTitle>
-
-          <Formik
-            initialValues={{
-              email: "",
-              message: "",
-              name: "",
-              phonenumber: ""
-            }}
-            onSubmit={async (
-              { email, message, name, phonenumber },
-              { setSubmitting }
-            ) => {
-              try {
-                const res = await fetch(`/.netlify/functions/contact`, {
-                  body: JSON.stringify({ email, message, name, phonenumber }),
-                  headers: {
-                    Accept: "application/json, text/plain, */*",
-                    "Content-Type": "application/json"
-                  },
-                  method: "post"
-                });
-
-                if (res.status === 200) {
-                  this.setState({ hasSubmitted: true });
-                } else {
-                  this.setState({ hasApiErrors: true });
-                }
-
-                setSubmitting(false);
-              } catch (err) {
-                this.setState({ hasApiErrors: true });
-                setSubmitting(false);
+              if (res.status === 200) {
+                setHasSubmitted(true);
+              } else {
+                setHasApiErrors(true);
               }
-            }}
-            validationSchema={object().shape({
-              email: string().required("Please submit your email address"),
-              message: string().required("Please submit a message"),
-              name: string().required("Please submit your name"),
-              phonenumber: string()
-            })}
-          >
-            {({ isSubmitting }) => (
-              <Form>
-                <FormGroup>
-                  <label>Your name</label>
 
-                  <Field
-                    disabled={hasSubmitted}
-                    name="name"
-                    placeholder="Your name"
-                  />
-                  <ErrorMessage name="name" component="div" />
-                </FormGroup>
+              setSubmitting(false);
+            } catch (err) {
+              setHasApiErrors(true);
+              setSubmitting(false);
+            }
+          }}
+          validationSchema={object().shape({
+            email: string().required("Please submit your email address"),
+            message: string().required("Please submit a message"),
+            name: string().required("Please submit your name"),
+            phonenumber: string(),
+          })}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <FormGroup>
+                <label>Your name</label>
 
-                <FormGroup>
-                  <label>Your email</label>
+                <Field
+                  disabled={hasSubmitted}
+                  name="name"
+                  placeholder="Your name"
+                />
+                <ErrorMessage name="name" component="div" />
+              </FormGroup>
 
-                  <Field
-                    disabled={hasSubmitted}
-                    name="email"
-                    placeholder="Your email"
-                    type="email"
-                  />
-                  <ErrorMessage name="email" component="div" />
-                </FormGroup>
+              <FormGroup>
+                <label>Your email</label>
 
-                <FormGroup>
-                  <label>
-                    Your phone number <span>optional</span>
-                  </label>
+                <Field
+                  disabled={hasSubmitted}
+                  name="email"
+                  placeholder="Your email"
+                  type="email"
+                />
+                <ErrorMessage name="email" component="div" />
+              </FormGroup>
 
-                  <Field
-                    disabled={hasSubmitted}
-                    name="phonenumber"
-                    placeholder="Your phone number"
-                  />
-                  <ErrorMessage name="phonenumber" component="div" />
-                </FormGroup>
+              <FormGroup>
+                <label>
+                  Your phone number <span>optional</span>
+                </label>
 
-                <FormGroup>
-                  <label>Your message</label>
+                <Field
+                  disabled={hasSubmitted}
+                  name="phonenumber"
+                  placeholder="Your phone number"
+                />
+                <ErrorMessage name="phonenumber" component="div" />
+              </FormGroup>
 
-                  <p>
-                    Want us to keep you posted on the latest at SEDS, or you
-                    want to get in touch with us. Just leave us a message here.
-                    We are always happy to make new friends
-                  </p>
+              <FormGroup>
+                <label>Your message</label>
 
-                  <Field
-                    component="textarea"
-                    disabled={hasSubmitted}
-                    name="message"
-                    placeholder="Your message"
-                    rows="5"
-                  />
-                  <ErrorMessage name="message" component="div" />
-                </FormGroup>
+                <p>
+                  Want us to keep you posted on the latest at SEDS, or you want
+                  to get in touch with us. Just leave us a message here. We are
+                  always happy to make new friends
+                </p>
 
-                <button disabled={hasSubmitted || isSubmitting} type="submit">
-                  {hasSubmitted
-                    ? "We've received your message!"
-                    : "Send message"}
-                </button>
+                <Field
+                  component="textarea"
+                  disabled={hasSubmitted}
+                  name="message"
+                  placeholder="Your message"
+                  rows="5"
+                />
+                <ErrorMessage name="message" component="div" />
+              </FormGroup>
 
-                {hasApiErrors && (
-                  <ErrorSpan>Something went wrong, please try again.</ErrorSpan>
-                )}
-              </Form>
-            )}
-          </Formik>
-        </ContactContainer>
-      </Fragment>
-    );
-  }
-}
+              <button disabled={hasSubmitted || isSubmitting} type="submit">
+                {hasSubmitted ? "We've received your message!" : "Send message"}
+              </button>
+
+              {hasApiErrors && (
+                <ErrorSpan>Something went wrong, please try again.</ErrorSpan>
+              )}
+            </Form>
+          )}
+        </Formik>
+      </ContactContainer>
+    </>
+  );
+};
+
+export default Contact;

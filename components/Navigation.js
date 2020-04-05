@@ -105,7 +105,7 @@ const Toggle = styled.button.attrs({ type: "button" })`
 
 const Navbar = ({ showMenu }) => (
   <StyledNavbar>
-    <Link href="/about" prefetch>
+    <Link href="/about">
       <NavbarItem>About us</NavbarItem>
     </Link>
 
@@ -113,11 +113,11 @@ const Navbar = ({ showMenu }) => (
       Projects <Caret />
     </Toggle>
 
-    <Link href="/reports" prefetch>
+    <Link href="/reports">
       <NavbarItem>Reports</NavbarItem>
     </Link>
 
-    <Link href="/contact" prefetch>
+    <Link href="/contact">
       <NavbarItem>Contact</NavbarItem>
     </Link>
   </StyledNavbar>
@@ -150,7 +150,7 @@ export default class Navigation extends Component {
         <LogoContainer>
           <Flex>
             <Flex flex={1}>
-              <Link href="/" prefetch>
+              <Link href="/">
                 <a>
                   <img alt="SEDS" height="60px" src="/logo.png" />
                 </a>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import CompareImage from "../components/CompareImage";
 import Page from "../components/Page";
 
-export default () => (
+const About = () => (
   <Page
     image={{ name: "rajen-manil" }}
     intro="The Social Education and Development Society (SEDS) is a
@@ -15,20 +15,20 @@ export default () => (
     <p>
       Founded in 1980 by Rajen Joshua and Manil Jayasena Joshua, SEDS has
       pioneered and implemented projects in{" "}
-      <Link href="/natural-resource-management" prefetch>
-        watershed management, reforestation
+      <Link href="/natural-resource-management">
+        <a>watershed management, reforestation</a>
       </Link>
       ,{" "}
-      <Link href="/clean-development-mechanism" prefetch>
-        clean development mechanism
+      <Link href="/clean-development-mechanism">
+        <a>clean development mechanism</a>
       </Link>
       ,{" "}
-      <Link href="/low-carbon-farming" prefetch>
-        low carbon farming
+      <Link href="/low-carbon-farming">
+        <a>low carbon farming</a>
       </Link>
       , rural health, vocational training, village self-help groups, and{" "}
-      <Link href="/education" prefetch>
-        children's education
+      <Link href="/education">
+        <a>children's education</a>
       </Link>{" "}
       that have done so much to improve the lives of people in 350 villages
       across 5 mandals in Anantapur district.
@@ -76,10 +76,7 @@ export default () => (
       children of the surrounding villages.
     </p>
 
-    <CompareImage
-      caption="Natural resource management"
-      name="valley"
-    />
+    <CompareImage caption="Natural resource management" name="valley" />
 
     <p>
       The Clean Development Mechanism program is one of the most important in
@@ -99,3 +96,5 @@ export default () => (
     </p>
   </Page>
 );
+
+export default About;

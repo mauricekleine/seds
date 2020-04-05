@@ -1,7 +1,7 @@
 import Image from "../components/Image";
 import Page from "../components/Page";
 
-export default () => (
+const CleanDevelopmentMechanism = () => (
   <Page
     image={{ name: "biogas" }}
     intro="The Clean Development Mechanism (CDM) project is one of our main priorities today. By facilitating the construction of 5000 biogas digesters in small households, the project leverages one of the carbon reduction provisions of the Kyoto Protocol treaty to realize two major benefits for more than 300 villages in the district. Replacing firewood which is a polluting and hazardous cooking fuel with non-polluting and sustainable biogas, and providing an opportunity for small households to participate in the global carbon trade economy."
@@ -47,3 +47,5 @@ export default () => (
     </p>
   </Page>
 );
+
+export default CleanDevelopmentMechanism;

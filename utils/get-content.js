@@ -2,23 +2,23 @@ const fs = require("fs");
 const path = require("path");
 
 require("dotenv").config({
-  path: ".env"
+  path: ".env",
 });
 
 const client = require("contentful").createClient({
   space: process.env.CONTENTFUL_SPACE,
-  accessToken: process.env.CONTENTFUL_TOKEN
+  accessToken: process.env.CONTENTFUL_TOKEN,
 });
 
-const filePath = path.join(__dirname, "data");
+const filePath = path.join(__dirname, "../data");
 
 if (!fs.existsSync(filePath)) {
   fs.mkdirSync(filePath);
 }
 
-["reports"].map(async type => {
+["reports"].map(async (type) => {
   const entries = await client.getEntries({
-    content_type: type
+    content_type: type,
   });
 
   fs.writeFileSync(

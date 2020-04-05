@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import styled from "styled-components";
 
 export const ProjectLink = styled.a`
@@ -21,21 +20,21 @@ export const ProjectLink = styled.a`
 `;
 
 export default () => (
-  <Fragment>
-    <Link href="/education" prefetch>
+  <>
+    <Link href="/education">
       <ProjectLink>Children's education</ProjectLink>
     </Link>
 
-    <Link href="/clean-development-mechanism" prefetch>
+    <Link href="/clean-development-mechanism">
       <ProjectLink>Clean development mechanism</ProjectLink>
     </Link>
 
-    <Link href="/low-carbon-farming" prefetch>
+    <Link href="/low-carbon-farming">
       <ProjectLink>Low carbon farming</ProjectLink>
     </Link>
 
-    <Link href="/natural-resource-management" prefetch>
+    <Link href="/natural-resource-management">
       <ProjectLink>Natural resource management</ProjectLink>
     </Link>
-  </Fragment>
+  </>
 );

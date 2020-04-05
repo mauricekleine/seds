@@ -1,7 +1,7 @@
 import CompareImage from "../components/CompareImage";
 import Page from "../components/Page";
 
-export default () => (
+const NaturalResourceManagement = () => (
   <Page
     image={{ name: "tap" }}
     intro="Natural Resource Management, especially watershed management, was the first initiative that SEDS was involved in. Anantpur was the second-most drought prone area in the country. Barren land and loose topsoil made growing crops a very difficult task. The first task was to conserve the little rain that the land received. At first, trenches were dug at the base of hills where it had been observed that rainwater washed down."
@@ -33,3 +33,5 @@ export default () => (
     <CompareImage caption="Reforestation near 'Rajen's hill" name="shed" />
   </Page>
 );
+
+export default NaturalResourceManagement;

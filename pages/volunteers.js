@@ -1,10 +1,9 @@
 import Link from "next/link";
 
 import Flex, { FlexContainer } from "../components/Flex";
-import Image from "../components/Image";
 import Page from "../components/Page";
 
-export default () => (
+const Volunteers = () => (
   <Page
     intro="We welcome volunteers from around the World to participate in our social development programmes. SEDS has so far hosted more than 300 volunteers from several countries who have enriched our work and who have returned home with enriching experiences."
     title="Volunteers & Interns"
@@ -17,7 +16,7 @@ export default () => (
 
     <p>
       Contact us about volunteering opportunities via{" "}
-      <Link href="/contact" prefetch>
+      <Link href="/contact">
         <a>this form</a>
       </Link>
       .
@@ -46,3 +45,5 @@ export default () => (
     </Flex>
   </Page>
 );
+
+export default Volunteers;

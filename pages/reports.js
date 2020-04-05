@@ -26,7 +26,7 @@ const ReportTitle = styled(CardTitle)`
   margin: 0;
 `;
 
-export default () => (
+const Reports = () => (
   <Container>
     <Head>
       <title>SEDS - Reports</title>
@@ -55,3 +55,5 @@ export default () => (
       ))}
   </Container>
 );
+
+export default Reports;

@@ -1,6 +1,6 @@
 import {
   faHandHoldingUsd,
-  faHandshake
+  faHandshake,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import styled from "styled-components";
@@ -43,7 +43,7 @@ export const VolunteerCard = () => (
       development programmes.
     </p>
 
-    <Link href="/volunteers" prefetch>
+    <Link href="/volunteers">
       <a>Come join us!</a>
     </Link>
   </Card>

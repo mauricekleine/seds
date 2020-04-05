@@ -1,32 +1,28 @@
-import { Component, Fragment } from "react";
+import { useEffect } from "react";
 import ReactCompareImage from "react-compare-image";
 
 import { mediumWidth } from "../theme/media";
 
-export default class CompareImage extends Component {
-  state = { imageDimensions: 0 };
-  componentDidMount() {
-    this.setState({
-      imageDimensions:
-        document.documentElement.clientWidth < mediumWidth ? 1 : 2,
-    });
-  }
+const CompareImage = ({ caption, name }) => {
+  let imageDimensions;
 
-  render() {
-    const { caption, name } = this.props;
-    const { imageDimensions } = this.state;
+  useEffect(() => {
+    imageDimensions =
+      document.documentElement.clientWidth < mediumWidth ? 1 : 2;
+  }, []);
 
-    return (
-      <Fragment>
-        {imageDimensions && (
-          <ReactCompareImage
-            leftImage={`/before-after/${name}-before@${imageDimensions}x.jpg`}
-            rightImage={`/before-after/${name}-after@${imageDimensions}x.jpg`}
-          />
-        )}
+  return (
+    <>
+      {imageDimensions && (
+        <ReactCompareImage
+          leftImage={`/before-after/${name}-before@${imageDimensions}x.jpg`}
+          rightImage={`/before-after/${name}-after@${imageDimensions}x.jpg`}
+        />
+      )}
 
-        {caption && <small>{caption}</small>}
-      </Fragment>
-    );
-  }
-}
+      {caption && <small>{caption}</small>}
+    </>
+  );
+};
+
+export default CompareImage;
