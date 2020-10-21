@@ -16,7 +16,9 @@ const Card = styled.div`
 
 export const CardTitle = styled.h3``;
 
-export default ({ children }) => <Card>{children}</Card>;
+const Cards = ({ children }) => <Card>{children}</Card>;
+
+export default Cards;
 
 export const DonorCard = () => (
   <Card>

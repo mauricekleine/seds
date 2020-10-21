@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-export default ({ children, fullWidth, ...props }) => (
+const Container = ({ children, fullWidth, ...props }) => (
   <Wrapper fullWidth={fullWidth} {...props}>
     <Gutter fullWidth={fullWidth} />
 
@@ -50,3 +50,5 @@ export default ({ children, fullWidth, ...props }) => (
     <Gutter fullWidth={fullWidth} />
   </Wrapper>
 );
+
+export default Container;

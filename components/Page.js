@@ -15,7 +15,7 @@ const PageWrapper = styled.div`
   margin-bottom: 16px;
 `;
 
-export default ({ children, image = {}, intro, title }) => (
+const Page = ({ children, image = {}, intro, title }) => (
   <PageWrapper>
     <Head>
       <meta name="description" content={intro} />
@@ -34,3 +34,5 @@ export default ({ children, image = {}, intro, title }) => (
     <Container>{children}</Container>
   </PageWrapper>
 );
+
+export default Page;

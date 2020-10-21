@@ -33,7 +33,7 @@ const ImageTitle = styled.div`
   }
 `;
 
-export default ({ name, title }) => (
+const Image = ({ name, title }) => (
   <ImageContainer name={name}>
     {title && (
       <ImageTitle>
@@ -42,3 +42,5 @@ export default ({ name, title }) => (
     )}
   </ImageContainer>
 );
+
+export default Image;

@@ -2,7 +2,7 @@ import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 import {
   faEnvelope,
   faMapMarker,
-  faPhone
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
@@ -33,7 +33,7 @@ const ProjectsContainer = styled(Container)`
   text-align: center;
 `;
 
-export default () => (
+const Footer = () => (
   <footer>
     <ContactContainer>
       <FlexContainer parent>
@@ -109,3 +109,5 @@ export default () => (
     </CopyrightContainer>
   </footer>
 );
+
+export default Footer;
