@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@now/node";
+import { NowRequest, NowResponse } from "@vercel/node";
 import sendgrid from "@sendgrid/mail";
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
