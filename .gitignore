@@ -27,5 +27,5 @@ yarn-error.log*
 .now
 
 # generated
-/data
+/src/data
 .vercel
