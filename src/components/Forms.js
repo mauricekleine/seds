@@ -8,4 +8,4 @@ export const FormGroup = styled.div`
   label + p {
     margin-top: 0;
   }
-`
+`;
