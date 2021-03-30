@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Component } from "react";
+import { Component, useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Container from "./Container";
@@ -123,56 +123,53 @@ const Navbar = ({ showMenu }) => (
   </StyledNavbar>
 );
 
-export default class Navigation extends Component {
-  state = { showMenu: false };
+const Navigation = () => {
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  closeMenu = this.closeMenu.bind(this);
-  closeMenu() {
-    this.setState({ showMenu: false }, () => {
-      document.removeEventListener("click", this.closeMenu);
-    });
-  }
+  const closeMenu = useCallback(() => setIsMenuVisible(false), [
+    setIsMenuVisible,
+  ]);
+  const showMenu = useCallback(() => setIsMenuVisible(true), [
+    setIsMenuVisible,
+  ]);
 
-  showMenu = this.showMenu.bind(this);
-  showMenu(event) {
-    event.preventDefault();
+  useEffect(() => {
+    if (isMenuVisible) {
+      document.addEventListener("click", closeMenu);
+    } else {
+      document.removeEventListener("click", closeMenu);
+    }
+  }, [isMenuVisible]);
 
-    this.setState({ showMenu: true }, () => {
-      document.addEventListener("click", this.closeMenu);
-    });
-  }
-
-  render() {
-    const { showMenu } = this.state;
-
-    return (
-      <header>
-        <LogoContainer>
-          <Flex>
-            <Flex flex={1}>
-              <Link href="/">
-                <a>
-                  <img alt="SEDS" height="60px" src="/logo.png" />
-                </a>
-              </Link>
-            </Flex>
-
-            <DesktopMenu flex={1.2}>
-              <Navbar showMenu={this.showMenu} />
-            </DesktopMenu>
+  return (
+    <header>
+      <LogoContainer>
+        <Flex>
+          <Flex flex={1}>
+            <Link href="/">
+              <a>
+                <img alt="SEDS" height="60px" src="/logo.png" />
+              </a>
+            </Link>
           </Flex>
-        </LogoContainer>
 
-        <MobileMenu>
-          <Navbar showMenu={this.showMenu} />
-        </MobileMenu>
+          <DesktopMenu flex={1.2}>
+            <Navbar showMenu={showMenu} />
+          </DesktopMenu>
+        </Flex>
+      </LogoContainer>
 
-        {showMenu && (
-          <Dropdown>
-            <Links />
-          </Dropdown>
-        )}
-      </header>
-    );
-  }
-}
+      <MobileMenu>
+        <Navbar showMenu={showMenu} />
+      </MobileMenu>
+
+      {isMenuVisible && (
+        <Dropdown>
+          <Links />
+        </Dropdown>
+      )}
+    </header>
+  );
+};
+
+export default Navigation;

@@ -5,7 +5,7 @@ import Container from "../components/Container";
 import Flex, { FlexContainer } from "../components/Flex";
 import Image from "../components/Image";
 
-export default () => (
+const Homepage = () => (
   <>
     <Head>
       <meta
@@ -43,3 +43,5 @@ export default () => (
     </Container>
   </>
 );
+
+export default Homepage;

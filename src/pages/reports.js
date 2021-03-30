@@ -7,7 +7,7 @@ import Container from "../components/Container";
 import Flex from "../components/Flex";
 import Icon from "../components/Icon";
 
-import { items as reports } from "../data/reports.json";
+import reports from "../data/reports.json";
 
 const ReportFileType = styled.p`
   color: ${({ theme: { colors } }) => colors.dark};
@@ -34,7 +34,7 @@ const Reports = () => (
 
     <h2>Reports</h2>
 
-    {reports
+    {reports.items
       .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>
         code1 > code2 ? 1 : -1
       )

@@ -19,7 +19,7 @@ export const ProjectLink = styled.a`
   }
 `;
 
-export default () => (
+const Links = () => (
   <>
     <Link href="/education">
       <ProjectLink>Children's education</ProjectLink>
@@ -38,3 +38,5 @@ export default () => (
     </Link>
   </>
 );
+
+export default Links;

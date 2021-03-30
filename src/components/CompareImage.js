@@ -1,15 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ReactCompareImage from "react-compare-image";
 
 import { mediumWidth } from "../theme/media";
 
 const CompareImage = ({ caption, name }) => {
-  let imageDimensions;
+  let [imageDimensions, setImageDimensions] = useState(1);
 
   useEffect(() => {
-    imageDimensions =
-      document.documentElement.clientWidth < mediumWidth ? 1 : 2;
-  }, []);
+    if (document.documentElement.clientWidth > mediumWidth) {
+      setImageDimensions(2);
+    }
+  }, [name]);
 
   return (
     <>
