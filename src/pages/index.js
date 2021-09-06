@@ -20,7 +20,11 @@ const Homepage = () => (
     </Head>
 
     <Container fullWidth>
-      <Image name="students" title="Towards a greener tomorrow" />
+      <Image
+        alt="Towards a greener tomorrow"
+        name="students"
+        title="Towards a greener tomorrow"
+      />
     </Container>
 
     <Container>

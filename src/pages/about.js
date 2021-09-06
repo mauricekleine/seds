@@ -28,7 +28,7 @@ const About = () => (
       </Link>
       , rural health, vocational training, village self-help groups, and{" "}
       <Link href="/education">
-        <a>children's education</a>
+        <a>children&apos;s education</a>
       </Link>{" "}
       that have done so much to improve the lives of people in 350 villages
       across 5 mandals in Anantapur district.

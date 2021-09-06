@@ -21,19 +21,19 @@ export const ProjectLink = styled.a`
 
 const Links = () => (
   <>
-    <Link href="/education">
-      <ProjectLink>Children's education</ProjectLink>
+    <Link href="/education" passHref>
+      <ProjectLink>Children&apos;s education</ProjectLink>
     </Link>
 
-    <Link href="/clean-development-mechanism">
+    <Link href="/clean-development-mechanism" passHref>
       <ProjectLink>Clean development mechanism</ProjectLink>
     </Link>
 
-    <Link href="/low-carbon-farming">
+    <Link href="/low-carbon-farming" passHref>
       <ProjectLink>Low carbon farming</ProjectLink>
     </Link>
 
-    <Link href="/natural-resource-management">
+    <Link href="/natural-resource-management" passHref>
       <ProjectLink>Natural resource management</ProjectLink>
     </Link>
   </>

@@ -86,7 +86,7 @@ const Footer = () => (
 
           <a
             href="https://www.facebook.com/pages/SEDS-Social-Education-and-Development-Society-SEDS/190839020942963"
-            rel="noopener"
+            rel="noreferrer"
             target="_blank"
           >
             <Icon color="#3B5998" icon={faFacebookSquare} size="2x" />

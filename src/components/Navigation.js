@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Component, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Container from "./Container";
@@ -105,7 +106,7 @@ const Toggle = styled.button.attrs({ type: "button" })`
 
 const Navbar = ({ showMenu }) => (
   <StyledNavbar>
-    <Link href="/about">
+    <Link href="/about" passHref>
       <NavbarItem>About us</NavbarItem>
     </Link>
 
@@ -113,11 +114,11 @@ const Navbar = ({ showMenu }) => (
       Projects <Caret />
     </Toggle>
 
-    <Link href="/reports">
+    <Link href="/reports" passHref>
       <NavbarItem>Reports</NavbarItem>
     </Link>
 
-    <Link href="/contact">
+    <Link href="/contact" passHref>
       <NavbarItem>Contact</NavbarItem>
     </Link>
   </StyledNavbar>
@@ -126,12 +127,14 @@ const Navbar = ({ showMenu }) => (
 const Navigation = () => {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
-  const closeMenu = useCallback(() => setIsMenuVisible(false), [
-    setIsMenuVisible,
-  ]);
-  const showMenu = useCallback(() => setIsMenuVisible(true), [
-    setIsMenuVisible,
-  ]);
+  const closeMenu = useCallback(
+    () => setIsMenuVisible(false),
+    [setIsMenuVisible]
+  );
+  const showMenu = useCallback(
+    () => setIsMenuVisible(true),
+    [setIsMenuVisible]
+  );
 
   useEffect(() => {
     if (isMenuVisible) {
@@ -139,7 +142,7 @@ const Navigation = () => {
     } else {
       document.removeEventListener("click", closeMenu);
     }
-  }, [isMenuVisible]);
+  }, [closeMenu, isMenuVisible]);
 
   return (
     <header>
@@ -148,7 +151,7 @@ const Navigation = () => {
           <Flex flex={1}>
             <Link href="/">
               <a>
-                <img alt="SEDS" height="60px" src="/logo.png" />
+                <Image alt="SEDS" height="60px" src="/logo.png" />
               </a>
             </Link>
           </Flex>

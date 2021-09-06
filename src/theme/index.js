@@ -1,4 +1,4 @@
-export default {
+const theme = {
   colors: {
     action: "#1D6DC2",
     dark: "#4A4A4A",
@@ -7,3 +7,5 @@ export default {
   },
   typography: {},
 };
+
+export default theme

@@ -39,7 +39,12 @@ const Reports = () => (
         code1 > code2 ? 1 : -1
       )
       .map(({ fields: { file, title }, sys: { id } }) => (
-        <a href={file.fields.file.url} key={id} target="_blank">
+        <a
+          href={file.fields.file.url}
+          key={id}
+          rel="noreferrer"
+          target="_blank"
+        >
           <Card>
             <Flex alignItems="center" justifyContent="space-between">
               <ReportTitle>{title}</ReportTitle>
