@@ -65,7 +65,7 @@ const Contact = () => {
 
       <ContactContainer>
         <Title>Get in touch</Title>
-        <SubTitle>We'd love to hear from you</SubTitle>
+        <SubTitle>We&apos;d love to hear from you</SubTitle>
 
         <Formik
           initialValues={{

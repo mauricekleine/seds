@@ -24,7 +24,8 @@ const Volunteers = () => (
 
     <Flex direction="column" flex={7}>
       <p>
-        Check out these blogs to read about some of our volunteers' experiences:
+        Check out these blogs to read about some of our volunteers&apos;
+        experiences:
       </p>
 
       <a href="http://sedsngo.blogspot.in/2014/09/volunteer-say-dreamcatcher-workshop-by.html">

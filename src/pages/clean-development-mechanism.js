@@ -26,7 +26,12 @@ const CleanDevelopmentMechanism = () => (
       well.
     </p>
 
-    <Image name="biogas-2" />
+    <Image
+      alt="SEDS is a member of the Fair Climate Network, an association of
+        grassroots NGOs who utilize carbon resources for the sustainable
+        development of the poor."
+      name="biogas-2"
+    />
 
     <p>
       SEDS also facilitates the rigorous validation procedures that CDM
