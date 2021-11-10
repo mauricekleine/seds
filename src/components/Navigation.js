@@ -151,7 +151,7 @@ const Navigation = () => {
           <Flex flex={1}>
             <Link href="/">
               <a>
-                <Image alt="SEDS" height="60px" src="/logo.png" />
+                <Image alt="SEDS" height={53} width={128} src="/logo.png" />
               </a>
             </Link>
           </Flex>

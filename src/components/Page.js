@@ -25,7 +25,7 @@ const Page = ({ children, image = {}, intro, title }) => (
 
     {image.name && (
       <Container fullWidth>
-        <Image name={image.name} title={title} />
+        <Image alt={title} name={image.name} title={title} />
       </Container>
     )}
 

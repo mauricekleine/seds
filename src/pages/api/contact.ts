@@ -1,9 +1,12 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
 import sendgrid from "@sendgrid/mail";
+import { NextApiRequest, NextApiResponse } from "next";
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-export default async (request: VercelRequest, response: VercelResponse) => {
+const sendEmail = async (
+  request: NextApiRequest,
+  response: NextApiResponse
+) => {
   if (request.method !== "POST") {
     return response.status(405).end();
   }
@@ -56,3 +59,5 @@ export default async (request: VercelRequest, response: VercelResponse) => {
     return response.status(500).end();
   }
 };
+
+export default sendEmail;

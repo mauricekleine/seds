@@ -35,6 +35,32 @@ const Homepage = () => (
         years near the town of Penukonda in Andhra Pradesh.
       </p>
 
+      <p>
+        We recently did an interview with Digital Discourse, check it out here:
+        <ul>
+          <li>
+            <a
+              href="https://digitaldiscourseinterviews.blogspot.com/2021/11/interview-ofmanil-joshua-ceo-seds-ngo.html"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Interview of Manil Joshua, CEO, Founder Member SEDS NGO Anantapur,
+              Andhra Pradesh
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="https://digitaldiscoursephotoblogspot.blogspot.com/2021/11/email-interview-mrs.html"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Watershed Management in Anantapur - interventions by SEDSNGO
+            </a>
+          </li>
+        </ul>
+      </p>
+
       <FlexContainer parent>
         <Flex flex={1}>
           <VolunteerCard />
