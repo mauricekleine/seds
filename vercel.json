@@ -1,9 +1,7 @@
 {
   "build": {
     "env": {
-      "CONTENTFUL_SPACE": "@contentful_space",
-      "CONTENTFUL_TOKEN": "@contentful_token",
-      "SENDGRID_API_KEY": "@sendgrid_api_key"
+      "ENABLE_FILE_SYSTEM_API": "1"
     }
   },
   "trailingSlash": false
