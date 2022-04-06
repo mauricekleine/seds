@@ -3,18 +3,21 @@
 @tailwind utilities;
 
 @font-face {
+  font-display: swap;
   font-family: "Open Sans";
   font-weight: 400;
   src: url("/fonts/OpenSans-Regular.ttf");
 }
 
 @font-face {
+  font-display: swap;
   font-family: "Open Sans";
   font-weight: 600;
   src: url("/fonts/OpenSans-SemiBold.ttf");
 }
 
 @font-face {
+  font-display: swap;
   font-family: "Ubuntu";
   font-weight: 500;
   src: url("/fonts/Ubuntu-Medium.ttf");

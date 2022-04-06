@@ -32,7 +32,7 @@ const Footer = () => (
           </div>
 
           <div className="flex-1 space-y-6">
-            <div className="flex flex-col md:items-end">
+            <div className="flex flex-col lg:items-end">
               <h3 className="font-display text-lg">Contact info</h3>
 
               <div className="flex items-center space-x-2 justify-center lg:justify-start">
@@ -52,7 +52,7 @@ const Footer = () => (
               </div>
             </div>
 
-            <div className="flex flex-col items-center md:items-end">
+            <div className="flex flex-col items-center lg:items-end">
               <h3 className="font-display text-lg">Social media</h3>
 
               <a
