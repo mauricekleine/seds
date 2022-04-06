@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import classNames from "classnames";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   alt: string;
@@ -7,21 +8,37 @@ type Props = {
 };
 
 function Image({ alt, name, title }: Props) {
-  const [imageDimensions, setImageDimensions] = useState(1);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
-    if (document.documentElement.clientWidth > 768) {
-      setImageDimensions(2);
+    if (!imageRef.current) {
+      return;
     }
-  }, [name]);
+
+    if (imageRef.current.complete) {
+      setIsImageLoaded(true);
+    }
+
+    if (document.documentElement.clientWidth > 768) {
+      imageRef.current.src = `/${name}@2x.jpg`;
+    }
+  }, []);
 
   return (
     <div className="relative">
+      {isImageLoaded ? null : (
+        <div className="animate-pulse w-full bg-gray-100 h-64 md:h-96"></div>
+      )}
+
       <img
         alt={alt}
-        className="w-full m-0 max-h-64 md:max-h-96 object-cover"
-        height={imageDimensions === 1 ? 320 : 400}
-        src={`/${name}@${imageDimensions}x.jpg`}
+        className={classNames("w-full m-0 max-h-64 md:max-h-96 object-cover", {
+          hidden: !isImageLoaded,
+        })}
+        onLoad={() => setIsImageLoaded(true)}
+        ref={imageRef}
+        src={`/${name}@1x.jpg`}
       />
 
       {title ? (

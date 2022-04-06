@@ -17,18 +17,16 @@ const CompareImage = ({ caption, name }: Props) => {
 
   return (
     <>
-      {imageDimensions ? (
-        <ReactCompareImage
-          leftImage={`/before-after/${name}-before@${imageDimensions}x.jpg`}
-          leftImageCss={{
-            margin: 0,
-          }}
-          rightImage={`/before-after/${name}-after@${imageDimensions}x.jpg`}
-          rightImageCss={{
-            margin: 0,
-          }}
-        />
-      ) : null}
+      <ReactCompareImage
+        leftImage={`/before-after/${name}-before@${imageDimensions}x.jpg`}
+        leftImageCss={{
+          margin: 0,
+        }}
+        rightImage={`/before-after/${name}-after@${imageDimensions}x.jpg`}
+        rightImageCss={{
+          margin: 0,
+        }}
+      />
 
       {caption ? <small>{caption}</small> : null}
     </>
