@@ -43,7 +43,9 @@ function Image({ alt, name, title }: Props) {
 
       {title ? (
         <div className="bg-gray-800 bg-opacity-75 absolute bottom-0 left-0 p-4">
-          <h1 className="text-white font-display m-0">{title}</h1>
+          <h1 className="text-white text-3xl sm:text-4xl font-display m-0">
+            {title}
+          </h1>
         </div>
       ) : null}
     </div>

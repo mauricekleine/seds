@@ -25,7 +25,7 @@ function NavbarMd() {
   }, [closeMenu, isMenuVisible]);
 
   return (
-    <nav className="flex relative items-center justify-between md:space-x-8">
+    <nav className="flex relative items-center justify-between space-x-6 md:space-x-8">
       <NavbarLink to="/">Home</NavbarLink>
 
       <NavbarLink to="/about">About us</NavbarLink>
@@ -36,11 +36,9 @@ function NavbarMd() {
           onClick={showMenu}
           type="button"
         >
-          <span className="leading-10 text-lg text-white md:text-gray-600">
-            Projects
-          </span>
+          <span className="leading-10 text-lg text-gray-600">Projects</span>
 
-          <span className="border-t-[6px] md:border-t-green-600 border-t-white border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent rounded-sm" />
+          <span className="border-t-[6px] border-t-green-600 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent rounded-sm" />
         </button>
 
         {isMenuVisible && (

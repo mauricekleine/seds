@@ -18,13 +18,13 @@ function Navigation() {
             />
           </Link>
 
-          <div className="hidden md:block">
+          <div className="hidden sm:block">
             <NavbarMd />
           </div>
         </div>
       </div>
 
-      <div className="md:hidden">
+      <div className="sm:hidden">
         <NavbarSm />
       </div>
     </header>

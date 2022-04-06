@@ -10,7 +10,7 @@ function NavbarLink({ children, to }: Props) {
   return (
     <NavLink
       className={({ isActive }) =>
-        classNames("leading-10 text-lg text-white md:text-gray-600", {
+        classNames("leading-10 text-lg text-white sm:text-gray-600", {
           underline: isActive,
         })
       }
