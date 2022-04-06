@@ -1,5 +1,3 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
   content: ["./app/**/*.{ts,tsx}"],
   darkMode: "class",
@@ -12,8 +10,8 @@ module.exports = {
         descriptive: "#16A34A",
       },
       fontFamily: {
-        display: ["Ubuntu", ...defaultTheme.fontFamily.sans],
-        sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+        display: ["Ubuntu", "sans-serif"],
+        sans: ["Open Sans", "sans-serif"],
       },
     },
   },

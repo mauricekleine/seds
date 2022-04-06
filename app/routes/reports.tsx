@@ -67,7 +67,7 @@ function Reports() {
           >
             <Card>
               <div className="flex items-center justify-between">
-                <strong>{title}</strong>
+                <span className="font-semibold">{title}</span>
 
                 <FileArrowDown className="text-green-600 h-8 w-8" />
               </div>

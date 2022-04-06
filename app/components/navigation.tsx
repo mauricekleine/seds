@@ -65,8 +65,8 @@ function Navbar() {
         </button>
 
         {isMenuVisible && (
-          <div className="absolute mt-4 left-0 z-10 w-full px-4 before:border-l-transparent before:border-r-transparent before:-top-2 before:absolute before:left-[36%] before:border-b-8 before:border-b-white before:border-l-8 before:border-r-8">
-            <div className="p-4 bg-white shadow border border-gray-200 border-t-0 rounded-md">
+          <div className="absolute mt-4 left-0 z-10 w-full px-4 before:border-l-transparent before:border-r-transparent before:-top-2 before:absolute before:left-1/2 before:border-b-8 before:border-b-white before:border-l-8 before:border-r-8">
+            <div className="p-4 bg-white shadow-xl border border-gray-300 border-t-0 rounded-md">
               <ProjectLinks />
             </div>
           </div>

@@ -16,9 +16,9 @@ const Footer = () => (
 
             <address className="not-italic flex space-x-2 justify-center lg:justify-start">
               <div className="flex flex-col">
-                <strong className="font-sans">
+                <span className="font-semibold">
                   Social Education and Development Society
-                </strong>
+                </span>
 
                 <span>Anandapuram H.O.</span>
 

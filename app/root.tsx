@@ -12,22 +12,7 @@ import styles from "~/app.css";
 import Footer from "~/components/footer";
 import Navigation from "~/components/navigation";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
-  {
-    crossOrigin: "anonymous",
-    rel: "preconnect",
-    href: "https://fonts.googleapis.com",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&family=Ubuntu:wght@500&display=swap",
-  },
-  {
-    rel: "icon",
-    href: "/favicon.png",
-  },
-];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -39,7 +24,7 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   return (
-    <html lang="en">
+    <html className="font-sans font-normal" lang="en">
       <head>
         <Meta />
 
