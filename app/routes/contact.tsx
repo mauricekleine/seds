@@ -15,7 +15,7 @@ const schema = object().shape({
 
 export const action: ActionFunction = async ({ request }) => {
   const mailchimp = require("@mailchimp/mailchimp_transactional")(
-    process.env.MAILCHIMP_API_KEY
+    process.env.MANDRILL_API_KEY
   );
 
   const form = await request.formData();
