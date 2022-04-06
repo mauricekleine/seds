@@ -1,5 +1,5 @@
-import { ActionFunction, MetaFunction, json } from "@remix-run/node";
-import { useTransition } from "@remix-run/react";
+import { ActionFunction, MetaFunction, json, redirect } from "@remix-run/node";
+import { useParams, useSearchParams, useTransition } from "@remix-run/react";
 import { object, string } from "yup";
 
 import DonorCard from "~/components/donor-card";
@@ -33,7 +33,7 @@ export const action: ActionFunction = async ({ request }) => {
   });
 
   if (!isValid) {
-    return json("Form not submitted correctly.", { status: 400 });
+    return redirect("/contact?error=true");
   }
 
   const mail = {
@@ -51,19 +51,19 @@ export const action: ActionFunction = async ({ request }) => {
 
       <table>
         <tr>
-          <td>Name</td>
+          <td>Name:</td>
           <td>${name}</td>
         </tr>
 
         <tr>
-          <td>Email</td>
+          <td>Email:</td>
           <td>${email}</td>
         </tr>
 
         ${
           phonenumber &&
           `<tr>
-          <td>Phonenumber</td>
+          <td>Phone number:</td>
           <td>${phonenumber}</td>
         </tr>`
         }
@@ -77,11 +77,11 @@ export const action: ActionFunction = async ({ request }) => {
   };
 
   try {
-    const response = await mailchimp.messages.send({ message: mail });
+    await mailchimp.messages.send({ message: mail });
 
-    return json("Email sent");
+    return redirect("/contact?success=true");
   } catch (err) {
-    return json("Something went wrong", { status: 500 });
+    return redirect("/contact?error=true");
   }
 };
 
@@ -93,9 +93,22 @@ export const meta: MetaFunction = () => ({
 
 const Contact = () => {
   const transition = useTransition();
+  const [searchParams] = useSearchParams();
 
   return (
     <>
+      {searchParams.get("error") ? (
+        <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
+          Something went wrong, please try again.
+        </div>
+      ) : null}
+
+      {searchParams.get("success") ? (
+        <div className="bg-green-600 px-4 py-2 text-white mt-4 rounded">
+          Thank you for your message, we'll get back to you soon!
+        </div>
+      ) : null}
+
       <div>
         <div className="flex flex-col md:flex-row md:space-x-4">
           <div className="flex-1">
@@ -119,7 +132,13 @@ const Contact = () => {
               Your name
             </label>
 
-            <input id="name" name="name" placeholder="Your name" type="text" />
+            <input
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required
+              type="text"
+            />
           </FormGroup>
 
           <FormGroup>
@@ -131,6 +150,7 @@ const Contact = () => {
               id="email"
               name="email"
               placeholder="Your email"
+              required
               type="email"
             />
           </FormGroup>
@@ -164,6 +184,7 @@ const Contact = () => {
               id="message"
               name="message"
               placeholder="Your message"
+              required
               rows={5}
             />
           </FormGroup>

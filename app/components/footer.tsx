@@ -9,14 +9,12 @@ const Footer = () => (
     <div className="pt-4">
       <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
         <div className="flex text-center lg:text-left flex-col space-y-6 lg:flex-row lg:space-y-0 lg:space-x-4">
-          <div className="flex flex-col flex-1">
-            <h3 className="font-display text-lg">Address</h3>
+          <div className="flex flex-col items-center lg:items-start flex-1">
+            <h3 className="font-display flex items-center text-lg">
+              <MapPin /> Address
+            </h3>
 
             <address className="not-italic flex space-x-2 justify-center lg:justify-start">
-              <div className="lg:pt-1">
-                <MapPin />
-              </div>
-
               <div className="flex flex-col">
                 <strong className="font-sans">
                   Social Education and Development Society
@@ -33,36 +31,38 @@ const Footer = () => (
             </address>
           </div>
 
-          <div className="flex flex-col flex-1">
-            <h3 className="font-display text-lg">Contact info</h3>
+          <div className="flex-1 space-y-6">
+            <div className="flex flex-col md:items-end">
+              <h3 className="font-display text-lg">Contact info</h3>
 
-            <div className="flex items-center space-x-2 justify-center lg:justify-start">
-              <div className="lg:pt-1">
-                <EnvelopeSimple />
+              <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                <div className="lg:pt-1">
+                  <EnvelopeSimple />
+                </div>
+
+                <span>info@sedsngo.org</span>
               </div>
 
-              <span>info@sedsngo.org</span>
-            </div>
+              <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                <div className="lg:pt-1">
+                  <Phone />
+                </div>
 
-            <div className="flex items-center space-x-2 justify-center lg:justify-start">
-              <div className="lg:pt-1">
-                <Phone />
+                <span>+91 9440579566</span>
               </div>
-
-              <span>+91 9440579566</span>
             </div>
-          </div>
 
-          <div className="flex flex-col items-center justify-center md:justify-start">
-            <h3 className="font-display text-lg">Social media</h3>
+            <div className="flex flex-col items-center md:items-end">
+              <h3 className="font-display text-lg">Social media</h3>
 
-            <a
-              href="https://www.facebook.com/pages/SEDS-Social-Education-and-Development-Society-SEDS/190839020942963"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <FacebookLogo className="h-8 w-8" color="#3B5998" />
-            </a>
+              <a
+                href="https://www.facebook.com/pages/SEDS-Social-Education-and-Development-Society-SEDS/190839020942963"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <FacebookLogo className="h-8 w-8" color="#3B5998" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
