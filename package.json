@@ -12,7 +12,8 @@
     "lint": "eslint ./app && prettier ./app --check",
     "lint:fix": "eslint ./app --fix && prettier ./app --write",
     "prepare": "husky install",
-    "start": "remix-serve build"
+    "start": "remix-serve build",
+    "typecheck": "tsc -b"
   },
   "repository": {
     "type": "git",

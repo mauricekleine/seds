@@ -2,7 +2,6 @@ import { List, X } from "phosphor-react";
 import { useCallback, useEffect, useState } from "react";
 
 import NavbarLink from "~/components/navbar-link";
-import ProjectLinks from "~/components/project-links";
 
 function NavbarSm() {
   const [isMenuVisible, setIsMenuVisible] = useState(false);
@@ -36,7 +35,7 @@ function NavbarSm() {
       </button>
 
       {isMenuVisible && (
-        <nav className="flex bg-green-600 flex-col absolute justify-between md:space-x-8 z-10 left-0 right-0 mx-auto px-8">
+        <nav className="flex bg-green-600 shadow-2xl flex-col absolute justify-between md:space-x-8 z-10 left-0 right-0 mx-auto px-8">
           <NavbarLink to="/">Home</NavbarLink>
 
           <NavbarLink to="/about">About us</NavbarLink>
@@ -47,7 +46,7 @@ function NavbarSm() {
 
           <p className="leading-10 text-gray-100 uppercase text-xs">Projects</p>
 
-          <div className="flex flex-col border-t border-b mb-2">
+          <div className="flex flex-col border-t border-white mb-2">
             <NavbarLink to="/education">Children&apos;s education</NavbarLink>
 
             <NavbarLink to="/clean-development-mechanism">
