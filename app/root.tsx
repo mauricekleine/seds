@@ -29,6 +29,10 @@ export default function App() {
         <Meta />
 
         <Links />
+
+        {process.env.NODE_ENV === "production" ? (
+          <script src="https://www.google.com/recaptcha/api.js?render=6LdRqWAfAAAAAIn3HEtC2rKXT9JD-1k4bysQF93O"></script>
+        ) : null}
       </head>
 
       <body>

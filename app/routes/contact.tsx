@@ -1,5 +1,6 @@
-import { ActionFunction, MetaFunction, json, redirect } from "@remix-run/node";
-import { useParams, useSearchParams, useTransition } from "@remix-run/react";
+import { ActionFunction, MetaFunction, redirect } from "@remix-run/node";
+import { useSearchParams, useSubmit, useTransition } from "@remix-run/react";
+import { FormEventHandler, useRef } from "react";
 import { object, string } from "yup";
 
 import DonorCard from "~/components/donor-card";
@@ -24,6 +25,7 @@ export const action: ActionFunction = async ({ request }) => {
   const message = form.get("message");
   const name = form.get("name");
   const phonenumber = form.get("phonenumber");
+  const token = form.get("token");
 
   const isValid = await schema.isValid({
     email,
@@ -34,6 +36,21 @@ export const action: ActionFunction = async ({ request }) => {
 
   if (!isValid) {
     return redirect("/contact?error=true");
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    const recaptchaResponse = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?response=${token}&secret=${process.env.RECAPTCHA_SECRET_KEY}`,
+      {
+        method: "POST",
+      }
+    );
+
+    const recaptchaData: { success: boolean } = await recaptchaResponse.json();
+
+    if (!recaptchaData.success) {
+      return redirect("/contact?error=true");
+    }
   }
 
   const mail = {
@@ -92,8 +109,40 @@ export const meta: MetaFunction = () => ({
 });
 
 const Contact = () => {
-  const transition = useTransition();
+  const formRef = useRef<HTMLFormElement>(null);
   const [searchParams] = useSearchParams();
+  const submit = useSubmit();
+  const transition = useTransition();
+
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+    const form = formRef.current;
+
+    if (!form) {
+      return;
+    }
+
+    // @ts-ignore
+    if (!window.hasOwnProperty("grecaptcha")) {
+      return submit(event.currentTarget);
+    }
+
+    // @ts-ignore
+    window.grecaptcha.ready(() => {
+      // @ts-ignore
+      window.grecaptcha
+        .execute("6LdRqWAfAAAAAIn3HEtC2rKXT9JD-1k4bysQF93O", {
+          action: "submit",
+        })
+        .then((token: string) => {
+          const formData = new FormData(form);
+          formData.set("token", token);
+
+          submit(formData, { method: "post" });
+          window.scrollTo({ top: 0 });
+        });
+    });
+  };
 
   return (
     <>
@@ -122,7 +171,12 @@ const Contact = () => {
       </div>
 
       <div>
-        <form className="border px-6 py-4 rounded" method="post">
+        <form
+          className="border px-6 py-4 rounded"
+          method="post"
+          onSubmit={handleSubmit}
+          ref={formRef}
+        >
           <h3 className="font-display">Get in touch</h3>
 
           <p>We&apos;d love to hear from you</p>
