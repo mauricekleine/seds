@@ -1,4 +1,4 @@
-import { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
 
 import DonorCard from "~/components/donor-card";
 import Image from "~/components/image";

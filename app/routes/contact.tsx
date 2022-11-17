@@ -1,6 +1,8 @@
-import { ActionFunction, MetaFunction, redirect } from "@remix-run/node";
+import type { ActionFunction, MetaFunction } from "@remix-run/node";
+import { redirect } from "@remix-run/node";
 import { useSearchParams, useSubmit, useTransition } from "@remix-run/react";
-import { FormEventHandler, useRef } from "react";
+import type { FormEventHandler } from "react";
+import { useRef } from "react";
 import { object, string } from "yup";
 
 import DonorCard from "~/components/donor-card";

@@ -1,4 +1,4 @@
-import { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
 
 import Image from "~/components/image";
 import Page from "~/components/page";
