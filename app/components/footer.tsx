@@ -40,7 +40,7 @@ const Footer = () => (
                   <EnvelopeSimple />
                 </div>
 
-                <span>info@sedsngo.org</span>
+                <span>sedsngo@gmail.com</span>
               </div>
 
               <div className="flex items-center space-x-2 justify-center lg:justify-start">

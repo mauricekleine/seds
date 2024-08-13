@@ -9,3 +9,5 @@ node_modules
 /app/app.css
 /build/
 /public/build
+
+.DS_Store
