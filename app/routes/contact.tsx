@@ -57,10 +57,10 @@ export const action: ActionFunction = async ({ request }) => {
 
   const mail = {
     to: [
-      { email: "sedsngo@gmail.com", type: "to" },
+      { email: "info@sedsngo.org", type: "to" },
       { email, name, type: "cc" },
     ],
-    from_email: "sedsngo@gmail.com",
+    from_email: "info@sedsngo.org",
     from_name: "SEDS Contact Form",
     subject: `New message from ${name} <${email}>`,
     text: message,
