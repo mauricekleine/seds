@@ -1,0 +1,8 @@
+{
+  "projectId": "d9eaa58d-ff59-415b-babe-2e307bec0c4e",
+  "createdAt": 1770313762811,
+  "startupCommands": [
+    "pnpm install; pnpm run dev:css",
+    "pnpm exec remix dev"
+  ]
+}
