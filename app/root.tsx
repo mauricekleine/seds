@@ -35,21 +35,24 @@ export default function App() {
         ) : null}
       </head>
 
-      <body>
-        <Navigation />
+        <body>
+          <Navigation />
 
-        <main className="container prose mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <Outlet />
-        </main>
+          <main className="container prose mx-auto lg:max-w-screen-md px-8 lg:px-0">
+            <Outlet />
+          </main>
 
-        <ScrollRestoration />
+          <script src="/seds-years.js"></script>
 
-        <Scripts />
+          <ScrollRestoration />
 
-        <LiveReload />
+          <Scripts />
 
-        <Footer />
-      </body>
+          <LiveReload />
+
+          <Footer />
+        </body>
+
     </html>
   );
 }
