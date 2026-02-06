@@ -6,23 +6,28 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "@remix-run/react";
 
 import styles from "~/app.css";
 import Footer from "~/components/footer";
 import Navigation from "~/components/navigation";
+import StickyDonateButton from "~/components/sticky-donate-button";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   description:
-    "The Social Education and Development Society (SEDS) is a Non-Governmental Organisation that has been actively involved in socially transforming initiatives and rural development for over 38 years near the town of Penukonda in Andhra Pradesh.",
-  title: "SEDS",
+    "SEDS (Social Education and Development Society) has been transforming rural communities in Andhra Pradesh through sustainable development, education, and environmental programs for over 46 years.",
+  title: "SEDS - Social Education and Development Society",
   viewport: "width=device-width,initial-scale=1",
 });
 
 export default function App() {
+  const location = useLocation();
+  const isHomepage = location.pathname === "/";
+
   return (
     <html className="font-sans font-normal" lang="en">
       <head>
@@ -35,24 +40,31 @@ export default function App() {
         ) : null}
       </head>
 
-        <body>
-          <Navigation />
+      <body>
+        <Navigation />
 
+        {isHomepage ? (
+          <main>
+            <Outlet />
+          </main>
+        ) : (
           <main className="container prose mx-auto lg:max-w-screen-md px-8 lg:px-0">
             <Outlet />
           </main>
+        )}
 
-          <script src="/seds-years.js"></script>
+        <script src="/seds-years.js"></script>
 
-          <ScrollRestoration />
+        <ScrollRestoration />
 
-          <Scripts />
+        <Scripts />
 
-          <LiveReload />
+        <LiveReload />
 
-          <Footer />
-        </body>
+        <StickyDonateButton />
 
+        <Footer />
+      </body>
     </html>
   );
 }
