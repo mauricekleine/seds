@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { EnvelopeSimple, Phone } from "phosphor-react";
+import DonationCalculator from "~/components/donation-calculator";
 
 export const meta: MetaFunction = () => ({
   title: "Donate - SEDS",
