@@ -3,12 +3,9 @@ import {
   X,
   House,
   Info,
-  FileText,
-  EnvelopeSimple,
-  GraduationCap,
-  Sun,
-  Leaf,
-  Drop,
+  Briefcase,
+  Handshake,
+  Coins,
 } from "phosphor-react";
 import { NavLink } from "@remix-run/react";
 import { useCallback, useEffect, useState } from "react";
@@ -101,35 +98,25 @@ function NavbarSm() {
                 Home
               </MobileNavLink>
               <MobileNavLink to="/about" icon={<Info className="w-5 h-5" />} onClick={closeMenu}>
-                About us
+                About
               </MobileNavLink>
-              <MobileNavLink to="/reports" icon={<FileText className="w-5 h-5" />} onClick={closeMenu}>
-                Reports
+              <MobileNavLink to="/our-work" icon={<Briefcase className="w-5 h-5" />} onClick={closeMenu}>
+                Our Work
               </MobileNavLink>
-              <MobileNavLink to="/contact" icon={<EnvelopeSimple className="w-5 h-5" />} onClick={closeMenu}>
-                Contact
+              <MobileNavLink to="/volunteers" icon={<Handshake className="w-5 h-5" />} onClick={closeMenu}>
+                Get Involved
               </MobileNavLink>
             </div>
 
-            <div className="px-4 pt-2 pb-1">
-              <p className="text-green-200 uppercase text-xs font-semibold tracking-wider">
-                Our Programs
-              </p>
-            </div>
-
-            <div className="p-4 pt-2 space-y-1 border-t border-green-500/30">
-              <MobileNavLink to="/education" icon={<GraduationCap className="w-5 h-5" />} onClick={closeMenu}>
-                Children&apos;s Education
-              </MobileNavLink>
-              <MobileNavLink to="/clean-development-mechanism" icon={<Sun className="w-5 h-5" />} onClick={closeMenu}>
-                Clean Development
-              </MobileNavLink>
-              <MobileNavLink to="/low-carbon-farming" icon={<Leaf className="w-5 h-5" />} onClick={closeMenu}>
-                Low Carbon Farming
-              </MobileNavLink>
-              <MobileNavLink to="/natural-resource-management" icon={<Drop className="w-5 h-5" />} onClick={closeMenu}>
-                Natural Resources
-              </MobileNavLink>
+            <div className="p-4 pt-2 border-t border-green-500/30">
+              <NavLink
+                to="/donate"
+                onClick={closeMenu}
+                className="flex items-center justify-center gap-2 bg-white text-green-700 font-semibold py-3 px-4 rounded-lg hover:bg-green-50 transition-colors"
+              >
+                <Coins className="w-5 h-5" />
+                <span>Donate</span>
+              </NavLink>
             </div>
           </nav>
         </>

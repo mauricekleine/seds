@@ -1,9 +1,13 @@
+import { calculateSEDSYears } from "~/utils/seds-years";
+
 type HeroProps = {
   imageName: string;
   imageAlt: string;
 };
 
 function Hero({ imageName, imageAlt }: HeroProps) {
+  const years = calculateSEDSYears();
+
   return (
     <section className="relative">
       <img
@@ -15,13 +19,27 @@ function Hero({ imageName, imageAlt }: HeroProps) {
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
+      <div className="absolute top-4 right-4 md:top-6 md:right-6">
+        <div className="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-3 text-center shadow-lg">
+          <span
+            className="block text-3xl md:text-4xl font-display text-green-700 leading-none"
+            data-seds-years
+          >
+            {years}
+          </span>
+          <span className="text-xs md:text-sm font-semibold text-gray-600 uppercase tracking-wider">
+            Years of Impact
+          </span>
+        </div>
+      </div>
+
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
         <div className="container mx-auto lg:max-w-screen-md">
           <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-display m-0 mb-4 leading-tight">
             Towards a Greener Tomorrow
           </h1>
           <p className="text-white/90 text-lg md:text-xl max-w-2xl m-0">
-            Transforming rural communities through sustainable development since 1980
+            Empowering rural communities in Andhra Pradesh through watershed restoration, education, and sustainable livelihoods
           </p>
         </div>
       </div>

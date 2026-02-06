@@ -45,6 +45,16 @@ function TestimonialsSection() {
             author="Local Farmer"
             role="Anantapur District"
           />
+          <Testimonial
+            quote="Before the self-help group, I had no way to save or access credit. Now our group manages its own funds, and I was able to start a small tailoring business."
+            author="Village Woman"
+            role="Self-Help Group Member, Somandepalli"
+          />
+          <Testimonial
+            quote="The check dams built by SEDS have recharged our wells. For the first time in years, we have water through the dry season. It has changed everything for our village."
+            author="Village Elder"
+            role="Watershed Beneficiary, Anantapur"
+          />
         </div>
       </div>
     </section>

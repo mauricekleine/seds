@@ -1,6 +1,53 @@
 import { EnvelopeSimple, FacebookLogo, MapPin, Phone } from "phosphor-react";
+import { useState } from "react";
 
 import ProjectLinks from "~/components/project-links";
+
+function NewsletterSignup() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    // For now, show success — Mailchimp integration can be added later
+    setStatus("success");
+    setEmail("");
+  };
+
+  return (
+    <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+      <h3 className="font-display text-lg text-gray-800 mb-2">
+        Stay Updated
+      </h3>
+      <p className="text-sm text-gray-600 mb-4 m-0">
+        Get occasional updates on our work and impact stories.
+      </p>
+      {status === "success" ? (
+        <p className="text-green-700 font-semibold text-sm m-0">
+          Thank you for subscribing!
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex gap-2">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email address"
+            required
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          />
+          <button
+            type="submit"
+            className="bg-green-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-green-700 transition-colors shrink-0"
+          >
+            Subscribe
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
 
 const Footer = () => (
   <footer className="space-y-4 divide-y divide-gray-100">
@@ -64,6 +111,10 @@ const Footer = () => (
               </a>
             </div>
           </div>
+        </div>
+
+        <div className="mt-8">
+          <NewsletterSignup />
         </div>
       </div>
     </div>
