@@ -3,20 +3,19 @@ import { Link } from "@remix-run/react";
 
 import CompareImage from "~/components/compare-image";
 import Page from "~/components/page";
+import { calculateSEDSYears } from "~/utils/seds-years";
+
+const sedsYears = calculateSEDSYears();
 
 export const meta: MetaFunction = () => ({
-  description:
-    "The Social Education and Development Society (SEDS) is a Non-Governmental Organisation that has been actively involved in socially transforming initiatives and rural development for over 38 years near the town of Penukonda in Andhra Pradesh.",
+  description: `The Social Education and Development Society (SEDS) is a Non-Governmental Organisation that has been actively involved in socially transforming initiatives and rural development for over ${sedsYears} years near the town of Penukonda in Andhra Pradesh.`,
   title: "SEDS | About",
 });
 
 const About = () => (
   <Page
     image={{ name: "rajen-manil" }}
-    intro="The Social Education and Development Society (SEDS) is a
-  Non-Governmental Organisation that has been actively involved in
-  socially transforming initiatives and rural development for over 38
-  years near the town of Penukonda in Andhra Pradesh."
+    intro={`The Social Education and Development Society (SEDS) is a Non-Governmental Organisation that has been actively involved in socially transforming initiatives and rural development for over ${sedsYears} years near the town of Penukonda in Andhra Pradesh.`}
     title="About SEDS"
   >
     <p>

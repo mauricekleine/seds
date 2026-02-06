@@ -5,10 +5,10 @@ import ImpactBanner from "~/components/impact-banner";
 import ProgramsSection from "~/components/programs-section";
 import TestimonialsSection from "~/components/testimonials-section";
 import CTASection from "~/components/cta-section";
+import { calculateSEDSYears } from "~/utils/seds-years";
 
 export const meta: MetaFunction = () => ({
-  description:
-    "SEDS (Social Education and Development Society) has been transforming rural communities in Andhra Pradesh through sustainable development, education, and environmental programs for over 46 years.",
+  description: `SEDS (Social Education and Development Society) has been transforming rural communities in Andhra Pradesh through sustainable development, education, and environmental programs for over ${calculateSEDSYears()} years.`,
   title: "SEDS - Social Education and Development Society",
 });
 
@@ -27,7 +27,7 @@ const Homepage = () => (
             The Social Education and Development Society (SEDS) is a
             Non-Governmental Organisation that has been actively involved in
             socially transforming initiatives and rural development for over{" "}
-            <span data-seds-years>46</span> years near the town of Penukonda in
+              <span data-seds-years>{calculateSEDSYears()}</span> years near the town of Penukonda in
             Anantapur District, Andhra Pradesh, India.
           </p>
           <a

@@ -2,6 +2,8 @@
   "use strict";
 
   // SEDS founding year - DO NOT CHANGE
+  // NOTE: The server-side equivalent is in app/utils/seds-years.ts.
+  // If you change FOUNDING_YEAR here, update it there too.
   const FOUNDING_YEAR = 1980;
 
   /**

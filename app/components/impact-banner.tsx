@@ -1,4 +1,5 @@
 import { TreeEvergreen, Users, House, CalendarBlank } from "phosphor-react";
+import { calculateSEDSYears } from "~/utils/seds-years";
 
 type StatProps = {
   icon: React.ReactNode;
@@ -27,12 +28,12 @@ function ImpactBanner() {
     <section className="bg-white border-b border-gray-200 shadow-sm">
       <div className="container mx-auto lg:max-w-screen-md">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
-          <Stat
-            icon={<CalendarBlank className="w-8 h-8" />}
-            value="46"
-            label="Years of Impact"
-            animated
-          />
+            <Stat
+              icon={<CalendarBlank className="w-8 h-8" />}
+              value={String(calculateSEDSYears())}
+              label="Years of Impact"
+              animated
+            />
           <Stat
             icon={<House className="w-8 h-8" />}
             value="350+"

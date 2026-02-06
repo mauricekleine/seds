@@ -13,13 +13,13 @@ import styles from "~/app.css";
 import Footer from "~/components/footer";
 import Navigation from "~/components/navigation";
 import StickyDonateButton from "~/components/sticky-donate-button";
+import { calculateSEDSYears } from "~/utils/seds-years";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  description:
-    "SEDS (Social Education and Development Society) has been transforming rural communities in Andhra Pradesh through sustainable development, education, and environmental programs for over 46 years.",
+  description: `SEDS (Social Education and Development Society) has been transforming rural communities in Andhra Pradesh through sustainable development, education, and environmental programs for over ${calculateSEDSYears()} years.`,
   title: "SEDS - Social Education and Development Society",
   viewport: "width=device-width,initial-scale=1",
 });

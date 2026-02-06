@@ -1,0 +1,4 @@
+2026-02-06T17:00:25.951Z [console][error] Warning: ReactDOM.hydrate is no longer supported in React 18. Use hydrateRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+2026-02-06T17:00:25.984Z [console][error] ResizeObserver loop completed with undelivered notifications.
+2026-02-06T17:00:35.969Z [console][error] Warning: ReactDOM.hydrate is no longer supported in React 18. Use hydrateRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+2026-02-06T17:00:36.000Z [console][error] ResizeObserver loop completed with undelivered notifications.
