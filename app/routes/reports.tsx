@@ -28,16 +28,27 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async () => {
-  const client = require("contentful").createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
+  const space = process.env.CONTENTFUL_SPACE_ID;
+  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 
-  const entries = await client.getEntries({
-    content_type: "reports",
-  });
+  if (!space || !accessToken) {
+    return json({ entries: { items: [] } });
+  }
 
-  return json({ entries });
+  try {
+    const client = require("contentful").createClient({
+      space,
+      accessToken,
+    });
+
+    const entries = await client.getEntries({
+      content_type: "reports",
+    });
+
+    return json({ entries });
+  } catch (error) {
+    return json({ entries: { items: [] } });
+  }
 };
 
 export const meta: MetaFunction = () => ({
@@ -55,30 +66,36 @@ function Reports() {
     <div className="pt-4">
       <h2 className="font-display">Reports</h2>
 
-      {entries.items
-        .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>
-          code1 > code2 ? 1 : -1
-        )
-        .map(({ fields: { file, title }, sys: { id } }) => (
-          <a
-            href={file.fields.file.url}
-            key={id}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Card>
-              <div className="flex items-center justify-between">
-                <span className="font-semibold">{title}</span>
+      {entries.items.length === 0 ? (
+        <p className="mt-4 text-gray-700 leading-6">
+          Reports are not available right now. Please check back later.
+        </p>
+      ) : (
+        entries.items
+          .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>
+            code1 > code2 ? 1 : -1
+          )
+          .map(({ fields: { file, title }, sys: { id } }) => (
+            <a
+              href={file.fields.file.url}
+              key={id}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Card>
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold">{title}</span>
 
-                <FileArrowDown className="text-green-600 h-8 w-8" />
-              </div>
+                  <FileArrowDown className="text-green-600 h-8 w-8" />
+                </div>
 
-              <FileType>{`.${file.fields.file.fileName
-                .split(".")
-                .pop()}`}</FileType>
-            </Card>
-          </a>
-        ))}
+                <FileType>{`.${file.fields.file.fileName
+                  .split(".")
+                  .pop()}`}</FileType>
+              </Card>
+            </a>
+          ))
+      )}
     </div>
   );
 }
