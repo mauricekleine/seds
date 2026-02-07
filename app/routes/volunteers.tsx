@@ -2,6 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 
 import Page from "~/components/page";
+import VolunteerTimeline from "~/components/volunteer-timeline";
 
 export const meta: MetaFunction = () => ({
   description:
@@ -24,6 +25,19 @@ const Volunteers = () => (
       Contact us about volunteering opportunities via{" "}
       <Link to="/contact">this form</Link>.
     </p>
+
+    <div className="not-prose my-8">
+      <h3 className="font-display text-lg text-gray-800 mb-4">
+        Preview Your Volunteer Journey
+      </h3>
+      <VolunteerTimeline compact />
+      <Link
+        to="/volunteer-experience"
+        className="inline-block mt-4 text-sm text-green-600 hover:text-green-700 font-medium no-underline"
+      >
+        View full 2-week timeline &rarr;
+      </Link>
+    </div>
 
     <div>
       <p>

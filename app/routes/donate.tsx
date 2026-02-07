@@ -21,9 +21,11 @@ export default function Donate() {
             and sustainable livelihood programs across Anantapur District
           </p>
         </div>
-      </section>
+        </section>
 
-      <section className="py-12 bg-white">
+        <DonationCalculator />
+
+        <section className="py-12 bg-white">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
           <div className="max-w-xl mx-auto text-center">
             <h2 className="font-display text-2xl text-gray-800 mb-4">

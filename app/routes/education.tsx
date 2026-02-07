@@ -1,6 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
+import { GraduationCap, Book, CookingPot, House } from "phosphor-react";
 
 import Page from "~/components/page";
+import FundingProgress from "~/components/funding-progress";
+import FundBreakdown from "~/components/fund-breakdown";
+import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({
   description:
@@ -33,6 +37,42 @@ const Education = () => (
       the needs of the school in the years to come. Please e-mail us from the
       contact page to find out how you can help.
     </p>
+
+    <div className="not-prose mt-8 space-y-6">
+      <FundingProgress
+        current={320000}
+        goal={500000}
+        label="Education Fund Progress"
+      />
+
+      <FundBreakdown
+        title="How Your Donation Helps"
+        items={[
+          {
+            icon: <GraduationCap className="w-5 h-5" />,
+            amount: "₹2,500/month",
+            description: "Sponsor one child's education",
+          },
+          {
+            icon: <Book className="w-5 h-5" />,
+            amount: "₹10,000",
+            description: "Textbooks and supplies for a class",
+          },
+          {
+            icon: <CookingPot className="w-5 h-5" />,
+            amount: "₹5,000/month",
+            description: "Hostel meals for 10 children",
+          },
+          {
+            icon: <House className="w-5 h-5" />,
+            amount: "₹50,000",
+            description: "Classroom maintenance and upgrades",
+          },
+        ]}
+      />
+
+      <PresetDonationButtons programName="Children's Education" />
+    </div>
   </Page>
 );
 

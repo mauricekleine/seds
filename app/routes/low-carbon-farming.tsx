@@ -1,6 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Plant, Leaf, Grain, Flask } from "phosphor-react";
 
 import Page from "~/components/page";
+import FundingProgress from "~/components/funding-progress";
+import FundBreakdown from "~/components/fund-breakdown";
+import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({
   description:
@@ -29,6 +33,42 @@ const LowCarbonFarming = () => (
       From a small demonstration plot of half an acre, LCF initiatives in the
       region have caught on and spread to over 2000 farm plots today.
     </p>
+
+    <div className="not-prose mt-8 space-y-6">
+      <FundingProgress
+        current={95000}
+        goal={300000}
+        label="LCF Fund Progress"
+      />
+
+      <FundBreakdown
+        title="How Your Donation Helps"
+        items={[
+          {
+            icon: <Plant className="w-5 h-5" />,
+            amount: "₹2,000",
+            description: "Set up a demonstration plot",
+          },
+          {
+            icon: <Leaf className="w-5 h-5" />,
+            amount: "₹5,000",
+            description: "Organic farming training for 5 farmers",
+          },
+          {
+            icon: <Grain className="w-5 h-5" />,
+            amount: "₹10,000",
+            description: "Seed bank for traditional crop varieties",
+          },
+          {
+            icon: <Flask className="w-5 h-5" />,
+            amount: "₹25,000",
+            description: "Soil testing lab for a village cluster",
+          },
+        ]}
+      />
+
+      <PresetDonationButtons programName="Low Carbon Farming" />
+    </div>
   </Page>
 );
 

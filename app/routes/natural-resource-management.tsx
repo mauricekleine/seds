@@ -1,7 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Drop, Tree, Mountains, Fish } from "phosphor-react";
 
 import CompareImage from "~/components/compare-image";
 import Page from "~/components/page";
+import FundingProgress from "~/components/funding-progress";
+import FundBreakdown from "~/components/fund-breakdown";
+import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({
   description:
@@ -39,6 +43,42 @@ const NaturalResourceManagement = () => (
     </p>
 
     <CompareImage caption="Reforestation near 'Rajen's hill" name="shed" />
+
+    <div className="not-prose mt-8 space-y-6">
+      <FundingProgress
+        current={180000}
+        goal={400000}
+        label="NRM Fund Progress"
+      />
+
+      <FundBreakdown
+        title="How Your Donation Helps"
+        items={[
+          {
+            icon: <Drop className="w-5 h-5" />,
+            amount: "₹10,000",
+            description: "Contribute to check dam construction",
+          },
+          {
+            icon: <Tree className="w-5 h-5" />,
+            amount: "₹500",
+            description: "Plant and maintain one tree",
+          },
+          {
+            icon: <Mountains className="w-5 h-5" />,
+            amount: "₹25,000",
+            description: "Restore one acre of degraded land",
+          },
+          {
+            icon: <Fish className="w-5 h-5" />,
+            amount: "₹5,000",
+            description: "Stock fish in a check dam tank",
+          },
+        ]}
+      />
+
+      <PresetDonationButtons programName="Natural Resource Management" />
+    </div>
   </Page>
 );
 

@@ -7,6 +7,7 @@ import ProgramsSection from "~/components/programs-section";
 import BeforeAfterGallery from "~/components/before-after-gallery";
 import CTASection from "~/components/cta-section";
 import TestimonialsSection from "~/components/testimonials-section";
+import UpdatesPreview from "~/components/updates-preview";
 import PartnersSection from "~/components/partners-section";
 import { calculateSEDSYears } from "~/utils/seds-years";
 
@@ -24,7 +25,32 @@ const Homepage = () => (
     <BeforeAfterGallery />
     <CTASection />
     <TestimonialsSection />
-    <PartnersSection />
+      <UpdatesPreview
+        updates={[
+          {
+            title: "New Check Dam Completed in Roddam Mandal",
+            slug: "new-check-dam-roddam",
+            date: "Jan 28, 2026",
+            category: "Watershed",
+            excerpt: "The latest check dam in Roddam mandal is now operational, expected to raise groundwater levels for 3 surrounding villages.",
+          },
+          {
+            title: "Annual Science Fair at SEDS School",
+            slug: "annual-science-fair",
+            date: "Jan 20, 2026",
+            category: "Education",
+            excerpt: "Students showcased 25 projects on environmental conservation, with the winning project on rainwater harvesting.",
+          },
+          {
+            title: "500th Biogas Digester Installed This Year",
+            slug: "500th-biogas-digester",
+            date: "Jan 15, 2026",
+            category: "CDM",
+            excerpt: "A milestone achievement as SEDS installs its 500th biogas digester of the year in Chilamathur mandal.",
+          },
+        ]}
+      />
+      <PartnersSection />
 
     <section className="py-10 bg-gray-50 border-t border-gray-200">
       <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
