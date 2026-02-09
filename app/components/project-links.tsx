@@ -10,8 +10,8 @@ function ProjectLink({ children, to }: ProjectLinkProps) {
   return (
     <NavLink
       className={({ isActive }) =>
-        classNames(
-          "hover:underline after:ml-2 after:border-b-[6px] after:inline-block after:border-b-transparent after:rounded-sm after:border-t-[6px] after:border-t-transparent after:border-l-[6px] after:border-l-green-600",
+          classNames(
+            "text-content-secondary hover:text-green-600 hover:underline after:ml-2 after:border-b-[6px] after:inline-block after:border-b-transparent after:rounded-sm after:border-t-[6px] after:border-t-transparent after:border-l-[6px] after:border-l-green-600",
           { underline: isActive }
         )
       }

@@ -9,7 +9,7 @@ function Image({ alt, name, title }: Props) {
     <div className="relative">
       <img
         alt={alt}
-        className="w-full bg-gray-100 m-0 h-64 md:h-96 object-cover"
+        className="w-full bg-surface-tertiary m-0 h-64 md:h-96 object-cover"
         src={`/${name}@1x.jpg`}
         srcSet={`/${name}@1x.jpg 1x, /${name}@2x.jpg 2x`}
       />

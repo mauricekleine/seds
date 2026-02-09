@@ -8,14 +8,14 @@ type TestimonialProps = {
 
 function Testimonial({ quote, author, role }: TestimonialProps) {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-      <Quotes className="w-8 h-8 text-green-600 mb-4" weight="fill" />
-      <blockquote className="text-gray-700 mb-4 leading-relaxed italic m-0 not-italic">
-        "{quote}"
-      </blockquote>
-      <div className="border-t border-gray-100 pt-4">
-        <p className="font-semibold text-gray-800 m-0">{author}</p>
-        <p className="text-sm text-gray-500 m-0">{role}</p>
+      <div className="bg-surface-primary rounded-lg p-6 shadow-sm border border-outline">
+        <Quotes className="w-8 h-8 text-green-600 mb-4" weight="fill" />
+        <blockquote className="text-content-secondary mb-4 leading-relaxed italic m-0 not-italic">
+          "{quote}"
+        </blockquote>
+        <div className="border-t border-outline pt-4">
+          <p className="font-semibold text-content-primary m-0">{author}</p>
+          <p className="text-sm text-content-tertiary m-0">{role}</p>
       </div>
     </div>
   );
@@ -23,15 +23,16 @@ function Testimonial({ quote, author, role }: TestimonialProps) {
 
 function TestimonialsSection() {
   return (
-    <section className="py-12 bg-white">
-      <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-        <div className="text-center mb-10">
-          <h2 className="font-display text-2xl md:text-3xl text-gray-800 mb-3">
-            Voices from the Field
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto m-0">
-            Hear from volunteers and community members about our impact
-          </p>
+      <section className="py-12 bg-surface-primary">
+        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+          <div className="text-center mb-10">
+            <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
+              Voices from the Field
+            </h2>
+            <p className="text-content-secondary max-w-xl mx-auto m-0">
+              Hear from volunteers and community members about our impact
+            </p>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

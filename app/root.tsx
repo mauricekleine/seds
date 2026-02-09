@@ -13,6 +13,7 @@ import styles from "~/app.css";
 import Footer from "~/components/footer";
 import Navigation from "~/components/navigation";
 import StickyDonateButton from "~/components/sticky-donate-button";
+import ThemeToggle from "~/components/theme-toggle";
 import { calculateSEDSYears } from "~/utils/seds-years";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
@@ -28,20 +29,26 @@ export default function App() {
   const location = useLocation();
   const isHomepage = location.pathname === "/";
 
-  return (
-    <html className="font-sans font-normal" lang="en">
-      <head>
-        <Meta />
+    return (
+      <html className="font-sans font-normal" lang="en">
+        <head>
+          <Meta />
 
-        <Links />
+          <Links />
 
-        {process.env.NODE_ENV === "production" ? (
-          <script src="https://www.google.com/recaptcha/api.js?render=6LdRqWAfAAAAAIn3HEtC2rKXT9JD-1k4bysQF93O"></script>
-        ) : null}
-      </head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(){try{var t=localStorage.getItem("theme");var d=t==="dark"||(t==null&&window.matchMedia("(prefers-color-scheme:dark)").matches);if(d)document.documentElement.classList.add("dark")}catch(e){}})()`,
+            }}
+          />
 
-      <body>
-        <Navigation />
+          {process.env.NODE_ENV === "production" ? (
+            <script src="https://www.google.com/recaptcha/api.js?render=6LdRqWAfAAAAAIn3HEtC2rKXT9JD-1k4bysQF93O"></script>
+          ) : null}
+        </head>
+
+        <body className="bg-surface-primary text-content-primary transition-colors">
+          <Navigation />
 
         {isHomepage ? (
           <main>

@@ -11,6 +11,8 @@ import { NavLink } from "@remix-run/react";
 import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
 
+import ThemeToggle from "~/components/theme-toggle";
+
 type MobileNavLinkProps = {
   to: string;
   icon: React.ReactNode;
@@ -57,21 +59,22 @@ function NavbarSm() {
 
   return (
     <>
-      <div className="bg-green-600 px-4 py-2">
-        <button
-          className="p-2 -ml-2 rounded-lg hover:bg-green-700/50 transition-colors"
-          onClick={toggleMenu}
-          type="button"
-          aria-label={isMenuVisible ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuVisible}
-        >
-          {isMenuVisible ? (
-            <X className="text-white w-7 h-7" />
-          ) : (
-            <List className="text-white w-7 h-7" />
-          )}
-        </button>
-      </div>
+      <div className="bg-green-600 px-4 py-2 flex items-center justify-between">
+          <button
+            className="p-2 -ml-2 rounded-lg hover:bg-green-700/50 transition-colors"
+            onClick={toggleMenu}
+            type="button"
+            aria-label={isMenuVisible ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuVisible}
+          >
+            {isMenuVisible ? (
+              <X className="text-white w-7 h-7" />
+            ) : (
+              <List className="text-white w-7 h-7" />
+            )}
+          </button>
+          <ThemeToggle />
+        </div>
 
       {isMenuVisible && (
         <>

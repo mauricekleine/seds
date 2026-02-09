@@ -10,15 +10,16 @@ export default function UpdatesPreview({ updates }: Props) {
   if (updates.length === 0) return null;
 
   return (
-    <section className="py-12 bg-white">
-      <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-        <div className="text-center mb-8">
-          <h2 className="font-display text-2xl md:text-3xl text-gray-800 mb-3">
-            Field Notes
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto m-0">
-            Latest updates from the ground
-          </p>
+      <section className="py-12 bg-surface-primary">
+        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+          <div className="text-center mb-8">
+            <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
+              Field Notes
+            </h2>
+            <p className="text-content-secondary max-w-xl mx-auto m-0">
+              Latest updates from the ground
+            </p>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

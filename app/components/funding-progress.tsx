@@ -29,10 +29,11 @@ export default function FundingProgress({ current, goal, label }: Props) {
 
   return (
     <div ref={ref} className="mb-6">
-      {label && (
-        <p className="text-sm font-semibold text-gray-800 mb-2 m-0">{label}</p>
-      )}
-      <div className="flex justify-between text-sm text-gray-600 mb-1">
+        {label && (
+          <p className="text-sm font-semibold text-content-primary mb-2 m-0">{label}</p>
+        )}
+        <div className="flex justify-between text-sm text-content-secondary mb-1">
+
         <span>
           {"₹" + current.toLocaleString("en-IN")} raised
         </span>
@@ -40,7 +41,8 @@ export default function FundingProgress({ current, goal, label }: Props) {
           Goal: {"₹" + goal.toLocaleString("en-IN")}
         </span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+        <div className="w-full bg-surface-tertiary rounded-full h-3 overflow-hidden">
+
         <div
           className="bg-green-600 h-3 rounded-full transition-all duration-1000 ease-out"
           style={{ width: `${width}%` }}

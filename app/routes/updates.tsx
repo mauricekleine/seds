@@ -83,22 +83,22 @@ export default function UpdatesPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-white">
-        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <div className="flex flex-wrap gap-2 mb-8">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`text-sm px-4 py-1.5 rounded-full border transition-colors ${
-                  activeCategory === cat
-                    ? "bg-green-600 text-white border-green-600"
-                    : "bg-white text-gray-600 border-gray-200 hover:border-green-300"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+        <section className="py-12 bg-surface-primary">
+          <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+            <div className="flex flex-wrap gap-2 mb-8">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`text-sm px-4 py-1.5 rounded-full border transition-colors ${
+                    activeCategory === cat
+                      ? "bg-green-600 text-white border-green-600"
+                      : "bg-surface-primary text-content-secondary border-outline hover:border-green-300"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -108,7 +108,7 @@ export default function UpdatesPage() {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-gray-500 py-8">
+              <p className="text-center text-content-tertiary py-8">
               No updates in this category yet.
             </p>
           )}

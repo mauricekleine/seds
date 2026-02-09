@@ -25,13 +25,13 @@ export default function Donate() {
 
         <DonationCalculator />
 
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-surface-primary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
           <div className="max-w-xl mx-auto text-center">
-            <h2 className="font-display text-2xl text-gray-800 mb-4">
+            <h2 className="font-display text-2xl text-content-primary mb-4">
               How to Donate
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-content-secondary leading-relaxed mb-8">
               To make a donation or discuss how you can support SEDS, please
               contact us directly. We accept donations via bank transfer and can
               provide tax exemption receipts under Section 80G of the Indian
@@ -49,28 +49,28 @@ export default function Donate() {
 
               <a
                 href="tel:+919440579566"
-                className="flex items-center justify-center gap-3 bg-gray-100 text-gray-800 px-6 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors text-lg"
+                className="flex items-center justify-center gap-3 bg-surface-tertiary text-content-primary px-6 py-4 rounded-lg font-semibold hover:opacity-80 transition-colors text-lg"
               >
                 <Phone className="w-6 h-6" />
                 Call: +91 9440579566
               </a>
             </div>
 
-            <div className="mt-10 bg-gray-50 border border-gray-200 rounded-lg p-6 text-left">
-              <h3 className="font-display text-lg text-gray-800 mb-3">
+            <div className="mt-10 bg-surface-secondary border border-outline rounded-lg p-6 text-left">
+              <h3 className="font-display text-lg text-content-primary mb-3">
                 Bank Transfer Details
               </h3>
-              <dl className="space-y-2 text-sm text-gray-600">
+              <dl className="space-y-2 text-sm text-content-secondary">
                 <div className="flex justify-between">
-                  <dt className="font-semibold text-gray-700">Account Name:</dt>
+                  <dt className="font-semibold text-content-primary">Account Name:</dt>
                   <dd>Social Education and Development Society</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="font-semibold text-gray-700">Email:</dt>
+                  <dt className="font-semibold text-content-primary">Email:</dt>
                   <dd>sedsngo@gmail.com</dd>
                 </div>
               </dl>
-              <p className="text-xs text-gray-500 mt-4 m-0">
+              <p className="text-xs text-content-tertiary mt-4 m-0">
                 For complete bank details, please contact us via email or phone.
               </p>
             </div>

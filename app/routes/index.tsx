@@ -52,12 +52,12 @@ const Homepage = () => (
       />
       <PartnersSection />
 
-    <section className="py-10 bg-gray-50 border-t border-gray-200">
+    <section className="py-10 bg-surface-secondary border-t border-outline">
       <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-        <h3 className="font-display text-lg text-gray-800 mb-4 text-center">
+        <h3 className="font-display text-lg text-content-primary mb-4 text-center">
           Featured In
         </h3>
-        <div className="text-center text-gray-600 text-sm">
+        <div className="text-center text-content-secondary text-sm">
           <p className="mb-3">Recent interviews with Digital Discourse:</p>
           <ul className="space-y-2 list-none p-0 m-0">
             <li>

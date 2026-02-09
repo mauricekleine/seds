@@ -65,13 +65,13 @@ function BeforeAfterGallery() {
 
   return (
     <>
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-surface-secondary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
           <div className="text-center mb-10">
-            <h2 className="font-display text-2xl md:text-3xl text-gray-800 mb-3">
+            <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
               Transformation in Action
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto m-0">
+            <p className="text-content-secondary max-w-xl mx-auto m-0">
               Drag the slider to see how watershed restoration has transformed
               Anantapur's landscape. Use arrow keys to navigate.
             </p>
@@ -81,7 +81,7 @@ function BeforeAfterGallery() {
             {comparisons.map((item, index) => (
               <div
                 key={item.name}
-                className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200"
+                className="bg-surface-primary rounded-lg overflow-hidden shadow-sm border border-outline"
               >
                 <CompareImage
                   name={item.name}
@@ -89,10 +89,10 @@ function BeforeAfterGallery() {
                   rightYear={item.rightYear}
                 />
                 <div className="px-4 py-3">
-                  <p className="text-sm font-semibold text-gray-800 m-0">
+                  <p className="text-sm font-semibold text-content-primary m-0">
                     {item.caption}
                   </p>
-                  <p className="text-xs text-gray-500 m-0 mt-1">
+                  <p className="text-xs text-content-tertiary m-0 mt-1">
                     {item.narrative}
                   </p>
                   <button

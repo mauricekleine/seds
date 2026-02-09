@@ -6,7 +6,7 @@ import NavbarSm from "~/components/navbar-sm";
 function Navigation() {
   return (
     <header>
-      <div className="border-b border-b-green-600">
+      <div className="border-b border-b-green-600 dark:border-b-green-800 bg-surface-primary">
         <div className="flex items-center justify-between container mx-auto lg:max-w-screen-md px-8 lg:px-0">
           <Link to="/">
             <img

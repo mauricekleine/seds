@@ -65,18 +65,18 @@ export default function DonationCalculator() {
   const activeTier = getActiveTier(amount);
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-        <div className="text-center mb-8">
-          <h2 className="font-display text-2xl md:text-3xl text-gray-800 mb-3">
-            See Your Impact
-          </h2>
-          <p className="text-gray-600 max-w-xl mx-auto m-0">
-            Move the slider to see how your donation can make a difference
-          </p>
-        </div>
+      <section className="py-12 bg-surface-secondary">
+        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+          <div className="text-center mb-8">
+            <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
+              See Your Impact
+            </h2>
+            <p className="text-content-secondary max-w-xl mx-auto m-0">
+              Move the slider to see how your donation can make a difference
+            </p>
+          </div>
 
-        <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8">
+          <div className="bg-surface-primary border border-outline rounded-lg shadow-sm p-6 md:p-8">
           <div className="text-center mb-6">
             <span className="text-4xl md:text-5xl font-display text-green-600">
               {formatINR(amount)}
@@ -90,23 +90,23 @@ export default function DonationCalculator() {
             step={500}
             value={amount}
             onChange={(e) => setAmount(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600 mb-2"
+            className="w-full h-2 bg-surface-tertiary rounded-lg appearance-none cursor-pointer accent-green-600 mb-2"
             aria-label="Donation amount"
           />
-          <div className="flex justify-between text-xs text-gray-500 mb-8">
+          <div className="flex justify-between text-xs text-content-tertiary mb-8">
             <span>{formatINR(500)}</span>
             <span>{formatINR(50000)}</span>
           </div>
 
-          <div className="flex items-start gap-4 bg-green-50 border border-green-200 rounded-lg p-5 mb-6">
+          <div className="flex items-start gap-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-5 mb-6">
             <div className="text-green-600 flex-shrink-0 mt-0.5">
               {activeTier.icon}
             </div>
             <div>
-              <p className="font-semibold text-gray-800 text-lg m-0">
+              <p className="font-semibold text-content-primary text-lg m-0">
                 {activeTier.label}
               </p>
-              <p className="text-gray-600 text-sm m-0 mt-1">
+              <p className="text-content-secondary text-sm m-0 mt-1">
                 {activeTier.description}
               </p>
             </div>
@@ -120,7 +120,7 @@ export default function DonationCalculator() {
                 className={`text-xs py-2 px-1 rounded border transition-colors ${
                   amount >= tier.min
                     ? "bg-green-600 text-white border-green-600"
-                    : "bg-white text-gray-600 border-gray-200 hover:border-green-300"
+                    : "bg-surface-primary text-content-secondary border-outline hover:border-green-300"
                 }`}
               >
                 {formatINR(tier.min)}

@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react";
 
 import NavbarLink from "~/components/navbar-link";
+import ThemeToggle from "~/components/theme-toggle";
 
 function NavbarMd() {
   return (
@@ -19,6 +20,8 @@ function NavbarMd() {
       >
         Donate
       </Link>
+
+      <ThemeToggle />
     </nav>
   );
 }

@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Plant, Leaf, Grain, Flask } from "phosphor-react";
+import { Tree, Leaf, Sun, Flask } from "phosphor-react";
 
 import Page from "~/components/page";
 import FundingProgress from "~/components/funding-progress";
@@ -45,7 +45,7 @@ const LowCarbonFarming = () => (
         title="How Your Donation Helps"
         items={[
           {
-            icon: <Plant className="w-5 h-5" />,
+            icon: <Tree className="w-5 h-5" />,
             amount: "₹2,000",
             description: "Set up a demonstration plot",
           },
@@ -55,7 +55,7 @@ const LowCarbonFarming = () => (
             description: "Organic farming training for 5 farmers",
           },
           {
-            icon: <Grain className="w-5 h-5" />,
+            icon: <Sun className="w-5 h-5" />,
             amount: "₹10,000",
             description: "Seed bank for traditional crop varieties",
           },

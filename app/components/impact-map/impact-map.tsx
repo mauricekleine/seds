@@ -11,9 +11,10 @@ export default function ImpactMap({ compact }: Props) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedMandal, setSelectedMandal] = useState<Mandal | null>(null);
 
-  return (
-    <>
-      <div className={compact ? "" : "bg-white border border-gray-200 rounded-lg shadow-sm p-4 md:p-6"}>
+    return (
+      <>
+        <div className={compact ? "" : "bg-surface-primary border border-outline rounded-lg shadow-sm p-4 md:p-6"}>
+
         <svg
           viewBox="50 40 420 380"
           className="w-full max-w-md mx-auto block"
@@ -80,11 +81,12 @@ export default function ImpactMap({ compact }: Props) {
           })}
         </svg>
 
-        {!compact && (
-          <p className="text-xs text-gray-500 text-center mt-3 m-0">
-            Click on a region to explore SEDS programs and impact data
-          </p>
-        )}
+          {!compact && (
+            <p className="text-xs text-content-tertiary text-center mt-3 m-0">
+              Click on a region to explore SEDS programs and impact data
+            </p>
+          )}
+
       </div>
 
       {selectedMandal && (

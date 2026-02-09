@@ -31,10 +31,11 @@ export default function MandalModal({ mandal, onClose }: Props) {
       role="dialog"
       aria-label={`${mandal.name} mandal details`}
     >
-      <div
-        className="bg-white rounded-lg shadow-xl max-w-lg w-full max-h-[85vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
+        <div
+          className="bg-surface-primary rounded-lg shadow-xl max-w-lg w-full max-h-[85vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+
         <div className="bg-green-600 text-white p-5 rounded-t-lg flex justify-between items-start">
           <div>
             <h2 className="font-display text-2xl m-0">{mandal.name}</h2>
@@ -54,28 +55,29 @@ export default function MandalModal({ mandal, onClose }: Props) {
 
         <div className="p-5 space-y-5">
           <div>
-            <h3 className="text-sm font-semibold text-gray-800 mb-2">
-              Key Statistics
-            </h3>
-            <div className="grid grid-cols-3 gap-3">
-              {mandal.stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-gray-50 rounded-lg p-3 text-center"
-                >
-                  <p className="font-display text-lg text-green-600 m-0">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-gray-600 m-0">{stat.label}</p>
-                </div>
-              ))}
+              <h3 className="text-sm font-semibold text-content-primary mb-2">
+                Key Statistics
+              </h3>
+              <div className="grid grid-cols-3 gap-3">
+                {mandal.stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="bg-surface-secondary rounded-lg p-3 text-center"
+                  >
+                    <p className="font-display text-lg text-green-600 m-0">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs text-content-secondary m-0">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-gray-800 mb-2">
-              Active Programs
-            </h3>
+            <div>
+              <h3 className="text-sm font-semibold text-content-primary mb-2">
+                Active Programs
+              </h3>
+
             <div className="flex flex-wrap gap-2">
               {mandal.programs.map((program) => (
                 <span
@@ -88,27 +90,28 @@ export default function MandalModal({ mandal, onClose }: Props) {
             </div>
           </div>
 
-          {mandal.stories.length > 0 && (
-            <div>
-              <h3 className="text-sm font-semibold text-gray-800 mb-2">
-                Community Voices
-              </h3>
-              {mandal.stories.map((story, i) => (
-                <div
-                  key={i}
-                  className="bg-gray-50 border border-gray-200 rounded-lg p-4"
-                >
-                  <Quotes className="w-5 h-5 text-green-600 mb-2" />
-                  <p className="text-sm text-gray-700 italic m-0">
-                    {story.quote}
-                  </p>
-                  <p className="text-xs text-gray-500 mt-2 m-0">
-                    — {story.author}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+            {mandal.stories.length > 0 && (
+              <div>
+                <h3 className="text-sm font-semibold text-content-primary mb-2">
+                  Community Voices
+                </h3>
+                {mandal.stories.map((story, i) => (
+                  <div
+                    key={i}
+                    className="bg-surface-secondary border border-outline rounded-lg p-4"
+                  >
+                    <Quotes className="w-5 h-5 text-green-600 mb-2" />
+                    <p className="text-sm text-content-secondary italic m-0">
+                      {story.quote}
+                    </p>
+                    <p className="text-xs text-content-tertiary mt-2 m-0">
+                      — {story.author}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+
         </div>
       </div>
     </div>

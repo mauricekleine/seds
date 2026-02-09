@@ -12,7 +12,7 @@ function Hero({ imageName, imageAlt }: HeroProps) {
     <section className="relative">
       <img
         alt={imageAlt}
-        className="w-full bg-gray-100 m-0 h-[400px] md:h-[500px] object-cover"
+        className="w-full bg-surface-tertiary m-0 h-[400px] md:h-[500px] object-cover"
         src={`/${imageName}@1x.jpg`}
         srcSet={`/${imageName}@1x.jpg 1x, /${imageName}@2x.jpg 2x`}
       />
@@ -20,14 +20,14 @@ function Hero({ imageName, imageAlt }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
       <div className="absolute top-4 right-4 md:top-6 md:right-6">
-        <div className="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-3 text-center shadow-lg">
+        <div className="bg-surface-primary/95 backdrop-blur-sm rounded-lg px-4 py-3 text-center shadow-lg">
           <span
             className="block text-3xl md:text-4xl font-display text-green-700 leading-none"
             data-seds-years
           >
             {years}
           </span>
-          <span className="text-xs md:text-sm font-semibold text-gray-600 uppercase tracking-wider">
+          <span className="text-xs md:text-sm font-semibold text-content-secondary uppercase tracking-wider">
             Years of Impact
           </span>
         </div>
