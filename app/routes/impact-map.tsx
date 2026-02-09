@@ -27,30 +27,30 @@ export default function ImpactMapPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-surface-primary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
           <ImpactMap />
         </div>
       </section>
 
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-surface-secondary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <h2 className="font-display text-2xl text-gray-800 mb-6 text-center">
+          <h2 className="font-display text-2xl text-content-primary mb-6 text-center">
             Mandal Overview
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {mandals.map((mandal) => (
               <div
                 key={mandal.id}
-                className="bg-white border border-gray-200 rounded-lg p-4"
+                className="bg-surface-primary border border-outline rounded-lg p-4"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <MapPin className="w-5 h-5 text-green-600" />
-                  <h3 className="font-display text-lg text-gray-800 m-0">
+                  <h3 className="font-display text-lg text-content-primary m-0">
                     {mandal.name}
                   </h3>
                 </div>
-                <p className="text-sm text-gray-600 m-0 mb-2">
+                <p className="text-sm text-content-secondary m-0 mb-2">
                   {mandal.villages} villages
                 </p>
                 <div className="flex flex-wrap gap-1">

@@ -27,7 +27,7 @@ const Volunteers = () => (
     </p>
 
     <div className="not-prose my-8">
-      <h3 className="font-display text-lg text-gray-800 mb-4">
+      <h3 className="font-display text-lg text-content-primary mb-4">
         Preview Your Volunteer Journey
       </h3>
       <VolunteerTimeline compact />

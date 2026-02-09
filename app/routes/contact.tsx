@@ -188,7 +188,7 @@ const Contact = () => {
             </label>
 
             <input
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="name"
               name="name"
               placeholder="Your name"
@@ -203,7 +203,7 @@ const Contact = () => {
             </label>
 
             <input
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="email"
               name="email"
               placeholder="Your email"
@@ -216,11 +216,11 @@ const Contact = () => {
             <label className="font-display" htmlFor="phonenumber">
               <span>Your phone number </span>
 
-              <span className="text-gray-700 text-sm">(optional)</span>
+              <span className="text-content-secondary text-sm">(optional)</span>
             </label>
 
             <input
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="phonenumber"
               name="phonenumber"
               placeholder="Your phone number"
@@ -240,7 +240,7 @@ const Contact = () => {
             </span>
 
             <textarea
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="message"
               name="message"
               placeholder="Your message"
