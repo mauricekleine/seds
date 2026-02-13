@@ -10,17 +10,24 @@ function Navigation() {
         <div className="flex items-center justify-between container mx-auto lg:max-w-screen-md px-8 lg:px-0">
           <Link to="/" className="shrink-0 py-2">
             {/* Small screens: emblem only for compact branding */}
-            <img
-              alt="SEDS"
-              src="/logos/seds_emblem_transparent.png"
-              className="block sm:hidden h-10 w-10"
-            />
-            {/* Larger screens: full lockup with text */}
-            <img
-              alt="SEDS"
-              src="/logos/seds_lockup_no_tagline_transparent.png"
-              className="hidden sm:block h-12 w-auto -ml-1"
-            />
+              <img
+                alt="SEDS"
+                src="/logos/seds_emblem_transparent.png"
+                className="block sm:hidden h-12 w-12"
+              />
+              {/* Larger screens: emblem + wordmark side by side for a wider, bolder look */}
+              <span className="hidden sm:flex items-center gap-2 -ml-1">
+                <img
+                  alt=""
+                  src="/logos/seds_emblem_transparent.png"
+                  className="h-14 w-14"
+                />
+                <img
+                  alt="SEDS"
+                  src="/logos/seds_wordmark_transparent.png"
+                  className="h-8 w-auto"
+                />
+              </span>
           </Link>
 
           <div className="hidden sm:block">

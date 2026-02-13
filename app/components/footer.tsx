@@ -59,10 +59,10 @@ const Footer = () => (
           {/* Primary logo: centered on mobile, left-aligned on desktop */}
           <div className="flex items-center justify-center lg:items-start lg:justify-start shrink-0">
             <img
-              src="/logos/seds_lockup_primary_transparent.png"
-              alt="SEDS - Towards a Greener Tomorrow"
-              className="w-20 h-auto lg:w-28"
-            />
+                src="/logos/seds_lockup_primary_transparent.png"
+                alt="SEDS - Towards a Greener Tomorrow"
+                className="w-32 h-auto sm:w-36 lg:w-44"
+              />
           </div>
           <div className="flex flex-col items-center lg:items-start flex-1">
             <h3 className="font-display flex items-center text-lg text-content-primary">
