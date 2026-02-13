@@ -41,7 +41,7 @@ const Education = () => (
     <div className="not-prose mt-8 space-y-6">
       <FundingProgress
         current={320000}
-        goal={500000}
+        goal={2500000}
         label="Education Fund Progress"
       />
 

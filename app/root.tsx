@@ -65,7 +65,7 @@ export default function App() {
             <Outlet />
           </main>
         ) : (
-          <main className="container prose mx-auto lg:max-w-screen-md px-8 lg:px-0">
+          <main className="container prose dark:prose-invert mx-auto lg:max-w-screen-md px-8 lg:px-0">
             <Outlet />
           </main>
         )}

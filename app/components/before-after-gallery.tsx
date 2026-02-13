@@ -126,7 +126,7 @@ function BeforeAfterGallery() {
               <p className="text-white text-sm m-0">{current.caption}</p>
               <button
                 onClick={() => setIsFullscreen(false)}
-                className="text-white hover:text-gray-300 text-2xl leading-none"
+                className="text-white hover:text-white/70 text-2xl leading-none"
                 aria-label="Close fullscreen"
               >
                 &times;

@@ -37,7 +37,7 @@ const LowCarbonFarming = () => (
     <div className="not-prose mt-8 space-y-6">
       <FundingProgress
         current={95000}
-        goal={300000}
+        goal={1000000}
         label="LCF Fund Progress"
       />
 

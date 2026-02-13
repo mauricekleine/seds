@@ -54,76 +54,76 @@ export default function VolunteerExperience() {
         </div>
       </section>
 
-      <section className="py-12 bg-white">
-        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <h2 className="font-display text-2xl text-gray-800 mb-6">
-            2-Week Timeline
-          </h2>
-          <VolunteerTimeline />
-        </div>
-      </section>
+      <section className="py-12 bg-surface-primary">
+          <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+            <h2 className="font-display text-2xl text-content-primary mb-6">
+              2-Week Timeline
+            </h2>
+            <VolunteerTimeline />
+          </div>
+        </section>
 
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <h2 className="font-display text-2xl text-gray-800 mb-6">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-3">
-            {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className="bg-white border border-gray-200 rounded-lg"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-4 text-left"
+        <section className="py-12 bg-surface-secondary">
+          <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+            <h2 className="font-display text-2xl text-content-primary mb-6">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3">
+              {faqs.map((faq, i) => (
+                <div
+                  key={i}
+                  className="bg-surface-primary border border-outline rounded-lg"
                 >
-                  <span className="font-semibold text-gray-800 text-sm">
-                    {faq.question}
-                  </span>
-                  {openFaq === i ? (
-                    <CaretUp className="w-4 h-4 text-gray-500 flex-shrink-0" />
-                  ) : (
-                    <CaretDown className="w-4 h-4 text-gray-500 flex-shrink-0" />
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex items-center justify-between p-4 text-left"
+                  >
+                    <span className="font-semibold text-content-primary text-sm">
+                      {faq.question}
+                    </span>
+                    {openFaq === i ? (
+                      <CaretUp className="w-4 h-4 text-content-tertiary flex-shrink-0" />
+                    ) : (
+                      <CaretDown className="w-4 h-4 text-content-tertiary flex-shrink-0" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-4 pb-4">
+                      <p className="text-sm text-content-secondary m-0">{faq.answer}</p>
+                    </div>
                   )}
-                </button>
-                {openFaq === i && (
-                  <div className="px-4 pb-4">
-                    <p className="text-sm text-gray-600 m-0">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-12 bg-white">
-        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-          <h2 className="font-display text-2xl text-gray-800 mb-4">
-            Ready to Make a Difference?
-          </h2>
-          <p className="text-gray-600 mb-6 max-w-lg mx-auto m-0">
-            Join over 300 volunteers from around the world who have enriched
-            their lives through SEDS.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="mailto:info@sedsngo.org?subject=Volunteer%20Application"
-              className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
-            >
-              <EnvelopeSimple className="w-5 h-5" />
-              Apply Now
-            </a>
-            <Link
-              to="/volunteers"
-              className="inline-flex items-center justify-center bg-gray-100 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors no-underline"
-            >
-              Learn More
-            </Link>
+        <section className="py-12 bg-surface-primary">
+          <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
+            <h2 className="font-display text-2xl text-content-primary mb-4">
+              Ready to Make a Difference?
+            </h2>
+            <p className="text-content-secondary mb-6 max-w-lg mx-auto m-0">
+              Join over 300 volunteers from around the world who have enriched
+              their lives through SEDS.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="mailto:info@sedsngo.org?subject=Volunteer%20Application"
+                className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
+              >
+                <EnvelopeSimple className="w-5 h-5" />
+                Apply Now
+              </a>
+              <Link
+                to="/volunteers"
+                className="inline-flex items-center justify-center bg-surface-tertiary text-content-primary px-6 py-3 rounded-lg font-semibold hover:opacity-80 transition-colors no-underline"
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 }

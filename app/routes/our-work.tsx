@@ -57,24 +57,24 @@ export default function OurWork() {
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-surface-primary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
           <div className="space-y-8">
             {programs.map((program) => (
               <Link
                 key={program.href}
                 to={program.href}
-                className="group block bg-gray-50 border border-gray-200 rounded-lg p-6 md:p-8 hover:shadow-lg hover:border-green-500 transition-all duration-200"
+                className="group block bg-surface-secondary border border-outline rounded-lg p-6 md:p-8 hover:shadow-lg hover:border-green-500 transition-all duration-200"
               >
                 <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-6">
                   <div className={`${program.color} shrink-0`}>
                     {program.icon}
                   </div>
                   <div>
-                    <h2 className="font-display text-xl md:text-2xl text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
+                    <h2 className="font-display text-xl md:text-2xl text-content-primary mb-2 group-hover:text-green-600 transition-colors">
                       {program.title}
                     </h2>
-                    <p className="text-gray-600 m-0 leading-relaxed">
+                    <p className="text-content-secondary m-0 leading-relaxed">
                       {program.description}
                     </p>
                     <span className="inline-block mt-3 text-green-600 font-semibold group-hover:underline">

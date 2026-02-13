@@ -268,7 +268,7 @@ export default function Quiz() {
       </section>
 
       {/* Progress Bar */}
-      <div className="bg-gray-100">
+      <div className="bg-surface-tertiary">
         <div
           className="h-1 bg-green-600 transition-all duration-300"
           style={{ width: `${progress}%` }}
@@ -277,13 +277,13 @@ export default function Quiz() {
 
       {!showResults ? (
         /* Question Card */
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-surface-primary">
           <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
             <div className="max-w-xl mx-auto">
-              <p className="text-sm text-gray-400 m-0 mb-2">
+              <p className="text-sm text-content-tertiary m-0 mb-2">
                 Question {currentQuestion + 1} of {totalQuestions}
               </p>
-              <h2 className="font-display text-xl md:text-2xl text-gray-800 mb-6">
+              <h2 className="font-display text-xl md:text-2xl text-content-primary mb-6">
                 {questions[currentQuestion].question}
               </h2>
               <div className="space-y-3">
@@ -296,10 +296,10 @@ export default function Quiz() {
                       className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
                         isSelected
                           ? "border-green-600 bg-green-50"
-                          : "border-gray-200 bg-white hover:border-green-300"
+                          : "border-outline bg-surface-primary hover:border-green-300"
                       }`}
                     >
-                      <span className="text-sm text-gray-700">
+                      <span className="text-sm text-content-secondary">
                         {option.label}
                       </span>
                     </button>
@@ -311,7 +311,7 @@ export default function Quiz() {
                 <button
                   onClick={prev}
                   disabled={currentQuestion === 0}
-                  className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="flex items-center gap-1 text-sm text-content-tertiary hover:text-content-secondary disabled:opacity-30 disabled:cursor-not-allowed"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Back
@@ -332,19 +332,19 @@ export default function Quiz() {
         </section>
       ) : (
         /* Results */
-        <section className="py-12 bg-white">
+        <section className="py-12 bg-surface-primary">
           <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
             <div className="max-w-xl mx-auto">
               {topResult && (
                 <div className="text-center mb-10">
-                    <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm mb-4">
+                    <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-100 px-4 py-2 rounded-full text-sm mb-4">
                       <CheckCircle className="w-4 h-4" />
                       Your match
                     </div>
-                    <h2 className="font-display text-2xl md:text-3xl text-gray-800 mb-3">
+                    <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
                       {topResult.program.name}
                     </h2>
-                    <p className="text-gray-600 m-0 mb-6">
+                    <p className="text-content-secondary m-0 mb-6">
                       Based on your answers, this program is the best fit for how you want to make an impact.
                     </p>
                     <Link
@@ -357,7 +357,7 @@ export default function Quiz() {
                 </div>
               )}
 
-              <h3 className="font-display text-lg text-gray-800 mb-4">
+              <h3 className="font-display text-lg text-content-primary mb-4">
                 All Programs Ranked
               </h3>
               <div className="space-y-4">
@@ -369,25 +369,25 @@ export default function Quiz() {
                     <Link
                       key={program.id}
                       to={program.href}
-                      className="block p-4 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors no-underline"
+                      className="block p-4 rounded-lg border border-outline hover:border-outline-strong transition-colors no-underline"
                     >
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm font-semibold text-gray-400 w-5">
+                        <span className="text-sm font-semibold text-content-tertiary w-5">
                           #{idx + 1}
                         </span>
                         <div className={c.text}>{program.icon}</div>
-                        <span className="font-display text-gray-800 text-sm">
+                        <span className="font-display text-content-primary text-sm">
                           {program.name}
                         </span>
                       </div>
                       <div className="ml-8">
-                        <div className="w-full bg-gray-100 rounded-full h-2">
+                        <div className="w-full bg-surface-tertiary rounded-full h-2">
                           <div
                             className={`${c.bg} h-2 rounded-full transition-all duration-500`}
                             style={{ width: `${pct}%` }}
                           />
                         </div>
-                        <p className="text-xs text-gray-500 m-0 mt-2">
+                        <p className="text-xs text-content-tertiary m-0 mt-2">
                           {program.description}
                         </p>
                       </div>
@@ -399,7 +399,7 @@ export default function Quiz() {
               <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={restart}
-                  className="text-sm text-gray-500 hover:text-gray-700 px-6 py-2 border border-gray-300 rounded-lg transition-colors"
+                  className="text-sm text-content-tertiary hover:text-content-secondary px-6 py-2 border border-outline-strong rounded-lg transition-colors"
                 >
                   Retake Quiz
                 </button>

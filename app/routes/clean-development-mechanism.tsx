@@ -69,11 +69,11 @@ const CleanDevelopmentMechanism = () => (
     </p>
 
     <div className="not-prose mt-8 space-y-6">
-      <FundingProgress
-        current={250000}
-        goal={600000}
-        label="CDM Fund Progress"
-      />
+        <FundingProgress
+          current={70000000}
+          goal={70000000}
+          label="CDM Fund Progress"
+        />
 
       <FundBreakdown
         title="How Your Donation Helps"

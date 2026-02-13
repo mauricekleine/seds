@@ -90,8 +90,8 @@ export default function UpdateDetail() {
   if (!update) {
     return (
       <div className="not-prose py-20 text-center">
-        <h1 className="font-display text-2xl text-gray-800 mb-4">
-          Update Not Found
+      <h1 className="font-display text-2xl text-content-primary mb-4">
+            Update Not Found
         </h1>
         <Link
           to="/updates"
@@ -132,28 +132,28 @@ export default function UpdateDetail() {
         </div>
       </section>
 
-      <section className="py-10 bg-white">
-        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <div className="max-w-prose">
-            {update.body.map((paragraph, i) => (
-              <p key={i} className="text-gray-600 leading-relaxed mb-4">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+      <section className="py-10 bg-surface-primary">
+          <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+            <div className="max-w-prose">
+              {update.body.map((paragraph, i) => (
+                <p key={i} className="text-content-secondary leading-relaxed mb-4">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
-          <div className="border-t border-gray-200 mt-8 pt-6">
-            <div className="flex items-center justify-between">
-              <Link
-                to="/updates"
-                className="text-green-600 hover:text-green-700 text-sm font-medium no-underline"
-              >
-                &larr; Back to updates
-              </Link>
-              <a
-                href={`mailto:?subject=${encodeURIComponent(update.title)}&body=Read this update from SEDS`}
-                className="flex items-center gap-1 text-gray-500 hover:text-gray-700 text-sm no-underline"
-              >
+            <div className="border-t border-outline mt-8 pt-6">
+              <div className="flex items-center justify-between">
+                <Link
+                  to="/updates"
+                  className="text-green-600 hover:text-green-700 text-sm font-medium no-underline"
+                >
+                  &larr; Back to updates
+                </Link>
+                <a
+                  href={`mailto:?subject=${encodeURIComponent(update.title)}&body=Read this update from SEDS`}
+                  className="flex items-center gap-1 text-content-tertiary hover:text-content-secondary text-sm no-underline"
+                >
                 <ShareNetwork className="w-4 h-4" />
                 Share
               </a>

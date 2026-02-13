@@ -28,6 +28,27 @@
     --color-border: 75 85 99;
     --color-border-strong: 107 114 128;
   }
+
+  .dark input:where([type='text']),
+  .dark input:where(:not([type])),
+  .dark input:where([type='email']),
+  .dark input:where([type='url']),
+  .dark input:where([type='password']),
+  .dark input:where([type='number']),
+  .dark input:where([type='date']),
+  .dark input:where([type='datetime-local']),
+  .dark input:where([type='month']),
+  .dark input:where([type='search']),
+  .dark input:where([type='tel']),
+  .dark input:where([type='time']),
+  .dark input:where([type='week']),
+  .dark select:where([multiple]),
+  .dark textarea,
+  .dark select {
+    background-color: rgb(31 41 55);
+    border-color: rgb(75 85 99);
+    color: rgb(249 250 251);
+  }
 }
 
 @font-face {

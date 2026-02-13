@@ -158,27 +158,27 @@ export default function SponsorAChild() {
       </section>
 
       {/* What sponsorship provides */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-surface-primary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-            <h2 className="font-display text-2xl text-gray-800 mb-6 text-center">
+            <h2 className="font-display text-2xl text-content-primary mb-6 text-center">
               What Your Sponsorship Provides
             </h2>
-            <p className="text-gray-600 text-center mb-6 m-0">
+            <p className="text-content-secondary text-center mb-6 m-0">
               You'll receive regular updates on progress and the impact of your support.
             </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {whatSponsorshipProvides.map((item) => (
               <div
                 key={item.label}
-                className="text-center p-4 bg-gray-50 rounded-lg"
+                className="text-center p-4 bg-surface-secondary rounded-lg"
               >
                 <div className="text-green-600 flex justify-center mb-2">
                   {item.icon}
                 </div>
-                <p className="font-semibold text-gray-800 text-sm m-0">
-                  {item.label}
-                </p>
-                <p className="text-gray-500 text-xs m-0 mt-1">{item.detail}</p>
+                <p className="font-semibold text-content-primary text-sm m-0">
+                    {item.label}
+                  </p>
+                  <p className="text-content-tertiary text-xs m-0 mt-1">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -186,12 +186,12 @@ export default function SponsorAChild() {
       </section>
 
       {/* Sponsorship Tiers */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-surface-secondary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <h2 className="font-display text-2xl text-gray-800 mb-2 text-center">
+          <h2 className="font-display text-2xl text-content-primary mb-2 text-center">
             Choose a Sponsorship Plan
           </h2>
-          <p className="text-gray-600 text-center mb-8 m-0">
+          <p className="text-content-secondary text-center mb-8 m-0">
             Select the level of support that works for you
           </p>
           <div className="grid md:grid-cols-3 gap-6">
@@ -203,39 +203,39 @@ export default function SponsorAChild() {
                   onClick={() => setSelectedTier(tier.id)}
                   className={`text-left p-6 rounded-lg border-2 transition-all ${
                     isSelected
-                      ? "border-green-600 bg-green-50 shadow-md"
-                      : "border-gray-200 bg-white hover:border-green-300"
+                        ? "border-green-600 bg-green-50 dark:bg-green-900/20 shadow-md"
+                        : "border-outline bg-surface-primary hover:border-green-300"
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div
-                      className={`${
-                        isSelected ? "text-green-600" : "text-gray-400"
-                      }`}
+                        className={`${
+                          isSelected ? "text-green-600" : "text-content-tertiary"
+                        }`}
                     >
                       {tier.icon}
                     </div>
-                    <h3 className="font-display text-lg text-gray-800 m-0">
+                    <h3 className="font-display text-lg text-content-primary m-0">
                       {tier.name}
                     </h3>
-                  </div>
-                  <div className="mb-3">
-                    <span className="text-2xl font-display text-green-600">
-                      {formatINR(tier.amount)}
-                    </span>
-                    <span className="text-gray-500 text-sm ml-1">
-                      {tier.period}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 text-sm m-0 mb-4">
-                    {tier.description}
-                  </p>
-                  <ul className="space-y-1.5 m-0 p-0 list-none">
-                    {tier.includes.map((item) => (
-                      <li
-                        key={item}
-                        className="text-xs text-gray-600 flex items-start gap-2"
-                      >
+                    </div>
+                    <div className="mb-3">
+                      <span className="text-2xl font-display text-green-600">
+                        {formatINR(tier.amount)}
+                      </span>
+                      <span className="text-content-tertiary text-sm ml-1">
+                        {tier.period}
+                      </span>
+                    </div>
+                    <p className="text-content-secondary text-sm m-0 mb-4">
+                      {tier.description}
+                    </p>
+                    <ul className="space-y-1.5 m-0 p-0 list-none">
+                      {tier.includes.map((item) => (
+                        <li
+                          key={item}
+                          className="text-xs text-content-secondary flex items-start gap-2"
+                        >
                         <span className="text-green-500 mt-0.5">&#10003;</span>
                         {item}
                       </li>
@@ -265,7 +265,7 @@ export default function SponsorAChild() {
                 <EnvelopeSimple className="w-5 h-5" />
               Start Sponsoring Today
             </a>
-            <p className="text-gray-500 text-sm mt-3 m-0">
+              <p className="text-content-tertiary text-sm mt-3 m-0">
               We publish regular reports so you can see where your support goes.
             </p>
             </div>
@@ -274,35 +274,35 @@ export default function SponsorAChild() {
       </section>
 
       {/* Child Profiles */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-surface-primary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <h2 className="font-display text-2xl text-gray-800 mb-2 text-center">
+          <h2 className="font-display text-2xl text-content-primary mb-2 text-center">
             Meet the Children
           </h2>
-          <p className="text-gray-600 text-center mb-8 m-0">
+          <p className="text-content-secondary text-center mb-8 m-0">
             These are some of the children at the SEDS campus school awaiting sponsorship
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {childProfiles.map((child) => (
               <div
                 key={child.name}
-                className="bg-gray-50 rounded-lg p-5 border border-gray-200"
-              >
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-3">
-                  <span className="text-green-700 font-display text-lg">
-                    {child.name.charAt(0)}
-                  </span>
-                </div>
-                <h3 className="font-display text-base text-gray-800 m-0">
-                  {child.name}
-                </h3>
-                <p className="text-xs text-gray-500 m-0 mt-0.5">
-                  Age {child.age} &middot; {child.grade}
-                </p>
-                <p className="text-xs text-green-600 m-0 mt-1">
-                  Interests: {child.interest}
-                </p>
-                <p className="text-sm text-gray-600 m-0 mt-3 leading-relaxed">
+                className="bg-surface-secondary rounded-lg p-5 border border-outline"
+                >
+                  <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-3">
+                    <span className="text-green-700 dark:text-green-400 font-display text-lg">
+                      {child.name.charAt(0)}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-base text-content-primary m-0">
+                    {child.name}
+                  </h3>
+                  <p className="text-xs text-content-tertiary m-0 mt-0.5">
+                    Age {child.age} &middot; {child.grade}
+                  </p>
+                  <p className="text-xs text-green-600 m-0 mt-1">
+                    Interests: {child.interest}
+                  </p>
+                  <p className="text-sm text-content-secondary m-0 mt-3 leading-relaxed">
                   {child.story}
                 </p>
               </div>
@@ -312,9 +312,9 @@ export default function SponsorAChild() {
       </section>
 
       {/* FAQ */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-surface-secondary">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <h2 className="font-display text-2xl text-gray-800 mb-6 text-center">
+          <h2 className="font-display text-2xl text-content-primary mb-6 text-center">
             Frequently Asked Questions
           </h2>
           <div className="space-y-4 max-w-xl mx-auto">
@@ -338,10 +338,10 @@ export default function SponsorAChild() {
             ].map(({ q, a }) => (
               <div
                 key={q}
-                className="bg-white border border-gray-200 rounded-lg p-5"
-              >
-                <p className="font-semibold text-gray-800 text-sm m-0">{q}</p>
-                <p className="text-gray-600 text-sm m-0 mt-2">{a}</p>
+                className="bg-surface-primary border border-outline rounded-lg p-5"
+                >
+                  <p className="font-semibold text-content-primary text-sm m-0">{q}</p>
+                  <p className="text-content-secondary text-sm m-0 mt-2">{a}</p>
               </div>
             ))}
           </div>

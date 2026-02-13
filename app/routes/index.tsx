@@ -54,14 +54,7 @@ const Homepage = () => (
 
     <section className="py-10 bg-surface-secondary border-t border-outline">
       <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-        {/* Mobile: emblem on top, centered. Desktop: emblem left, content right */}
-        <div className="flex flex-col items-center lg:flex-row lg:items-start lg:gap-6">
-          <img
-            src="/logos/seds_emblem_transparent.png"
-            alt="SEDS Emblem"
-            className="w-16 h-16 mb-4 lg:mb-0 lg:w-20 lg:h-20 shrink-0"
-          />
-          <div className="text-center lg:text-left flex-1">
+          <div className="text-center lg:text-left">
             <h3 className="font-display text-lg text-content-primary mb-4">
               Featured In
             </h3>
@@ -91,7 +84,6 @@ const Homepage = () => (
               </ul>
             </div>
           </div>
-        </div>
       </div>
     </section>
   </div>
