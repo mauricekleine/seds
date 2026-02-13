@@ -28,16 +28,27 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async () => {
-  const client = require("contentful").createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
+  const space = process.env.CONTENTFUL_SPACE_ID;
+  const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 
-  const entries = await client.getEntries({
-    content_type: "reports",
-  });
+  if (!space || !accessToken) {
+    return json({ entries: { items: [] } });
+  }
 
-  return json({ entries });
+  try {
+    const client = require("contentful").createClient({
+      space,
+      accessToken,
+    });
+
+    const entries = await client.getEntries({
+      content_type: "reports",
+    });
+
+    return json({ entries });
+  } catch (error) {
+    return json({ entries: { items: [] } });
+  }
 };
 
 export const meta: MetaFunction = () => ({
@@ -45,7 +56,7 @@ export const meta: MetaFunction = () => ({
 });
 
 function FileType({ children }: { children: string }) {
-  return <p className="mt-2 font-normal text-gray-700 leading-6">{children}</p>;
+  return <p className="mt-2 font-normal text-content-secondary leading-6">{children}</p>;
 }
 
 function Reports() {
@@ -53,32 +64,42 @@ function Reports() {
 
   return (
     <div className="pt-4">
-      <h2 className="font-display">Reports</h2>
+        <h2 className="font-display">Reports and transparency</h2>
 
-      {entries.items
-        .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>
-          code1 > code2 ? 1 : -1
-        )
-        .map(({ fields: { file, title }, sys: { id } }) => (
-          <a
-            href={file.fields.file.url}
-            key={id}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <Card>
-              <div className="flex items-center justify-between">
-                <span className="font-semibold">{title}</span>
+        <p className="text-content-secondary mb-6">
+          Explore annual reports and project updates that show how our programs are funded and what they achieve.
+        </p>
 
-                <FileArrowDown className="text-green-600 h-8 w-8" />
-              </div>
+        {entries.items.length === 0 ? (
+          <p className="mt-4 text-content-secondary leading-6">
+            Reports will be published here as they are released.
+          </p>
+      ) : (
+        entries.items
+          .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>
+            code1 > code2 ? 1 : -1
+          )
+          .map(({ fields: { file, title }, sys: { id } }) => (
+            <a
+              href={file.fields.file.url}
+              key={id}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Card>
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold">{title}</span>
 
-              <FileType>{`.${file.fields.file.fileName
-                .split(".")
-                .pop()}`}</FileType>
-            </Card>
-          </a>
-        ))}
+                  <FileArrowDown className="text-green-600 h-8 w-8" />
+                </div>
+
+                <FileType>{`.${file.fields.file.fileName
+                  .split(".")
+                  .pop()}`}</FileType>
+              </Card>
+            </a>
+          ))
+      )}
     </div>
   );
 }

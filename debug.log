@@ -1,0 +1,33 @@
+2026-02-06T17:00:25.951Z [console][error] Warning: ReactDOM.hydrate is no longer supported in React 18. Use hydrateRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+2026-02-06T17:00:25.984Z [console][error] ResizeObserver loop completed with undelivered notifications.
+2026-02-06T17:00:35.969Z [console][error] Warning: ReactDOM.hydrate is no longer supported in React 18. Use hydrateRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+2026-02-06T17:00:36.000Z [console][error] ResizeObserver loop completed with undelivered notifications.
+2026-02-06T17:00:25.951Z [console][error] Warning: ReactDOM.hydrate is no longer supported in React 18. Use hydrateRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+2026-02-06T17:00:25.984Z [console][error] ResizeObserver loop completed with undelivered notifications.
+2026-02-06T17:00:35.969Z [console][error] Warning: ReactDOM.hydrate is no longer supported in React 18. Use hydrateRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+2026-02-06T17:00:36.000Z [console][error] ResizeObserver loop completed with undelivered notifications.
+2026-02-06T17:03:14.636Z [console][error] Warning: ReactDOM.hydrate is no longer supported in React 18. Use hydrateRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more: https://reactjs.org/link/switch-to-createroot
+2026-02-06T17:03:14.690Z [console][error] ResizeObserver loop completed with undelivered notifications.
+2026-02-09T03:02:15.875Z [console][error] Warning: Prop `%s` did not match. Server: %s Client: %s%s className "font-sans font-normal dark" "font-sans font-normal" 
+    at html
+    at App (http://localhost:3000/build/root-H7XQ6QWR.js:885:20)
+    at RemixRoute (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:3892:3)
+    at RenderedRoute (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2426:5)
+    at RenderErrorBoundary (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2758:9)
+    at Routes (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2650:5)
+    at Router (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2597:15)
+    at RouterProvider (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2548:5)
+    at RemixErrorBoundary (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:3547:5)
+    at RemixBrowser (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:4696:55)
+2026-02-09T03:02:24.602Z [console][error] Warning: Prop `%s` did not match. Server: %s Client: %s%s className "font-sans font-normal dark" "font-sans font-normal" 
+    at html
+    at App (http://localhost:3000/build/root-H7XQ6QWR.js:885:20)
+    at RemixRoute (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:3892:3)
+    at RenderedRoute (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2426:5)
+    at RenderErrorBoundary (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2758:9)
+    at Routes (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2650:5)
+    at Router (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2597:15)
+    at RouterProvider (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2548:5)
+    at RemixErrorBoundary (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:3547:5)
+    at RemixBrowser (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:4696:55)
+2026-02-12T10:22:00.789Z [console][log] Remix dev asset server web socket closed. Reconnecting...

@@ -147,17 +147,17 @@ const Contact = () => {
 
   return (
     <>
-      {searchParams.get("error") ? (
-        <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
-          Something went wrong, please try again.
-        </div>
-      ) : null}
+        {searchParams.get("error") ? (
+          <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
+            Sorry — something went wrong. Please try again or email us directly at info@sedsngo.org.
+          </div>
+        ) : null}
 
-      {searchParams.get("success") ? (
-        <div className="bg-green-600 px-4 py-2 text-white mt-4 rounded">
-          Thank you for your message, we'll get back to you soon!
-        </div>
-      ) : null}
+        {searchParams.get("success") ? (
+          <div className="bg-green-600 px-4 py-2 text-white mt-4 rounded">
+            Thank you for reaching out. We'll be in touch soon.
+          </div>
+        ) : null}
 
       <div>
         <div className="flex flex-col md:flex-row md:space-x-4">
@@ -178,9 +178,9 @@ const Contact = () => {
           onSubmit={handleSubmit}
           ref={formRef}
         >
-          <h3 className="font-display">Get in touch</h3>
+            <h3 className="font-display">Get in touch.</h3>
 
-          <p>We&apos;d love to hear from you</p>
+            <p>Questions about our programs, volunteering, or partnerships? Send a message and we'll respond within 3–5 business days.</p>
 
           <FormGroup>
             <label className="font-display" htmlFor="name">
@@ -188,7 +188,7 @@ const Contact = () => {
             </label>
 
             <input
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="name"
               name="name"
               placeholder="Your name"
@@ -203,7 +203,7 @@ const Contact = () => {
             </label>
 
             <input
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="email"
               name="email"
               placeholder="Your email"
@@ -216,11 +216,11 @@ const Contact = () => {
             <label className="font-display" htmlFor="phonenumber">
               <span>Your phone number </span>
 
-              <span className="text-gray-700 text-sm">(optional)</span>
+              <span className="text-content-secondary text-sm">(optional)</span>
             </label>
 
             <input
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="phonenumber"
               name="phonenumber"
               placeholder="Your phone number"
@@ -240,7 +240,7 @@ const Contact = () => {
             </span>
 
             <textarea
-              className="border border-gray-400 rounded-md focus:ring-green-600 focus:border-green-600"
+              className="border border-outline rounded-md focus:ring-green-600 focus:border-green-600"
               id="message"
               name="message"
               placeholder="Your message"

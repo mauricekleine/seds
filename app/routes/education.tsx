@@ -1,6 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
+import { GraduationCap, Book, CookingPot, House } from "phosphor-react";
 
 import Page from "~/components/page";
+import FundingProgress from "~/components/funding-progress";
+import FundBreakdown from "~/components/fund-breakdown";
+import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({
   description:
@@ -11,8 +15,8 @@ export const meta: MetaFunction = () => ({
 const Education = () => (
   <Page
     image={{ name: "students-2" }}
-    intro="The SEDS school operates out of the SEDS campus and provides a good quality education to children from the surrounding villages. The school follows the Andhra Pradesh State Board prescribed syllabus and uses English for the medium of instruction. In keeping with our environmental focus, hill-top field visits, ecology lessons, stage plays and songs with a conservation theme all an important part of the coursework."
-    title="Children's education"
+    intro="SEDS supports children and families with practical resources—scholarships, tutoring, and learning materials—so students can stay in school and thrive. The school follows the Andhra Pradesh State Board prescribed syllabus and uses English for the medium of instruction."
+    title="Education that opens doors."
   >
     <p>
       The school has more than 50 children at present with a capacity to expand
@@ -33,6 +37,42 @@ const Education = () => (
       the needs of the school in the years to come. Please e-mail us from the
       contact page to find out how you can help.
     </p>
+
+    <div className="not-prose mt-8 space-y-6">
+      <FundingProgress
+        current={320000}
+        goal={2500000}
+        label="Education Fund Progress"
+      />
+
+      <FundBreakdown
+        title="How Your Donation Helps"
+        items={[
+          {
+            icon: <GraduationCap className="w-5 h-5" />,
+            amount: "₹2,500/month",
+            description: "Sponsor one child's education",
+          },
+          {
+            icon: <Book className="w-5 h-5" />,
+            amount: "₹10,000",
+            description: "Textbooks and supplies for a class",
+          },
+          {
+            icon: <CookingPot className="w-5 h-5" />,
+            amount: "₹5,000/month",
+            description: "Hostel meals for 10 children",
+          },
+          {
+            icon: <House className="w-5 h-5" />,
+            amount: "₹50,000",
+            description: "Classroom maintenance and upgrades",
+          },
+        ]}
+      />
+
+      <PresetDonationButtons programName="Children's Education" />
+    </div>
   </Page>
 );
 

@@ -2,6 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-bg-primary: 255 255 255;
+    --color-bg-secondary: 249 250 251;
+    --color-bg-tertiary: 243 244 246;
+
+    --color-text-primary: 17 24 39;
+    --color-text-secondary: 55 65 81;
+    --color-text-tertiary: 107 114 128;
+
+    --color-border: 229 231 235;
+    --color-border-strong: 209 213 219;
+  }
+
+  .dark {
+    --color-bg-primary: 17 24 39;
+    --color-bg-secondary: 31 41 55;
+    --color-bg-tertiary: 55 65 81;
+
+    --color-text-primary: 249 250 251;
+    --color-text-secondary: 229 231 235;
+    --color-text-tertiary: 156 163 175;
+
+    --color-border: 75 85 99;
+    --color-border-strong: 107 114 128;
+  }
+
+  .dark input:where([type='text']),
+  .dark input:where(:not([type])),
+  .dark input:where([type='email']),
+  .dark input:where([type='url']),
+  .dark input:where([type='password']),
+  .dark input:where([type='number']),
+  .dark input:where([type='date']),
+  .dark input:where([type='datetime-local']),
+  .dark input:where([type='month']),
+  .dark input:where([type='search']),
+  .dark input:where([type='tel']),
+  .dark input:where([type='time']),
+  .dark input:where([type='week']),
+  .dark select:where([multiple]),
+  .dark textarea,
+  .dark select {
+    background-color: rgb(31 41 55);
+    border-color: rgb(75 85 99);
+    color: rgb(249 250 251);
+  }
+}
+
 @font-face {
   font-display: swap;
   font-family: "Open Sans";
