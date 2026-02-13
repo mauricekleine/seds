@@ -46,11 +46,11 @@ export default function App() {
 
           <Links />
 
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `(function(){try{var t=localStorage.getItem("theme");var d=t==="dark"||(t==null&&window.matchMedia("(prefers-color-scheme:dark)").matches);if(d)document.documentElement.classList.add("dark")}catch(e){}})()`,
-            }}
-          />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("dark")}catch(e){}})()`,
+              }}
+            />
 
           {process.env.NODE_ENV === "production" ? (
             <script src="https://www.google.com/recaptcha/api.js?render=6LdRqWAfAAAAAIn3HEtC2rKXT9JD-1k4bysQF93O"></script>
