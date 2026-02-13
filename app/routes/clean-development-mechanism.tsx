@@ -17,8 +17,8 @@ export const meta: MetaFunction = () => ({
 const CleanDevelopmentMechanism = () => (
   <Page
     image={{ name: "biogas" }}
-    intro="The Clean Development Mechanism (CDM) project is one of our main priorities today. By facilitating the construction of 5000 biogas digesters in small households, the project leverages one of the carbon reduction provisions of the Kyoto Protocol treaty to realize two major benefits for more than 300 villages in the district. Replacing firewood which is a polluting and hazardous cooking fuel with non-polluting and sustainable biogas, and providing an opportunity for small households to participate in the global carbon trade economy."
-    title="Clean Development Mechanism"
+    intro="Clean Development Mechanism (CDM) projects reduce greenhouse gas emissions while creating tangible local benefits—better infrastructure, improved services, and new income streams. By facilitating the construction of 5000 biogas digesters in small households, the project leverages one of the carbon reduction provisions of the Kyoto Protocol treaty to realize major benefits for more than 300 villages in the district."
+    title="Turning climate solutions into community benefits."
   >
     <div className="not-prose -mx-4 mb-6">
       <CarbonCounter />

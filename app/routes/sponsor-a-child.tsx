@@ -148,21 +148,24 @@ export default function SponsorAChild() {
       {/* Hero */}
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-          <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-            Sponsor a Child
-          </h1>
-          <p className="text-green-100 max-w-2xl mx-auto m-0">
-            Give a child from rural Anantapur access to quality education, nutritious meals, and a brighter future through the SEDS campus school.
-          </p>
+            <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
+              Sponsor a child's education.
+            </h1>
+            <p className="text-green-100 max-w-2xl mx-auto m-0">
+              Your sponsorship helps cover school fees, learning materials, and ongoing support so a child can stay in school and succeed.
+            </p>
         </div>
       </section>
 
       {/* What sponsorship provides */}
       <section className="py-12 bg-white">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <h2 className="font-display text-2xl text-gray-800 mb-6 text-center">
-            What Your Sponsorship Provides
-          </h2>
+            <h2 className="font-display text-2xl text-gray-800 mb-6 text-center">
+              What Your Sponsorship Provides
+            </h2>
+            <p className="text-gray-600 text-center mb-6 m-0">
+              You'll receive regular updates on progress and the impact of your support.
+            </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {whatSponsorshipProvides.map((item) => (
               <div
@@ -246,7 +249,7 @@ export default function SponsorAChild() {
           {selectedTier && (
             <div className="mt-8 text-center">
               <a
-                href={`mailto:sedsngo@gmail.com?subject=Child%20Sponsorship%20Inquiry%20-%20${encodeURIComponent(
+                href={`mailto:info@sedsngo.org?subject=Child%20Sponsorship%20Inquiry%20-%20${encodeURIComponent(
                   sponsorshipTiers.find((t) => t.id === selectedTier)?.name ?? ""
                 )}&body=I%20would%20like%20to%20sponsor%20a%20child%20through%20the%20${encodeURIComponent(
                   sponsorshipTiers.find((t) => t.id === selectedTier)?.name ?? ""
@@ -260,8 +263,11 @@ export default function SponsorAChild() {
                 className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
               >
                 <EnvelopeSimple className="w-5 h-5" />
-                Start Sponsoring Today
-              </a>
+              Start Sponsoring Today
+            </a>
+            <p className="text-gray-500 text-sm mt-3 m-0">
+              We publish regular reports so you can see where your support goes.
+            </p>
             </div>
           )}
         </div>
@@ -352,7 +358,7 @@ export default function SponsorAChild() {
             For as little as {formatINR(2500)} per month, you can give a child from rural Anantapur the education they deserve.
           </p>
           <a
-            href="mailto:sedsngo@gmail.com?subject=Child%20Sponsorship%20Inquiry&body=I%20would%20like%20to%20learn%20more%20about%20sponsoring%20a%20child%20at%20SEDS."
+            href="mailto:info@sedsngo.org?subject=Child%20Sponsorship%20Inquiry&body=I%20would%20like%20to%20learn%20more%20about%20sponsoring%20a%20child%20at%20SEDS."
             className="inline-flex items-center gap-2 bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors no-underline"
           >
             <EnvelopeSimple className="w-5 h-5" />

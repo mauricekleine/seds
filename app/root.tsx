@@ -16,7 +16,17 @@ import StickyDonateButton from "~/components/sticky-donate-button";
 import ThemeToggle from "~/components/theme-toggle";
 import { calculateSEDSYears } from "~/utils/seds-years";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
+  { rel: "icon", type: "image/png", sizes: "256x256", href: "/icons/favicon-256.png" },
+  { rel: "icon", type: "image/png", sizes: "128x128", href: "/icons/favicon-128.png" },
+  { rel: "icon", type: "image/png", sizes: "64x64", href: "/icons/favicon-64-whitebg.png" },
+  { rel: "icon", type: "image/png", sizes: "48x48", href: "/icons/favicon-48.png" },
+  { rel: "icon", type: "image/png", sizes: "32x32", href: "/icons/favicon-32.png" },
+  { rel: "icon", type: "image/png", sizes: "16x16", href: "/icons/favicon-16.png" },
+  { rel: "apple-touch-icon", sizes: "180x180", href: "/icons/apple-touch-icon-180.png" },
+  { rel: "manifest", href: "/site.webmanifest" },
+];
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -30,7 +40,7 @@ export default function App() {
   const isHomepage = location.pathname === "/";
 
     return (
-      <html className="font-sans font-normal" lang="en">
+      <html className="font-sans font-normal" lang="en" suppressHydrationWarning>
         <head>
           <Meta />
 

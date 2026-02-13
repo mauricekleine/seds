@@ -258,13 +258,12 @@ export default function Quiz() {
       {/* Hero */}
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-          <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-            Find Your Program
-          </h1>
-          <p className="text-green-100 max-w-2xl mx-auto m-0">
-            Answer five questions to discover which SEDS program best matches
-            your values and interests
-          </p>
+            <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
+              Find the best way to support.
+            </h1>
+            <p className="text-green-100 max-w-2xl mx-auto m-0">
+              Answer a few quick questions to see which program aligns with your interests.
+            </p>
         </div>
       </section>
 
@@ -338,21 +337,21 @@ export default function Quiz() {
             <div className="max-w-xl mx-auto">
               {topResult && (
                 <div className="text-center mb-10">
-                  <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm mb-4">
-                    <CheckCircle className="w-4 h-4" />
-                    Your top match
-                  </div>
-                  <h2 className="font-display text-2xl md:text-3xl text-gray-800 mb-3">
-                    {topResult.program.name}
-                  </h2>
-                  <p className="text-gray-600 m-0 mb-6">
-                    {topResult.program.description}
-                  </p>
-                  <Link
-                    to={topResult.program.href}
-                    className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
-                  >
-                    Learn More About {topResult.program.name}
+                    <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm mb-4">
+                      <CheckCircle className="w-4 h-4" />
+                      Your match
+                    </div>
+                    <h2 className="font-display text-2xl md:text-3xl text-gray-800 mb-3">
+                      {topResult.program.name}
+                    </h2>
+                    <p className="text-gray-600 m-0 mb-6">
+                      Based on your answers, this program is the best fit for how you want to make an impact.
+                    </p>
+                    <Link
+                      to={topResult.program.href}
+                      className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
+                    >
+                      Support this program
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>

@@ -16,8 +16,8 @@ export const meta: MetaFunction = () => ({
 const NaturalResourceManagement = () => (
   <Page
     image={{ name: "tap" }}
-    intro="Natural Resource Management, especially watershed management, was the first initiative that SEDS was involved in. Anantpur was the second-most drought prone area in the country. Barren land and loose topsoil made growing crops a very difficult task. The first task was to conserve the little rain that the land received. At first, trenches were dug at the base of hills where it had been observed that rainwater washed down."
-    title="Natural Resource Management"
+    intro="We partner with villages to conserve water, restore degraded land, and protect shared resources that sustain farming and daily life. Anantapur was the second-most drought-prone area in the country. Barren land and loose topsoil made growing crops extremely difficult. The first task was to conserve the little rain that the land received."
+    title="Protecting the natural systems communities depend on."
   >
     <p>
       Gradually, vegetation began to grow around the perimeter of these check

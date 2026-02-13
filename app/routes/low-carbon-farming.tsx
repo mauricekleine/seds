@@ -15,8 +15,8 @@ export const meta: MetaFunction = () => ({
 const LowCarbonFarming = () => (
   <Page
     image={{ name: "farming" }}
-    intro="With the Low Carbon Farming (LCF) programme, SEDS propagates traditional innovative farming methods to break the cycle of heavy pesticide usage, soil depletion and successively reduced crop yields. Conventional wisdom advocates intensive use of pesticides and fertilizer to increase crop yield and force more out of smaller plots of land. This however, depletes the soil, forcing the farmer to use greater amounts of fertilizer and pesticide with each crop to maintain the yield."
-    title="Low Carbon Farming"
+    intro="We promote composting, water‑efficient irrigation, and soil‑healthy cultivation to lower costs and improve resilience to drought. SEDS propagates traditional innovative farming methods to break the cycle of heavy pesticide usage, soil depletion and successively reduced crop yields."
+    title="Farming practices that reduce emissions and improve livelihoods."
   >
     <p>
       Through LCF, SEDS encourages farmers to minimize pesticide usage and try

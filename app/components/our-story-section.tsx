@@ -11,26 +11,30 @@ const milestones = [
 ];
 
 function OurStorySection() {
-  return (
-      <section className="py-12 bg-surface-primary">
-        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+    return (
+        <section className="py-12 bg-surface-primary relative overflow-hidden">
+      <img
+        src="/logos/seds_emblem_transparent.png"
+        alt=""
+        className="pointer-events-none absolute left-1/2 top-1/2 w-40 -translate-x-1/2 -translate-y-1/2 opacity-10 sm:w-48 md:w-56"
+      />
+            <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 relative">
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-10">
             <div>
               <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-4">
                 Our Story
               </h2>
               <p className="text-content-secondary leading-relaxed mb-4">
-                In 1980, Rajen Joshua and Manil Jayasena Joshua founded SEDS in
-                one of India's most drought-prone regions — Anantapur District,
-                Andhra Pradesh. What began as a small effort to restore degraded
-                watersheds has grown into{" "}
-                <span data-seds-years>{calculateSEDSYears()}</span> years of
-                community-driven transformation.
-              </p>
-              <p className="text-content-secondary leading-relaxed mb-6">
-                Today, SEDS works across 350+ villages, empowering women's
-                self-help groups, restoring natural resources, and building
-                sustainable livelihoods for thousands of rural families.
+              In 1980, Rajen Joshua and Manil Jayasena Joshua founded SEDS in
+                  one of India's most drought-prone regions — Anantapur District,
+                  Andhra Pradesh. What began as a small effort to strengthen rural
+                  livelihoods has grown into{" "}
+                  <span data-seds-years>{calculateSEDSYears()}</span> years of
+                  community-driven transformation.
+                </p>
+                <p className="text-content-secondary leading-relaxed mb-6">
+                  Today, SEDS supports long‑term development through education access, climate‑smart agriculture, and natural resource management across rural districts in Andhra Pradesh.
               </p>
             <Link
               to="/about"

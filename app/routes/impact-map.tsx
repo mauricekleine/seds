@@ -16,14 +16,13 @@ export default function ImpactMapPage() {
     <div className="not-prose">
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-          <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-            Our Impact Across Anantapur
-          </h1>
-          <p className="text-green-100 max-w-2xl mx-auto m-0">
-            SEDS works across {mandals.length} mandals, reaching {totalVillages}{" "}
-            villages with watershed restoration, education, and sustainable
-            livelihood programs
-          </p>
+            <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
+              See our impact by location.
+            </h1>
+            <p className="text-green-100 max-w-2xl mx-auto m-0">
+              Select a district to explore the programs and outcomes in that region. SEDS works across {mandals.length} mandals, reaching {totalVillages}{" "}
+              villages.
+            </p>
         </div>
       </section>
 

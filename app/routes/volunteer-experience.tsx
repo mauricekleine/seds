@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "How do I apply?",
     answer:
-      "Send an email to sedsngo@gmail.com with your background, areas of interest, and preferred dates. We'll get back to you within a week.",
+      "Send an email to info@sedsngo.org with your background, areas of interest, and preferred dates. We'll get back to you within a week.",
   },
 ];
 
@@ -45,13 +45,12 @@ export default function VolunteerExperience() {
     <div className="not-prose">
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-          <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-            Your Volunteer Journey
-          </h1>
-          <p className="text-green-100 max-w-2xl mx-auto m-0">
-            Experience rural development firsthand. Here's what a typical 2-week
-            volunteer stay at SEDS looks like.
-          </p>
+            <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
+              A volunteer experience grounded in community.
+            </h1>
+            <p className="text-green-100 max-w-2xl mx-auto m-0">
+              Volunteers work alongside local teams on real projects—supporting students, assisting farmers, and contributing to conservation efforts.
+            </p>
         </div>
       </section>
 
@@ -110,7 +109,7 @@ export default function VolunteerExperience() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="mailto:sedsngo@gmail.com?subject=Volunteer%20Application"
+              href="mailto:info@sedsngo.org?subject=Volunteer%20Application"
               className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
             >
               <EnvelopeSimple className="w-5 h-5" />

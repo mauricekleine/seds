@@ -12,8 +12,8 @@ export const meta: MetaFunction = () => ({
 
 const Volunteers = () => (
   <Page
-    intro="We welcome volunteers from around the World to participate in our social development programmes. SEDS has so far hosted more than 300 volunteers from several countries who have enriched our work and who have returned home with enriching experiences."
-    title="Volunteers &amp; Interns"
+    intro="Join projects in education, community outreach, and environmental conservation. Whether you can give a few hours or several weeks, your skills can make a real difference. SEDS has hosted more than 300 volunteers from several countries."
+    title="Volunteer with SEDS."
   >
     <p>
       A minimum of 1 month's commitment is necessary for general volunteering

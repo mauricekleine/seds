@@ -129,7 +129,7 @@ export default function DonationCalculator() {
           </div>
 
           <a
-            href="mailto:sedsngo@gmail.com?subject=Donation%20Inquiry%20-%20₹&body=I%20would%20like%20to%20donate%20to%20SEDS."
+            href="mailto:info@sedsngo.org?subject=Donation%20Inquiry%20-%20₹&body=I%20would%20like%20to%20donate%20to%20SEDS."
             className="flex items-center justify-center gap-2 w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center no-underline"
           >
             <EnvelopeSimple className="w-5 h-5" />

@@ -74,12 +74,12 @@ export default function UpdatesPage() {
     <div className="not-prose">
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-          <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-            Field Notes
-          </h1>
-          <p className="text-green-100 max-w-2xl mx-auto m-0">
-            Weekly updates from our programs across Anantapur district
-          </p>
+            <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
+              News and field updates.
+            </h1>
+            <p className="text-green-100 max-w-2xl mx-auto m-0">
+              Stories from our programs, community partners, and volunteers.
+            </p>
         </div>
       </section>
 

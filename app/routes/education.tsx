@@ -15,8 +15,8 @@ export const meta: MetaFunction = () => ({
 const Education = () => (
   <Page
     image={{ name: "students-2" }}
-    intro="The SEDS school operates out of the SEDS campus and provides a good quality education to children from the surrounding villages. The school follows the Andhra Pradesh State Board prescribed syllabus and uses English for the medium of instruction. In keeping with our environmental focus, hill-top field visits, ecology lessons, stage plays and songs with a conservation theme all an important part of the coursework."
-    title="Children's education"
+    intro="SEDS supports children and families with practical resources—scholarships, tutoring, and learning materials—so students can stay in school and thrive. The school follows the Andhra Pradesh State Board prescribed syllabus and uses English for the medium of instruction."
+    title="Education that opens doors."
   >
     <p>
       The school has more than 50 children at present with a capacity to expand

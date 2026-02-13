@@ -112,11 +112,14 @@ export default function UpdateDetail() {
             className="text-green-200 hover:text-white text-sm flex items-center gap-1 mb-4 no-underline"
           >
             <ArrowLeft className="w-4 h-4" />
-            All updates
-          </Link>
-          <h1 className="font-display text-2xl md:text-3xl text-white mb-3">
-            {update.title}
-          </h1>
+              All updates
+            </Link>
+            <h1 className="font-display text-2xl md:text-3xl text-white mb-3">
+              {update.title}
+            </h1>
+            <p className="text-green-100/80 text-sm mb-3 m-0">
+              This update highlights recent progress from the field and what it means for the communities we serve.
+            </p>
           <div className="flex items-center gap-3 text-green-100 text-sm">
             <span className="flex items-center gap-1">
               <CalendarBlank className="w-4 h-4" />
@@ -145,7 +148,7 @@ export default function UpdateDetail() {
                 to="/updates"
                 className="text-green-600 hover:text-green-700 text-sm font-medium no-underline"
               >
-                &larr; Back to all updates
+                &larr; Back to updates
               </Link>
               <a
                 href={`mailto:?subject=${encodeURIComponent(update.title)}&body=Read this update from SEDS`}

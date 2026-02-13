@@ -54,7 +54,7 @@ export default function PresetDonationButtons({ programName }: Props) {
         min={100}
       />
       <a
-        href={`mailto:sedsngo@gmail.com?subject=Donation%20for%20${encodeURIComponent(programName)}${amount ? `%20-%20${formatINR(amount)}` : ""}&body=I%20would%20like%20to%20donate%20to%20the%20${encodeURIComponent(programName)}%20program.`}
+        href={`mailto:info@sedsngo.org?subject=Donation%20for%20${encodeURIComponent(programName)}${amount ? `%20-%20${formatINR(amount)}` : ""}&body=I%20would%20like%20to%20donate%20to%20the%20${encodeURIComponent(programName)}%20program.`}
         className="flex items-center justify-center gap-2 w-full bg-green-600 text-white py-2.5 px-4 rounded-lg font-semibold hover:bg-green-700 transition-colors text-sm text-center no-underline"
       >
         <EnvelopeSimple className="w-4 h-4" />

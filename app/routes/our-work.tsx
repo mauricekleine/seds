@@ -13,7 +13,7 @@ const programs = [
     icon: <GraduationCap className="w-12 h-12" />,
     title: "Children's Education",
     description:
-      "Supporting rural children with quality education, scholarships, and school infrastructure development. SEDS runs community schools and after-school programs to ensure every child has access to learning.",
+      "We help children stay in school through scholarships, learning materials, and community support that removes barriers to attendance. SEDS runs community schools and after-school programs to ensure every child has access to learning.",
     href: "/education",
     color: "text-blue-600",
   },
@@ -21,7 +21,7 @@ const programs = [
     icon: <Sun className="w-12 h-12" />,
     title: "Clean Development Mechanism",
     description:
-      "Implementing clean energy solutions and carbon reduction projects for sustainable communities. Our CDM programs introduce energy-efficient cookstoves and solar solutions to reduce emissions.",
+      "CDM projects reduce greenhouse gas emissions while creating tangible local benefits—better infrastructure, improved services, and new income streams for rural households.",
     href: "/clean-development-mechanism",
     color: "text-amber-600",
   },
@@ -29,7 +29,7 @@ const programs = [
     icon: <Leaf className="w-12 h-12" />,
     title: "Low Carbon Farming",
     description:
-      "Promoting sustainable agriculture practices that reduce emissions while improving yields. We train farmers in organic methods, crop diversification, and water-efficient techniques.",
+      "We promote composting, water‑efficient irrigation, and soil‑healthy cultivation to lower costs and improve resilience to drought.",
     href: "/low-carbon-farming",
     color: "text-green-600",
   },
@@ -37,7 +37,7 @@ const programs = [
     icon: <Drop className="w-12 h-12" />,
     title: "Natural Resource Management",
     description:
-      "Watershed development, water conservation, and reforestation for ecological restoration. Our flagship program has restored degraded landscapes across 350+ villages through check dams, percolation tanks, and community forestry.",
+      "We work with communities to restore local ecosystems, conserve water, and protect shared land and forests across 350+ villages through check dams, percolation tanks, and community forestry.",
     href: "/natural-resource-management",
     color: "text-cyan-600",
   },
@@ -49,12 +49,11 @@ export default function OurWork() {
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
           <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-            Our Work
-          </h1>
-          <p className="text-green-100 max-w-2xl mx-auto m-0">
-            Four decades of sustainable development through education,
-            environment, and community empowerment in Anantapur District
-          </p>
+            Our Programs
+            </h1>
+            <p className="text-green-100 max-w-2xl mx-auto m-0">
+              We focus on three areas that reinforce one another: education, sustainable livelihoods, and environmental conservation.
+            </p>
         </div>
       </section>
 

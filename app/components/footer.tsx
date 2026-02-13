@@ -56,6 +56,14 @@ const Footer = () => (
     <div className="pt-4">
       <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
         <div className="flex text-center lg:text-left flex-col space-y-6 lg:flex-row lg:space-y-0 lg:space-x-4">
+          {/* Primary logo: centered on mobile, left-aligned on desktop */}
+          <div className="flex items-center justify-center lg:items-start lg:justify-start shrink-0">
+            <img
+              src="/logos/seds_lockup_primary_transparent.png"
+              alt="SEDS - Towards a Greener Tomorrow"
+              className="w-20 h-auto lg:w-28"
+            />
+          </div>
           <div className="flex flex-col items-center lg:items-start flex-1">
             <h3 className="font-display flex items-center text-lg text-content-primary">
               <MapPin /> Address
@@ -87,7 +95,7 @@ const Footer = () => (
                   <EnvelopeSimple />
                 </div>
 
-                <span>sedsngo@gmail.com</span>
+                <span>info@sedsngo.org</span>
               </div>
 
               <div className="flex items-center space-x-2 justify-center lg:justify-start text-content-secondary">
@@ -125,9 +133,23 @@ const Footer = () => (
       <ProjectLinks />
     </div>
 
-    <div className="bg-green-600 text-center text-white py-2 text-sm">
-      Copyright {new Date().getFullYear()} - All information on this site is
-      part of SEDS
+    {/* Copyright bar with responsive watermarks */}
+    <div className="bg-green-600 text-white py-3 text-sm relative overflow-hidden">
+      {/* Watermark emblems — hidden on very small screens, visible from sm up */}
+      <img
+        src="/logos/seds_emblem_transparent.png"
+        alt=""
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-7 sm:w-7 opacity-20 sm:opacity-30 hidden sm:block"
+      />
+      <img
+        src="/logos/seds_emblem_transparent.png"
+        alt=""
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-7 sm:w-7 opacity-20 sm:opacity-30 hidden sm:block"
+      />
+      <p className="text-center m-0 px-4 sm:px-12">
+        Copyright {new Date().getFullYear()} - All information on this site is
+        part of SEDS
+      </p>
     </div>
   </footer>
 );

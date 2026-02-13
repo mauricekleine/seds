@@ -30,3 +30,4 @@
     at RouterProvider (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:2548:5)
     at RemixErrorBoundary (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:3547:5)
     at RemixBrowser (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:4696:55)
+2026-02-12T10:22:00.789Z [console][log] Remix dev asset server web socket closed. Reconnecting...

@@ -64,12 +64,16 @@ function Reports() {
 
   return (
     <div className="pt-4">
-      <h2 className="font-display">Reports</h2>
+        <h2 className="font-display">Reports and transparency</h2>
 
-      {entries.items.length === 0 ? (
-        <p className="mt-4 text-gray-700 leading-6">
-          Reports are not available right now. Please check back later.
+        <p className="text-gray-600 mb-6">
+          Explore annual reports and project updates that show how our programs are funded and what they achieve.
         </p>
+
+        {entries.items.length === 0 ? (
+          <p className="mt-4 text-gray-700 leading-6">
+            Reports will be published here as they are released.
+          </p>
       ) : (
         entries.items
           .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>
