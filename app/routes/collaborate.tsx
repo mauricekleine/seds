@@ -62,14 +62,15 @@ export const action: ActionFunction = async ({ request }) => {
     }
   }
 
-  const mail = {
-    to: [
-      { email: "info@sedsngo.org", type: "to" },
-      { email, name, type: "cc" },
-    ],
-    from_email: "info@sedsngo.org",
-    from_name: "SEDS Collaboration Form",
-    subject: `New collaboration inquiry from ${name} <${email}>`,
+    const mail = {
+      to: [
+        { email: "info@setzenjio.org", type: "to" },
+        { email, name, type: "cc" },
+      ],
+      from_email: "info@setzenjio.org",
+      from_name: "SEDS Collaboration Form",
+      subject: `New collaboration inquiry from ${name} <${email}>`,
+
     text: message,
     html: `
       <div>
@@ -168,9 +169,9 @@ const Collaborate = () => {
   return (
     <div className="mx-auto lg:max-w-screen-md px-6 lg:px-0 py-8">
       {searchParams.get("error") ? (
-        <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
-          Sorry — something went wrong. Please try again or email us directly at info@sedsngo.org.
-        </div>
+          <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
+            Sorry — something went wrong. Please try again or email us directly at info@setzenjio.org.
+          </div>
       ) : null}
 
       {searchParams.get("success") ? (
