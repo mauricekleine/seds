@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { Handshake, Coins } from "phosphor-react";
+import { Handshake, Coins, ShareNetwork } from "phosphor-react";
 
 function CTASection() {
   return (
@@ -14,7 +14,8 @@ function CTASection() {
             </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
           <Link
             to="/volunteers"
             className="group bg-surface-primary rounded-lg p-6 text-center hover:shadow-xl transition-all duration-200"
@@ -31,21 +32,38 @@ function CTASection() {
               </span>
           </Link>
 
-          <a
-            href="mailto:info@sedsngo.org?subject=Donation%20Inquiry"
-            className="group bg-green-700 rounded-lg p-6 text-center hover:bg-green-800 transition-all duration-200"
-          >
-            <Coins className="w-12 h-12 text-white mx-auto mb-4" />
-            <h3 className="font-display text-xl text-white mb-2">
-              Support Our Work
+            <a
+              href="mailto:info@sedsngo.org?subject=Donation%20Inquiry"
+              className="group bg-green-700 rounded-lg p-6 text-center hover:bg-green-800 transition-all duration-200"
+            >
+              <Coins className="w-12 h-12 text-white mx-auto mb-4" />
+              <h3 className="font-display text-xl text-white mb-2">
+                Support Our Work
+                </h3>
+                <p className="text-green-100 text-sm mb-4 m-0">
+                  Your donation helps us expand our programs and reach more families
+                </p>
+                <span className="inline-block bg-white text-green-700 px-6 py-2 rounded-full font-semibold group-hover:bg-green-50 transition-colors">
+                  Donate to a family
+                </span>
+            </a>
+
+            <Link
+              to="/collaborate"
+              className="group bg-surface-primary rounded-lg p-6 text-center hover:shadow-xl transition-all duration-200"
+            >
+              <ShareNetwork className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <h3 className="font-display text-xl text-content-primary mb-2">
+                Partner & Innovate With Us
               </h3>
-              <p className="text-green-100 text-sm mb-4 m-0">
-                Your donation helps us expand our programs and reach more families
+              <p className="text-content-secondary text-sm mb-4 m-0">
+                Collaborate on tech-forward, scalable solutions for rural livelihoods in Andhra Pradesh — from agri-tech pilots to transparent impact systems.
               </p>
-              <span className="inline-block bg-white text-green-700 px-6 py-2 rounded-full font-semibold group-hover:bg-green-50 transition-colors">
-                Donate to a family
+              <span className="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-semibold group-hover:bg-green-700 transition-colors">
+                Propose a collaboration
               </span>
-          </a>
+            </Link>
+
         </div>
       </div>
     </section>
