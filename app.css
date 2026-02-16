@@ -71,3 +71,30 @@
   font-weight: 500;
   src: url("/fonts/Ubuntu-Medium.ttf");
 }
+
+.partners-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+  .partners-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: partners-scroll 50s linear infinite;
+  }
+
+
+.partners-marquee:hover .partners-track {
+  animation-play-state: paused;
+}
+
+@keyframes partners-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
