@@ -1,19 +1,18 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link, useParams } from "@remix-run/react";
-import { ArrowLeft, CalendarBlank, ShareNetwork } from "phosphor-react";
+import { ArrowLeft, ShareNetwork } from "phosphor-react";
 
 const updatesData: Record<
   string,
   {
     title: string;
-    date: string;
     category: string;
     body: string[];
   }
 > = {
   "new-check-dam-roddam": {
     title: "New Check Dam Completed in Roddam Mandal",
-    date: "Jan 28, 2026",
+
     category: "Watershed",
     body: [
       "The latest check dam in Roddam mandal is now fully operational after three months of construction. This structure is expected to significantly raise groundwater levels for three surrounding villages, benefiting over 200 farming households.",
@@ -23,7 +22,6 @@ const updatesData: Record<
   },
   "annual-science-fair": {
     title: "Annual Science Fair at SEDS School",
-    date: "Jan 20, 2026",
     category: "Education",
     body: [
       "The SEDS school hosted its annual science fair, with 25 student projects focused on environmental conservation. The event was attended by parents, community members, and visiting educators.",
@@ -33,7 +31,6 @@ const updatesData: Record<
   },
   "500th-biogas-digester": {
     title: "500th Biogas Digester Installed This Year",
-    date: "Jan 15, 2026",
     category: "CDM",
     body: [
       "SEDS has reached a major milestone with the installation of its 500th biogas digester of the year in Chilamathur mandal. This brings the total number of operational digesters across the district to over 4,800.",
@@ -43,7 +40,6 @@ const updatesData: Record<
   },
   "lcf-workshop-farmers": {
     title: "Low Carbon Farming Workshop for 50 Farmers",
-    date: "Jan 8, 2026",
     category: "Farming",
     body: [
       "Fifty farmers from Somandepalli mandal participated in a two-day workshop on low carbon farming techniques. The training covered natural pest management, spacing optimization, and soil health practices.",
@@ -53,7 +49,6 @@ const updatesData: Record<
   },
   "german-volunteer-group": {
     title: "Volunteer Group from Germany Arrives",
-    date: "Jan 3, 2026",
     category: "General",
     body: [
       "Eight students from the University of Munich have arrived at SEDS for a six-week volunteer placement. The group includes students of agriculture, social work, and environmental science.",
@@ -63,7 +58,6 @@ const updatesData: Record<
   },
   "reforestation-milestone": {
     title: "Reforestation Milestone: 2.5 Million Trees",
-    date: "Dec 28, 2025",
     category: "Watershed",
     body: [
       "SEDS has crossed the 2.5 million mark for trees planted since its founding in 1980. This milestone reflects over four decades of committed reforestation work across Anantapur district.",
@@ -120,15 +114,11 @@ export default function UpdateDetail() {
             <p className="text-green-100/80 text-sm mb-3 m-0">
               This update highlights recent progress from the field and what it means for the communities we serve.
             </p>
-          <div className="flex items-center gap-3 text-green-100 text-sm">
-            <span className="flex items-center gap-1">
-              <CalendarBlank className="w-4 h-4" />
-              {update.date}
-            </span>
-            <span className="bg-green-500/30 px-2 py-0.5 rounded text-xs">
-              {update.category}
-            </span>
-          </div>
+            <div className="flex items-center gap-3 text-green-100 text-sm">
+              <span className="bg-green-500/30 px-2 py-0.5 rounded text-xs">
+                {update.category}
+              </span>
+            </div>
         </div>
       </section>
 

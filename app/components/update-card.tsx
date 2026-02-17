@@ -3,7 +3,6 @@ import { Link } from "@remix-run/react";
 type Update = {
   title: string;
   slug: string;
-  date: string;
   category: string;
   excerpt: string;
 };

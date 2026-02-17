@@ -13,7 +13,7 @@ const updates: Update[] = [
   {
     title: "New Check Dam Completed in Roddam Mandal",
     slug: "new-check-dam-roddam",
-    date: "Jan 28, 2026",
+
     category: "Watershed",
     excerpt:
       "The latest check dam in Roddam mandal is now operational, expected to raise groundwater levels for 3 surrounding villages.",
@@ -21,7 +21,6 @@ const updates: Update[] = [
   {
     title: "Annual Science Fair at SEDS School",
     slug: "annual-science-fair",
-    date: "Jan 20, 2026",
     category: "Education",
     excerpt:
       "Students showcased 25 projects on environmental conservation, with the winning project on rainwater harvesting.",
@@ -29,7 +28,6 @@ const updates: Update[] = [
   {
     title: "500th Biogas Digester Installed This Year",
     slug: "500th-biogas-digester",
-    date: "Jan 15, 2026",
     category: "CDM",
     excerpt:
       "A milestone achievement as SEDS installs its 500th biogas digester of the year in Chilamathur mandal.",
@@ -37,7 +35,6 @@ const updates: Update[] = [
   {
     title: "Low Carbon Farming Workshop for 50 Farmers",
     slug: "lcf-workshop-farmers",
-    date: "Jan 8, 2026",
     category: "Farming",
     excerpt:
       "Farmers from Somandepalli gathered to learn pest management techniques that reduce pesticide use by up to 60%.",
@@ -45,7 +42,6 @@ const updates: Update[] = [
   {
     title: "Volunteer Group from Germany Arrives",
     slug: "german-volunteer-group",
-    date: "Jan 3, 2026",
     category: "General",
     excerpt:
       "A group of 8 volunteers from the University of Munich begin their 6-week placement at SEDS campus.",
@@ -53,7 +49,6 @@ const updates: Update[] = [
   {
     title: "Reforestation Milestone: 2.5 Million Trees",
     slug: "reforestation-milestone",
-    date: "Dec 28, 2025",
     category: "Watershed",
     excerpt:
       "SEDS crosses the 2.5 million mark for trees planted since its founding, with increased survival rates due to improved techniques.",

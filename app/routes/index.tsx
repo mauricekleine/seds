@@ -30,21 +30,19 @@ const Homepage = () => (
           {
             title: "New Check Dam Completed in Roddam Mandal",
             slug: "new-check-dam-roddam",
-            date: "Jan 28, 2026",
+
             category: "Watershed",
             excerpt: "The latest check dam in Roddam mandal is now operational, expected to raise groundwater levels for 3 surrounding villages.",
           },
           {
             title: "Annual Science Fair at SEDS School",
             slug: "annual-science-fair",
-            date: "Jan 20, 2026",
             category: "Education",
             excerpt: "Students showcased 25 projects on environmental conservation, with the winning project on rainwater harvesting.",
           },
           {
             title: "500th Biogas Digester Installed This Year",
             slug: "500th-biogas-digester",
-            date: "Jan 15, 2026",
             category: "CDM",
             excerpt: "A milestone achievement as SEDS installs its 500th biogas digester of the year in Chilamathur mandal.",
           },
