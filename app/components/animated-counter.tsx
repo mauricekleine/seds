@@ -13,7 +13,7 @@ function easeOutQuart(t: number): number {
 
 export default function AnimatedCounter({
   target,
-  duration = 2000,
+  duration = 3200,
   suffix = "",
   prefix = "",
 }: Props) {

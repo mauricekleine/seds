@@ -44,7 +44,7 @@ export default function FundingProgress({ current, goal, label }: Props) {
         <div className="w-full bg-surface-tertiary rounded-full h-3 overflow-hidden">
 
         <div
-          className="bg-green-600 h-3 rounded-full transition-all duration-1000 ease-out"
+            className="bg-green-600 h-3 rounded-full transition-all duration-[1800ms] ease-out"
           style={{ width: `${width}%` }}
         />
       </div>

@@ -31,3 +31,13 @@
     at RemixErrorBoundary (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:3547:5)
     at RemixBrowser (http://localhost:3000/build/_shared/chunk-NO7GUSBE.js:4696:55)
 2026-02-12T10:22:00.789Z [console][log] Remix dev asset server web socket closed. Reconnecting...
+2026-02-20T15:20:46.632Z [console][warn] 💿 Rebuilt in 857ms
+2026-02-20T15:20:46.633Z [console][warn] 💿 Reloading window ...
+2026-02-20T15:20:46.839Z [console][warn] 💿 File changed: app/root.tsx
+2026-02-20T15:20:46.839Z [console][warn] 💿 File changed: app/components/theme-toggle.tsx
+2026-02-20T15:20:46.840Z [console][warn] 💿 File changed: app/components/animated-counter.tsx
+2026-02-20T15:20:46.840Z [console][warn] 💿 File changed: app/components/carbon-counter.tsx
+2026-02-20T15:20:46.840Z [console][warn] 💿 File changed: app/components/funding-progress.tsx
+2026-02-20T15:20:46.941Z [console][warn] 💿 Rebuilding...
+2026-02-20T15:20:47.480Z [console][warn] 💿 Rebuilt in 539ms
+2026-02-20T15:20:47.480Z [console][warn] 💿 Reloading window ...

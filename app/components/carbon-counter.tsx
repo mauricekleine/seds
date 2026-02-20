@@ -55,7 +55,7 @@ export default function CarbonCounter() {
                 <AnimatedCounter
                   target={metric.target}
                   suffix={metric.suffix}
-                  duration={2500}
+                    duration={4000}
                 />
               </p>
               <p className="text-green-200 text-xs mt-1 m-0">{metric.label}</p>
