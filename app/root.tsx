@@ -24,6 +24,8 @@ export const links: LinksFunction = () => [
   { rel: "icon", type: "image/png", sizes: "48x48", href: "/icons/favicon-48.png" },
   { rel: "icon", type: "image/png", sizes: "32x32", href: "/icons/favicon-32.png" },
   { rel: "icon", type: "image/png", sizes: "16x16", href: "/icons/favicon-16.png" },
+  { rel: "shortcut icon", href: "/favicon.ico" },
+  { rel: "icon", type: "image/png", href: "/favicon.png" },
   { rel: "apple-touch-icon", sizes: "180x180", href: "/icons/apple-touch-icon-180.png" },
   { rel: "manifest", href: "/site.webmanifest" },
 ];

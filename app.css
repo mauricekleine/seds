@@ -82,7 +82,7 @@
     display: flex;
     gap: 1rem;
     width: max-content;
-      animation: partners-scroll 80s linear infinite;
+    animation: partners-scroll 120s linear infinite;
   }
 
 
