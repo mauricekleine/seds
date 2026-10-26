@@ -1,0 +1,7 @@
+# Three days gives compromised releases time to be reported and withdrawn.
+minimumReleaseAge: 4320
+# Native/compiler installers already required by the existing Remix build.
+onlyBuiltDependencies:
+  - deasync
+  - esbuild
+  - unrs-resolver
