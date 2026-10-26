@@ -14,7 +14,7 @@
     "lint:fix": "bun fmt",
     "deploy": "PATH=\"$HOME/.local/bin:$PATH\" cf deploy --prebuilt",
     "deploy:verify": "bun tools/deploy-verify.ts",
-    "deploy:secrets": "op inject --account mauricekleine.1password.com -i .env.tpl | bun tools/secrets-json.ts | PATH=\"$HOME/.local/bin:$PATH\" cf workers secrets bulk --worker seds --secrets @/dev/stdin",
+    "deploy:secrets": "bash tools/upload-secrets.sh",
     "prepare": "husky",
     "secrets:check": "bun tools/check-client-secrets.ts",
     "parity": "bun tools/parity.ts",
