@@ -12,7 +12,7 @@
     "test": "bun test",
     "lint": "bun fmt --check && oxlint app src tools test --ignore-path .gitignore --ignore-pattern src/routeTree.gen.ts",
     "lint:fix": "bun fmt",
-    "deploy": "PATH=\"$HOME/.local/bin:$PATH\" cf deploy --prebuilt",
+    "deploy": "PATH=\"$HOME/.local/bin:$PATH\" cf deploy --prebuilt --profile \"${SEDS_CF_PROFILE:-kaulos}\"",
     "deploy:verify": "bun tools/deploy-verify.ts",
     "prepare": "husky",
     "secrets:check": "bun tools/check-client-secrets.ts",

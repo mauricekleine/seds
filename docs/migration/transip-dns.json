@@ -1,0 +1,67 @@
+{
+  "exportedAt": "2026-10-26T08:01:05.668433+00:00",
+  "source": "GET https://api.transip.nl/v6/domains/sedsngo.org/dns",
+  "readOnly": true,
+  "dnsEntries": [
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "A",
+      "content": "76.76.21.21"
+    },
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "MX",
+      "content": "1 aspmx.l.google.com."
+    },
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "MX",
+      "content": "10 alt3.aspmx.l.google.com."
+    },
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "MX",
+      "content": "10 alt4.aspmx.l.google.com."
+    },
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "MX",
+      "content": "5 alt1.aspmx.l.google.com."
+    },
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "MX",
+      "content": "5 alt2.aspmx.l.google.com."
+    },
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "TXT",
+      "content": "mandrill_verify.E5CuAxDypLvr9_KsbUBEKg"
+    },
+    {
+      "name": "@",
+      "expire": 300,
+      "type": "TXT",
+      "content": "v=spf1 include:spf.mandrillapp.com ?all"
+    },
+    {
+      "name": "mandrill._domainkey",
+      "expire": 300,
+      "type": "TXT",
+      "content": "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;"
+    },
+    {
+      "name": "www",
+      "expire": 300,
+      "type": "CNAME",
+      "content": "cname.vercel-dns.com."
+    }
+  ]
+}
