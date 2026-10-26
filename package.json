@@ -15,7 +15,9 @@
     "deploy": "PATH=\"$HOME/.local/bin:$PATH\" cf deploy --prebuilt",
     "deploy:verify": "bun tools/deploy-verify.ts",
     "prepare": "husky",
-    "secrets:check": "bun tools/check-client-secrets.ts"
+    "secrets:check": "bun tools/check-client-secrets.ts",
+    "parity": "bun tools/parity.ts",
+    "smoke:preview": "bun tools/smoke-preview.ts"
   },
   "repository": {
     "type": "git",

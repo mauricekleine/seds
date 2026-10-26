@@ -1,106 +1,17 @@
 # SEDS
 
-## Project Overview
+SEDS is the public NGO website at sedsngo.org. Preserve its own design, copy, URLs and SEO metadata. Its fonts are Ubuntu and Open Sans, with green actions, blue links and the light/dark theme in app.css.
 
-SEDS (Social Education and Development Society) website - a Remix-based NGO website for an organization doing rural development work in Andhra Pradesh, India since 1980. Live at https://sedsngo.org.
+The app runs TanStack Start on Bun and builds only for Cloudflare Workers. app/pages holds the page bodies; src/routes owns Start routes, heads, loaders and native POST handlers. src/functions.ts exposes server functions; Contentful and Mailchimp code lives in *.server.ts. app/navigation.tsx adapts shared link styling and form submission to Start.
 
-## Commands
+Use package.json for commands. Build before checking client assets with bun run secrets:check. Form tests stub fetch completely; verification never submits live forms. PREVIEW_URL=https://…workers.dev bun run parity compares every page and update with production at desktop and mobile widths, saving text, metadata, screenshots and diagnostics under /tmp/seds-migration/parity by default.
 
-```bash
-# Development
-pnpm install          # Install dependencies
-pnpm dev              # Start dev server (runs Tailwind watch + Remix dev concurrently)
-
-# Build & Production
-pnpm build            # Build for production (CSS + Remix)
-pnpm start            # Serve production build locally
-
-# Code Quality
-pnpm lint             # Check ESLint + Prettier
-pnpm lint:fix         # Auto-fix lint issues
-pnpm typecheck        # TypeScript type checking
-```
-
-## Architecture
-
-### Tech Stack
-- **Framework**: Remix 1.19 with React 18
-- **Styling**: Tailwind CSS with custom theming
-- **CMS**: Contentful for dynamic content
-- **Email**: Mailchimp/Mandrill for contact form
-- **Forms**: reCAPTCHA (production only) + Yup validation
-- **Hosting**: Vercel serverless
-
-### Directory Structure
-```
-app/
-├── routes/           # Remix file-based routes (pages)
-├── components/       # React components
-│   └── ui/          # Reusable UI primitives
-├── utils/           # Server utilities
-├── types/           # TypeScript types
-├── root.tsx         # App shell (navigation, footer, theme)
-└── app.css          # Generated Tailwind output (don't edit directly)
-
-app.css               # Tailwind input file (edit this one)
-public/              # Static assets
-```
-
-### Theming System
-
-Uses CSS variables for dark/light mode with semantic color tokens:
-
-```css
-/* In app.css - light mode defaults, .dark class overrides */
---color-bg-primary/secondary/tertiary    /* surface-* in Tailwind */
---color-text-primary/secondary/tertiary  /* content-* in Tailwind */
---color-border/border-strong             /* outline/outline-strong in Tailwind */
-```
-
-Usage in components: `bg-surface-primary`, `text-content-secondary`, `border-outline`
-
-Theme toggle persists to localStorage and uses inline script in `root.tsx` to prevent flash.
-
-### Remix Patterns
-
-- **Routes**: File-based routing in `app/routes/`. Homepage is `index.tsx`.
-- **Actions**: Server-side form handlers export `action` function (see `contact.tsx`)
-- **Loaders**: Data fetching exports `loader` function
-- **Meta**: Each route exports `meta` function for SEO
-- **Path alias**: `~/` maps to `app/` directory
-
-### Dynamic Year Calculation
-
-The organization founding year (1980) is used to calculate "X+ years of service". Implemented in:
-- `app/utils/seds-years.ts` - server-side
-- `public/seds-years.js` - client-side (updates elements with `data-seds-years` attribute)
-
-## Environment Variables
-
-Required for full functionality:
-```
-CONTENTFUL_ACCESS_TOKEN=    # CMS access
-CONTENTFUL_SPACE_ID=        # CMS space
-MANDRILL_API_KEY=           # Email service
-RECAPTCHA_SECRET_KEY=       # Form protection (production)
-```
-
-## Key Conventions
-
-- Mobile-first responsive design (sm:, md:, lg: breakpoints)
-- Icons from phosphor-react library
-- Fonts: Ubuntu (display/headings), Open Sans (body)
-- Green (#16A34A) as primary action color, Blue (#1D6DC2) for links
+.mk/app.json records adoption in place from app-template. mk apps sync carries the selected runtime pins and tooling; the stamp opts out of superthread, Tailwind 4 and Soliton. template.json is the upstream contract. README.md describes deployment and the credential boundary.
 
 ## Dependencies
 
-Upgrades follow the global `mk-dependency-upgrades` skill; holds live in
-`taze.config.mjs`. Vercel uses pnpm and the committed pnpm lockfile.
+The Bun version, runtime pins, taze and three-day release-age gate follow app-template. Keep Start and Router coupled. Keep Tailwind 3 and its forms/typography plugins together to preserve the site. Overrides in package.json address build-tool advisories; remove each when its parents resolve a patched release without it.
 
-- Checks: `pnpm build`, `pnpm typecheck`, `pnpm lint`.
-- Groups: keep all `@remix-run/*` packages at the same version; move React,
-  React DOM and their types together; keep Tailwind and its plugins compatible.
-- Smoke test: the Vercel build emits `api/index.js`. For `remix-serve`, build with
-  a local config using `serverBuildTarget: "node-cjs"`, `server: undefined` and
-  `serverBuildPath: "build/index.js"`; load `/`, `/about` and `/reports`.
-  Remix serve does not load `.env`; preload `dotenv/config` to exercise Contentful.
+Checks: bun run build, bun run typecheck, bun run test, bun run lint, bun run secrets:check and bun audit. Smoke the workers.dev preview, /healthz and /api/deploy.json; deploy:verify checks its exact commit SHA.
+
+Deployment and the attended cutover are documented in README.md and the migration PR.

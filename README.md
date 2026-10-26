@@ -1,16 +1,33 @@
 # SEDS
 
-The Social Education and Development Society (SEDS) is a Non-Governmental Organisation that has been actively involved in socially transforming initiatives and rural development for over 38 years near the town of Penukonda in Andhra Pradesh, India.
+The Social Education and Development Society website, serving rural communities in Andhra Pradesh since 1980. Production: https://sedsngo.org.
 
-## Repository
+## Development and checks
 
-This repository contains the source code for the [SEDS homepage](https://sedsngo.org). It's build using [Remix.](https://remix.run), hosted on [Vercel](https://vercel.com), content is provided through [Contentful](https://contentful.com) and the contact form is send through [Mandrill](https://mandrill.com).
+Use the Bun version in package.json. `bun install --frozen-lockfile`, then `bun run dev` starts Start/Vite. `bun run build` generates the original Tailwind 3 CSS and the template's Cloudflare prebuilt output. `bun run typecheck`, `bun run test`, `bun run lint`, `bun run secrets:check` and `bun audit` verify the port. Tests use a closed fetch stub and never send mail.
 
-## How to run
+`PREVIEW_URL=https://seds-preview.mk-065.workers.dev bun run parity` compares all page routes and all six updates with production at 1440×900 and 390×900. It saves HTTP status, title, all meta tags, main text, ARIA snapshots and full-page PNG pairs/diffs in `/tmp/seds-migration/parity` (override `PARITY_OUTPUT`). All POST requests are blocked. `PREVIEW_URL=https://seds-preview.mk-065.workers.dev bun run smoke:preview` records mobile navigation, theme persistence, filtering, update detail and both form error flows. It deliberately omits CAPTCHA tokens, so the server rejects before any Google or Mailchimp request. Existing counters settle before capture; no page region or content is masked.
 
-- `clone` the repository
-- run `pnpm install --frozen-lockfile`
-- run `pnpm dev` to start the local server
-- navigate to `http://localhost:3000`
+The strict parity command currently exits 1 for explained differences: reports are empty until Contentful credentials are provisioned, Google injects an `origin-trial` tag into the preview DOM, and the reCAPTCHA badge displays an invalid-domain warning on workers.dev. The HTTP metadata matches production; the injected tag is not part of the server document. The raw captures and unmasked differences remain in the report.
 
-You'll also need Contentful and Mandrill API keys in order to fully run the application, which are for obvious reasons not provided through this repository.
+## Template adoption
+
+This existing site adopts mauricekleine/app-template in place. `.mk/app.json` pins the sync base, declares Cloudflare as its only build target, and narrows the sync contract. `mk apps sync seds --check` works through the stamped worktree until main carries the stamp. Start/Router, React, Bun, Vite, Cloudflare tooling, typecheck, Bun test, taze, the install gate and deploy verification follow the template. Tailwind 3, SEDS' components, copy, root document and styles stay app-owned. Superthread and Soliton are outside this site's target. Sync validation runs the site's build, typecheck, tests and lint.
+
+## Preview deployment
+
+`bun run deploy` uses the account-aware `cf` wrapper with the prebuilt output. The Worker is `seds-preview` in Kaulos, at https://seds-preview.mk-065.workers.dev. Configuration includes no routes or custom domains. No deploy workflow is configured: production cutover remains an attended step. `DEPLOY_URL=https://seds-preview.mk-065.workers.dev bun run deploy:verify <full-sha>` verifies the build identity; `/healthz` returns `{"status":"ok"}`. Workers Logs and Traces are enabled.
+
+## Server credentials
+
+`CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` read reports. `MANDRILL_API_KEY` and `RECAPTCHA_SECRET_KEY` serve contact and collaboration inquiries. Missing CMS credentials preserve the existing empty-reports fallback. Missing mail/CAPTCHA credentials fail the form safely with the existing error message.
+
+Credential migration is blocked: the installed `vercel` command is a Mockly read-only wrapper and refuses `vercel env ls` / `vercel env pull`. The existing `.env` contains empty values. No credentials were invented, stored in 1Password, or provisioned as Worker secrets. A maintainer with access to the SEDS Vercel project must retrieve its production values, store a deployable bundle per mk-1password in a SEDS Production vault as bundle `website`, then deploy with `cf deploy --prebuilt --secrets-file <private-file>`. Keep that file outside the repository and delete it after provisioning. Verify the 1Password references and rescan client assets with the real values available before cutover.
+
+Mail goes to the same existing recipients: contact to info@sedsngo.org, collaboration to info@setzenjio.org, both CC the sender. The migration preserves those addresses. Server validation additionally rejects malformed email addresses, escapes user text in HTML, and treats Mailchimp rejected/invalid recipients as failures. Production reCAPTCHA remains required; the preview hostname must be allowed in its configuration before a real approved cutover test.
+
+The draft PR contains the DNS inventory and exact cutover steps. No Cloudflare zone was created. Vercel, TransIP, DNS and live forms remain untouched.
+
+Build-tool overrides patch transitive advisories while the template keeps its shared pins. Remove `postcss-selector-parser` when Tailwind resolves >=7.1.6, `sharp` when cf resolves >=0.35.5, `undici` when cf/workerd resolve >=7.30.1, and `zod` when Cloudflare/Start tooling resolves >=4.6.6 without overrides. The migration intentionally retains the template pins rather than doing an unrelated latest-version upgrade.
+
+The original `/reports` has a Contentful loader and no mail action. The footer newsletter form also remains its original local success placeholder. Only contact and collaboration send Mailchimp messages. The legacy `/seds-years.js` asset stays reachable, but the root no longer loads its pre-hydration DOM rewrite: React and the request-time year helper render the same text directly.
