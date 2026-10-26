@@ -5,7 +5,7 @@ See CLAUDE.md for application architecture and environment variables.
 ## Dependencies
 
 Upgrades follow the global `mk-dependency-upgrades` skill; holds live in
-`taze.config.ts`. Vercel uses pnpm and the committed pnpm lockfile.
+`taze.config.mjs`. Vercel uses pnpm and the committed pnpm lockfile.
 
 - Checks: `pnpm build`, `pnpm typecheck`, `pnpm lint`.
 - Groups: keep all `@remix-run/*` packages at the same version; move React,
