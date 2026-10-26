@@ -14,3 +14,6 @@ overrides:
   '@vercel/node@2>path-to-regexp': ^6.3.0
   '@vercel/static-config@2>ajv': ^8.18.0
   'lint-staged@13>yaml': ^2.9.1
+  # cacache 15 pins unmaintained tar 6. Remove when Remix upgrades cacache.
+  # tar 7 requires Node >=18; this app runs Node 24.
+  'cacache@15>tar': 7.5.22
