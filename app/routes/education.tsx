@@ -1,9 +1,9 @@
 import type { MetaFunction } from "@remix-run/node";
-import { GraduationCap, Book, CookingPot, House } from "phosphor-react";
+import { Book, CookingPot, GraduationCap, House } from "phosphor-react";
 
-import Page from "~/components/page";
-import FundingProgress from "~/components/funding-progress";
 import FundBreakdown from "~/components/fund-breakdown";
+import FundingProgress from "~/components/funding-progress";
+import Page from "~/components/page";
 import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({

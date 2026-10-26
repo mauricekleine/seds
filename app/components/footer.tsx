@@ -20,9 +20,11 @@ function NewsletterSignup() {
       <h3 className="font-display text-lg text-content-primary mb-2">
         Stay Updated
       </h3>
+
       <p className="text-sm text-content-secondary mb-4 m-0">
         Get occasional updates on our work and impact stories.
       </p>
+
       {status === "success" ? (
         <p className="text-green-700 dark:text-green-400 font-semibold text-sm m-0">
           Thank you for subscribing!
@@ -37,6 +39,7 @@ function NewsletterSignup() {
             required
             className="flex-1 px-3 py-2 border border-outline rounded-md text-sm bg-surface-primary text-content-primary focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
           />
+
           <button
             type="submit"
             className="bg-green-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-green-700 transition-colors shrink-0"
@@ -143,8 +146,11 @@ const Footer = () => (
         alt=""
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none h-[80%] w-auto max-w-[10rem] object-contain"
       />
+
       <div className="relative">
-        <h3 className="font-display text-lg text-content-primary">Our projects</h3>
+        <h3 className="font-display text-lg text-content-primary">
+          Our projects
+        </h3>
 
         <ProjectLinks />
       </div>
@@ -158,11 +164,13 @@ const Footer = () => (
         alt=""
         className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-7 sm:w-7 opacity-20 sm:opacity-30 hidden sm:block"
       />
+
       <img
         src="/logos/seds_emblem_transparent.png"
         alt=""
         className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 h-5 w-5 sm:h-7 sm:w-7 opacity-20 sm:opacity-30 hidden sm:block"
       />
+
       <p className="text-center m-0 px-4 sm:px-12">
         Copyright {new Date().getFullYear()} - All information on this site is
         part of SEDS

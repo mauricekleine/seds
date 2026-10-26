@@ -79,12 +79,13 @@ export const action: ActionFunction = async ({ request }) => {
           <td>${email}</td>
         </tr>
 
-        ${phonenumber &&
-      `<tr>
+        ${
+          phonenumber &&
+          `<tr>
           <td>Phone number:</td>
           <td>${phonenumber}</td>
         </tr>`
-      }
+        }
       </table>
     
       <h3>Message</h3>
@@ -147,17 +148,18 @@ const Contact = () => {
 
   return (
     <>
-        {searchParams.get("error") ? (
-          <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
-            Sorry — something went wrong. Please try again or email us directly at info@sedsngo.org.
-          </div>
-        ) : null}
+      {searchParams.get("error") ? (
+        <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
+          Sorry — something went wrong. Please try again or email us directly at
+          info@sedsngo.org.
+        </div>
+      ) : null}
 
-        {searchParams.get("success") ? (
-          <div className="bg-green-600 px-4 py-2 text-white mt-4 rounded">
-            Thank you for reaching out. We'll be in touch soon.
-          </div>
-        ) : null}
+      {searchParams.get("success") ? (
+        <div className="bg-green-600 px-4 py-2 text-white mt-4 rounded">
+          Thank you for reaching out. We'll be in touch soon.
+        </div>
+      ) : null}
 
       <div>
         <div className="flex flex-col md:flex-row md:space-x-4">
@@ -178,9 +180,12 @@ const Contact = () => {
           onSubmit={handleSubmit}
           ref={formRef}
         >
-            <h3 className="font-display">Get in touch.</h3>
+          <h3 className="font-display">Get in touch.</h3>
 
-            <p>Questions about our programs, volunteering, or partnerships? Send a message and we'll respond within 3–5 business days.</p>
+          <p>
+            Questions about our programs, volunteering, or partnerships? Send a
+            message and we'll respond within 3–5 business days.
+          </p>
 
           <FormGroup>
             <label className="font-display" htmlFor="name">

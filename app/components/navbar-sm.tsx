@@ -1,15 +1,15 @@
+import { NavLink } from "@remix-run/react";
+import classNames from "classnames";
 import {
-  List,
-  X,
+  Briefcase,
+  Coins,
+  Handshake,
   House,
   Info,
-  Briefcase,
-  Handshake,
-  Coins,
+  List,
+  X,
 } from "phosphor-react";
-import { NavLink } from "@remix-run/react";
 import { useCallback, useEffect, useState } from "react";
-import classNames from "classnames";
 
 import ThemeToggle from "~/components/theme-toggle";
 
@@ -35,6 +35,7 @@ function MobileNavLink({ to, icon, children, onClick }: MobileNavLinkProps) {
       }
     >
       {icon}
+
       <span className="text-base">{children}</span>
     </NavLink>
   );
@@ -60,21 +61,22 @@ function NavbarSm() {
   return (
     <>
       <div className="bg-green-600 px-4 py-2 flex items-center justify-between">
-          <button
-            className="p-2 -ml-2 rounded-lg hover:bg-green-700/50 transition-colors"
-            onClick={toggleMenu}
-            type="button"
-            aria-label={isMenuVisible ? "Close menu" : "Open menu"}
-            aria-expanded={isMenuVisible}
-          >
-            {isMenuVisible ? (
-              <X className="text-white w-7 h-7" />
-            ) : (
-              <List className="text-white w-7 h-7" />
-            )}
-          </button>
-          <ThemeToggle />
-        </div>
+        <button
+          className="p-2 -ml-2 rounded-lg hover:bg-green-700/50 transition-colors"
+          onClick={toggleMenu}
+          type="button"
+          aria-label={isMenuVisible ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuVisible}
+        >
+          {isMenuVisible ? (
+            <X className="text-white w-7 h-7" />
+          ) : (
+            <List className="text-white w-7 h-7" />
+          )}
+        </button>
+
+        <ThemeToggle />
+      </div>
 
       {isMenuVisible && (
         <>
@@ -97,16 +99,35 @@ function NavbarSm() {
             </div>
 
             <div className="p-4 space-y-1">
-              <MobileNavLink to="/" icon={<House className="w-5 h-5" />} onClick={closeMenu}>
+              <MobileNavLink
+                to="/"
+                icon={<House className="w-5 h-5" />}
+                onClick={closeMenu}
+              >
                 Home
               </MobileNavLink>
-              <MobileNavLink to="/about" icon={<Info className="w-5 h-5" />} onClick={closeMenu}>
+
+              <MobileNavLink
+                to="/about"
+                icon={<Info className="w-5 h-5" />}
+                onClick={closeMenu}
+              >
                 About
               </MobileNavLink>
-              <MobileNavLink to="/our-work" icon={<Briefcase className="w-5 h-5" />} onClick={closeMenu}>
+
+              <MobileNavLink
+                to="/our-work"
+                icon={<Briefcase className="w-5 h-5" />}
+                onClick={closeMenu}
+              >
                 Our Work
               </MobileNavLink>
-              <MobileNavLink to="/volunteers" icon={<Handshake className="w-5 h-5" />} onClick={closeMenu}>
+
+              <MobileNavLink
+                to="/volunteers"
+                icon={<Handshake className="w-5 h-5" />}
+                onClick={closeMenu}
+              >
                 Get Involved
               </MobileNavLink>
             </div>
@@ -118,6 +139,7 @@ function NavbarSm() {
                 className="flex items-center justify-center gap-2 bg-white text-green-700 font-semibold py-3 px-4 rounded-lg hover:bg-green-50 transition-colors"
               >
                 <Coins className="w-5 h-5" />
+
                 <span>Donate</span>
               </NavLink>
             </div>

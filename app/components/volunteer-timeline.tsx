@@ -1,12 +1,12 @@
-import { useState } from "react";
 import {
-  MapTrifold,
-  Users,
-  Mountains,
-  Handshake,
-  Notebook,
   AirplaneTilt,
+  Handshake,
+  MapTrifold,
+  Mountains,
+  Notebook,
+  Users,
 } from "phosphor-react";
+import { useState } from "react";
 
 const milestones = [
   {
@@ -92,27 +92,24 @@ export default function VolunteerTimeline({ compact }: Props) {
               <div
                 className={`absolute left-2 md:left-4 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
                   isExpanded
-                      ? "bg-green-600 border-green-600"
-                      : "bg-surface-primary border-green-400"
-                  }`}
-
+                    ? "bg-green-600 border-green-600"
+                    : "bg-surface-primary border-green-400"
+                }`}
                 style={{ top: "0.25rem" }}
               />
 
               <button
-                onClick={() =>
-                  setExpandedIndex(isExpanded ? null : index)
-                }
+                onClick={() => setExpandedIndex(isExpanded ? null : index)}
                 className="w-full text-left"
               >
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded">
                     {milestone.day}
                   </span>
-                    <h3 className="text-sm font-semibold text-content-primary m-0">
-                      {milestone.title}
-                    </h3>
 
+                  <h3 className="text-sm font-semibold text-content-primary m-0">
+                    {milestone.title}
+                  </h3>
                 </div>
               </button>
 
@@ -122,15 +119,18 @@ export default function VolunteerTimeline({ compact }: Props) {
                     <div className="text-green-600 flex-shrink-0">
                       {milestone.icon}
                     </div>
+
                     <div>
                       <p className="text-sm text-content-secondary m-0">
                         {milestone.description}
                       </p>
+
                       {milestone.quote && (
                         <div className="mt-3 border-l-2 border-green-300 pl-3">
                           <p className="text-sm text-content-secondary italic m-0">
                             "{milestone.quote.text}"
                           </p>
+
                           <p className="text-xs text-content-tertiary m-0 mt-1">
                             — {milestone.quote.author}
                           </p>

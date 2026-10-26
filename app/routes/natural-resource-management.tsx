@@ -1,10 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Drop, Tree, Mountains, Fish } from "phosphor-react";
+import { Drop, Fish, Mountains, Tree } from "phosphor-react";
 
 import CompareImage from "~/components/compare-image";
-import Page from "~/components/page";
-import FundingProgress from "~/components/funding-progress";
 import FundBreakdown from "~/components/fund-breakdown";
+import FundingProgress from "~/components/funding-progress";
+import Page from "~/components/page";
 import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({

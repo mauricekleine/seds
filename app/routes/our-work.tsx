@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import { GraduationCap, Leaf, Sun, Drop } from "phosphor-react";
+import { Drop, GraduationCap, Leaf, Sun } from "phosphor-react";
 
 export const meta: MetaFunction = () => ({
   title: "Our Work - SEDS",
@@ -50,10 +50,12 @@ export default function OurWork() {
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
           <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
             Our Programs
-            </h1>
-            <p className="text-green-100 max-w-2xl mx-auto m-0">
-              We focus on three areas that reinforce one another: education, sustainable livelihoods, and environmental conservation.
-            </p>
+          </h1>
+
+          <p className="text-green-100 max-w-2xl mx-auto m-0">
+            We focus on three areas that reinforce one another: education,
+            sustainable livelihoods, and environmental conservation.
+          </p>
         </div>
       </section>
 
@@ -70,13 +72,16 @@ export default function OurWork() {
                   <div className={`${program.color} shrink-0`}>
                     {program.icon}
                   </div>
+
                   <div>
                     <h2 className="font-display text-xl md:text-2xl text-content-primary mb-2 group-hover:text-green-600 transition-colors">
                       {program.title}
                     </h2>
+
                     <p className="text-content-secondary m-0 leading-relaxed">
                       {program.description}
                     </p>
+
                     <span className="inline-block mt-3 text-green-600 font-semibold group-hover:underline">
                       Learn more &rarr;
                     </span>

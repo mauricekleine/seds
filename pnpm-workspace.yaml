@@ -1,0 +1,16 @@
+# Three days gives compromised releases time to be reported and withdrawn.
+minimumReleaseAge: 4320
+# Native/compiler installers already required by the existing Remix build.
+onlyBuiltDependencies:
+  - deasync
+  - esbuild
+  - unrs-resolver
+# Contentful's postinstall only advertises its next major release.
+ignoredBuiltDependencies:
+  - contentful
+# Exact transitive pins in these parents otherwise prevent security patches.
+# Remove each override when its parent accepts the patched version.
+overrides:
+  '@vercel/node@2>path-to-regexp': ^6.3.0
+  '@vercel/static-config@2>ajv': ^8.18.0
+  'lint-staged@13>yaml': ^2.9.1

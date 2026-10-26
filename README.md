@@ -9,8 +9,8 @@ This repository contains the source code for the [SEDS homepage](https://sedsngo
 ## How to run
 
 - `clone` the repository
-- run `npm install`
-- run `npm run dev` to start the local server
+- run `pnpm install --frozen-lockfile`
+- run `pnpm dev` to start the local server
 - navigate to `http://localhost:3000`
 
 You'll also need Contentful and Mandrill API keys in order to fully run the application, which are for obvious reasons not provided through this repository.

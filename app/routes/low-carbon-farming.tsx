@@ -1,9 +1,9 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Tree, Leaf, Sun, Flask } from "phosphor-react";
+import { Flask, Leaf, Sun, Tree } from "phosphor-react";
 
-import Page from "~/components/page";
-import FundingProgress from "~/components/funding-progress";
 import FundBreakdown from "~/components/fund-breakdown";
+import FundingProgress from "~/components/funding-progress";
+import Page from "~/components/page";
 import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({

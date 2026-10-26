@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { MapPin } from "phosphor-react";
+
 import ImpactMap from "~/components/impact-map/impact-map";
 import { mandals } from "~/components/impact-map/map-data";
 
@@ -16,13 +17,15 @@ export default function ImpactMapPage() {
     <div className="not-prose">
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-            <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-              See our impact by location.
-            </h1>
-            <p className="text-green-100 max-w-2xl mx-auto m-0">
-              Select a district to explore the programs and outcomes in that region. SEDS works across {mandals.length} mandals, reaching {totalVillages}{" "}
-              villages.
-            </p>
+          <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
+            See our impact by location.
+          </h1>
+
+          <p className="text-green-100 max-w-2xl mx-auto m-0">
+            Select a district to explore the programs and outcomes in that
+            region. SEDS works across {mandals.length} mandals, reaching{" "}
+            {totalVillages} villages.
+          </p>
         </div>
       </section>
 
@@ -37,6 +40,7 @@ export default function ImpactMapPage() {
           <h2 className="font-display text-2xl text-content-primary mb-6 text-center">
             Mandal Overview
           </h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {mandals.map((mandal) => (
               <div
@@ -45,13 +49,16 @@ export default function ImpactMapPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <MapPin className="w-5 h-5 text-green-600" />
+
                   <h3 className="font-display text-lg text-content-primary m-0">
                     {mandal.name}
                   </h3>
                 </div>
+
                 <p className="text-sm text-content-secondary m-0 mb-2">
                   {mandal.villages} villages
                 </p>
+
                 <div className="flex flex-wrap gap-1">
                   {mandal.programs.map((program) => (
                     <span

@@ -14,9 +14,11 @@ type Props = {
 export default function FundBreakdown({ items, title }: Props) {
   return (
     <div className="mb-6">
-        {title && (
-          <p className="text-sm font-semibold text-content-primary mb-3 m-0">{title}</p>
-        )}
+      {title && (
+        <p className="text-sm font-semibold text-content-primary mb-3 m-0">
+          {title}
+        </p>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {items.map((item, i) => (
@@ -27,11 +29,15 @@ export default function FundBreakdown({ items, title }: Props) {
             <div className="text-green-600 flex-shrink-0 mt-0.5">
               {item.icon}
             </div>
+
             <div>
               <p className="font-semibold text-content-primary text-sm m-0">
                 {item.amount}
               </p>
-              <p className="text-xs text-content-secondary m-0">{item.description}</p>
+
+              <p className="text-xs text-content-secondary m-0">
+                {item.description}
+              </p>
             </div>
           </div>
         ))}

@@ -48,8 +48,7 @@ export const mandals: Mandal[] = [
         author: "Lakshmi, Homemaker",
       },
     ],
-    svgPath:
-      "M 300 100 L 380 70 L 420 110 L 430 170 L 400 210 L 310 160 Z",
+    svgPath: "M 300 100 L 380 70 L 420 110 L 430 170 L 400 210 L 310 160 Z",
     color: "#15803d",
   },
   {
@@ -69,8 +68,7 @@ export const mandals: Mandal[] = [
         author: "Padma, Artisan",
       },
     ],
-    svgPath:
-      "M 160 120 L 220 210 L 200 280 L 140 300 L 90 260 L 80 180 Z",
+    svgPath: "M 160 120 L 220 210 L 200 280 L 140 300 L 90 260 L 80 180 Z",
     color: "#22c55e",
   },
   {

@@ -27,23 +27,25 @@ function Hero({ imageName, imageAlt }: HeroProps) {
           >
             {years}
           </span>
+
           <span className="text-xs md:text-sm font-semibold text-content-secondary uppercase tracking-wider">
             Years of Impact
           </span>
         </div>
       </div>
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-          <div className="container mx-auto lg:max-w-screen-md">
+      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+        <div className="container mx-auto lg:max-w-screen-md">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-display m-0 mb-4 leading-tight">
+            Building climate‑resilient livelihoods in rural India.
+          </h1>
 
-              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-display m-0 mb-4 leading-tight">
-                Building climate‑resilient livelihoods in rural India.
-              </h1>
-              <p className="text-white/90 text-lg md:text-xl max-w-2xl m-0">
-                SEDS partners with farming communities in Andhra Pradesh to improve incomes, protect natural resources, and expand access to education.
-              </p>
-          </div>
+          <p className="text-white/90 text-lg md:text-xl max-w-2xl m-0">
+            SEDS partners with farming communities in Andhra Pradesh to improve
+            incomes, protect natural resources, and expand access to education.
+          </p>
         </div>
+      </div>
     </section>
   );
 }

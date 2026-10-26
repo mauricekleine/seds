@@ -56,7 +56,11 @@ export const meta: MetaFunction = () => ({
 });
 
 function FileType({ children }: { children: string }) {
-  return <p className="mt-2 font-normal text-content-secondary leading-6">{children}</p>;
+  return (
+    <p className="mt-2 font-normal text-content-secondary leading-6">
+      {children}
+    </p>
+  );
 }
 
 function Reports() {
@@ -64,16 +68,17 @@ function Reports() {
 
   return (
     <div className="pt-4">
-        <h2 className="font-display">Reports and transparency</h2>
+      <h2 className="font-display">Reports and transparency</h2>
 
-        <p className="text-content-secondary mb-6">
-          Explore annual reports and project updates that show how our programs are funded and what they achieve.
+      <p className="text-content-secondary mb-6">
+        Explore annual reports and project updates that show how our programs
+        are funded and what they achieve.
+      </p>
+
+      {entries.items.length === 0 ? (
+        <p className="mt-4 text-content-secondary leading-6">
+          Reports will be published here as they are released.
         </p>
-
-        {entries.items.length === 0 ? (
-          <p className="mt-4 text-content-secondary leading-6">
-            Reports will be published here as they are released.
-          </p>
       ) : (
         entries.items
           .sort(({ fields: { code: code1 } }, { fields: { code: code2 } }) =>

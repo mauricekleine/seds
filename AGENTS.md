@@ -1,6 +1,4 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+# SEDS
 
 ## Project Overview
 
@@ -26,7 +24,7 @@ pnpm typecheck        # TypeScript type checking
 ## Architecture
 
 ### Tech Stack
-- **Framework**: Remix 1.10 with React 18
+- **Framework**: Remix 1.19 with React 18
 - **Styling**: Tailwind CSS with custom theming
 - **CMS**: Contentful for dynamic content
 - **Email**: Mailchimp/Mandrill for contact form
@@ -93,3 +91,16 @@ RECAPTCHA_SECRET_KEY=       # Form protection (production)
 - Icons from phosphor-react library
 - Fonts: Ubuntu (display/headings), Open Sans (body)
 - Green (#16A34A) as primary action color, Blue (#1D6DC2) for links
+
+## Dependencies
+
+Upgrades follow the global `mk-dependency-upgrades` skill; holds live in
+`taze.config.mjs`. Vercel uses pnpm and the committed pnpm lockfile.
+
+- Checks: `pnpm build`, `pnpm typecheck`, `pnpm lint`.
+- Groups: keep all `@remix-run/*` packages at the same version; move React,
+  React DOM and their types together; keep Tailwind and its plugins compatible.
+- Smoke test: the Vercel build emits `api/index.js`. For `remix-serve`, build with
+  a local config using `serverBuildTarget: "node-cjs"`, `server: undefined` and
+  `serverBuildPath: "build/index.js"`; load `/`, `/about` and `/reports`.
+  Remix serve does not load `.env`; preload `dotenv/config` to exercise Contentful.

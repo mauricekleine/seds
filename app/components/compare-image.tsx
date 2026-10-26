@@ -18,7 +18,10 @@ const CompareImage = ({ caption, name, leftYear, rightYear }: Props) => {
   }, [name]);
 
   return (
-    <div role="img" aria-label={`Before and after comparison: ${caption || name}`}>
+    <div
+      role="img"
+      aria-label={`Before and after comparison: ${caption || name}`}
+    >
       <div className="relative">
         <ReactCompareImage
           leftImage={`/before-after/${name}-before@${imageDimensions}x.jpg`}

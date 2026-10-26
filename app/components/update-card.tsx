@@ -20,26 +20,26 @@ const categoryColors: Record<string, string> = {
 };
 
 export default function UpdateCard({ update }: Props) {
-  const colorClass =
-    categoryColors[update.category] || categoryColors.General;
+  const colorClass = categoryColors[update.category] || categoryColors.General;
 
   return (
     <Link
       to={`/updates/${update.slug}`}
-        className="block bg-surface-primary border border-outline rounded-lg hover:shadow-md transition-shadow no-underline"
+      className="block bg-surface-primary border border-outline rounded-lg hover:shadow-md transition-shadow no-underline"
     >
       <div className="p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <span
-              className={`text-xs px-2 py-0.5 rounded border ${colorClass}`}
-            >
-              {update.category}
-            </span>
-          </div>
-          <h3 className="font-display text-lg text-content-primary m-0 mb-2">
-            {update.title}
-          </h3>
-          <p className="text-sm text-content-secondary m-0">{update.excerpt}</p>
+        <div className="flex items-center gap-2 mb-2">
+          <span className={`text-xs px-2 py-0.5 rounded border ${colorClass}`}>
+            {update.category}
+          </span>
+        </div>
+
+        <h3 className="font-display text-lg text-content-primary m-0 mb-2">
+          {update.title}
+        </h3>
+
+        <p className="text-sm text-content-secondary m-0">{update.excerpt}</p>
+
         <span className="text-sm text-green-600 font-medium mt-3 inline-block">
           Read more &rarr;
         </span>

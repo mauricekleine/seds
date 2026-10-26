@@ -62,14 +62,14 @@ export const action: ActionFunction = async ({ request }) => {
     }
   }
 
-    const mail = {
-      to: [
-        { email: "info@setzenjio.org", type: "to" },
-        { email, name, type: "cc" },
-      ],
-      from_email: "info@setzenjio.org",
-      from_name: "SEDS Collaboration Form",
-      subject: `New collaboration inquiry from ${name} <${email}>`,
+  const mail = {
+    to: [
+      { email: "info@setzenjio.org", type: "to" },
+      { email, name, type: "cc" },
+    ],
+    from_email: "info@setzenjio.org",
+    from_name: "SEDS Collaboration Form",
+    subject: `New collaboration inquiry from ${name} <${email}>`,
 
     text: message,
     html: `
@@ -102,10 +102,14 @@ export const action: ActionFunction = async ({ request }) => {
             <td>${focus}</td>
           </tr>
 
-          ${phonenumber ? `<tr>
+          ${
+            phonenumber
+              ? `<tr>
             <td>Phone number:</td>
             <td>${phonenumber}</td>
-          </tr>` : ""}
+          </tr>`
+              : ""
+          }
         </table>
       
         <h3>Collaboration idea</h3>
@@ -169,14 +173,16 @@ const Collaborate = () => {
   return (
     <div className="mx-auto lg:max-w-screen-md px-6 lg:px-0 py-8">
       {searchParams.get("error") ? (
-          <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
-            Sorry — something went wrong. Please try again or email us directly at info@setzenjio.org.
-          </div>
+        <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
+          Sorry — something went wrong. Please try again or email us directly at
+          info@setzenjio.org.
+        </div>
       ) : null}
 
       {searchParams.get("success") ? (
         <div className="bg-green-600 px-4 py-2 text-white mt-4 rounded">
-          Thank you for reaching out. We will review your proposal and respond soon.
+          Thank you for reaching out. We will review your proposal and respond
+          soon.
         </div>
       ) : null}
 
@@ -184,9 +190,11 @@ const Collaborate = () => {
         <h1 className="font-display text-3xl text-content-primary mb-2">
           Partner & Innovate With Us
         </h1>
+
         <p className="text-content-secondary">
-          Collaborate on tech-forward, scalable solutions for rural livelihoods in Andhra Pradesh —
-          from agri-tech pilots to transparent impact systems.
+          Collaborate on tech-forward, scalable solutions for rural livelihoods
+          in Andhra Pradesh — from agri-tech pilots to transparent impact
+          systems.
         </p>
       </div>
 
@@ -199,7 +207,8 @@ const Collaborate = () => {
         <h3 className="font-display">Tell us about your collaboration idea.</h3>
 
         <p>
-          Share your organization, expertise, and what you hope to build with SEDS.
+          Share your organization, expertise, and what you hope to build with
+          SEDS.
         </p>
 
         <FormGroup>
@@ -299,7 +308,8 @@ const Collaborate = () => {
           </label>
 
           <span>
-            Briefly describe what you want to build or pilot with SEDS in rural Andhra Pradesh.
+            Briefly describe what you want to build or pilot with SEDS in rural
+            Andhra Pradesh.
           </span>
 
           <textarea
