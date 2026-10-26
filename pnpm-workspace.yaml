@@ -17,3 +17,6 @@ overrides:
   # cacache 15 pins unmaintained tar 6. Remove when Remix upgrades cacache.
   # tar 7 requires Node >=18; this app runs Node 24.
   'cacache@15>tar': 7.5.22
+  # remark-mdx-frontmatter 1 pins vulnerable toml 3. Remove when Remix updates it.
+  # TOML 5 rejects unsafe integers; authored MDX uses ordinary metadata values.
+  'remark-mdx-frontmatter@1>toml': 5.0.1
