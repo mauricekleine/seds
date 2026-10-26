@@ -1,7 +1,7 @@
 import { bindings, defineConfig } from "cf/config";
 export default defineConfig({
   worker: {
-    name: "seds-preview",
+    name: "seds",
     workersDev: true,
     observability: { enabled: true, logs: { enabled: true }, traces: { enabled: true } },
     compatibilityDate: "2026-10-26",

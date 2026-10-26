@@ -16,7 +16,7 @@ This existing site adopts mauricekleine/app-template in place. `.mk/app.json` pi
 
 ## Preview deployment
 
-`bun run deploy` uses the account-aware `cf` wrapper with the prebuilt output. `SEDS_CF_PROFILE` selects the account profile, defaulting to `kaulos` only for the temporary preview. Once Maurice creates profile `superthread`, the one-line redeploy is `SEDS_CF_PROFILE=superthread bun run deploy`. The permanent target is Maurice's Superthread account (`cd3869f6196b44d50b6ac4b77cb18511`), not Kaulos. The temporary Worker is `seds-preview` in Kaulos, at https://seds-preview.mk-065.workers.dev. Configuration includes no routes or custom domains. No deploy workflow is configured: production cutover remains an attended step. `DEPLOY_URL=https://seds-preview.mk-065.workers.dev bun run deploy:verify <full-sha>` verifies the build identity; `/healthz` returns `{"status":"ok"}`. Workers Logs and Traces are enabled.
+`bun run deploy` deploys the prebuilt output as Worker `seds` through the `cf` wrapper, which maps this checkout to Maurice's Superthread account (`cd3869f6196b44d50b6ac4b77cb18511`) and its `superthread` profile. Production secrets live in the `SEDS` vault of Maurice's personal 1Password; `.env.tpl` references them. Upload them once with `cf deploy --prebuilt --secrets-file <(op inject -i .env.tpl)`; later deploys keep them. Configuration includes no routes or custom domains, and no deploy workflow is configured: production cutover remains an attended step. `DEPLOY_URL=<worker url> bun run deploy:verify <full-sha>` verifies the build identity; `/healthz` returns `{"status":"ok"}`. The earlier temporary Worker `seds-preview` in Kaulos is deleted after cutover. Workers Logs and Traces are enabled.
 
 ## Server credentials
 
