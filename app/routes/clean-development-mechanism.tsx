@@ -1,11 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Fire, Flame, House, Users } from "phosphor-react";
 
+import CarbonCounter from "~/components/carbon-counter";
+import FundBreakdown from "~/components/fund-breakdown";
+import FundingProgress from "~/components/funding-progress";
 import Image from "~/components/image";
 import Page from "~/components/page";
-import CarbonCounter from "~/components/carbon-counter";
-import FundingProgress from "~/components/funding-progress";
-import FundBreakdown from "~/components/fund-breakdown";
 import PresetDonationButtons from "~/components/preset-donation-buttons";
 
 export const meta: MetaFunction = () => ({
@@ -69,11 +69,11 @@ const CleanDevelopmentMechanism = () => (
     </p>
 
     <div className="not-prose mt-8 space-y-6">
-        <FundingProgress
-          current={70000000}
-          goal={70000000}
-          label="CDM Fund Progress"
-        />
+      <FundingProgress
+        current={70000000}
+        goal={70000000}
+        label="CDM Fund Progress"
+      />
 
       <FundBreakdown
         title="How Your Donation Helps"

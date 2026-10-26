@@ -30,7 +30,9 @@ const Volunteers = () => (
       <h3 className="font-display text-lg text-content-primary mb-4">
         Preview Your Volunteer Journey
       </h3>
+
       <VolunteerTimeline compact />
+
       <Link
         to="/volunteer-experience"
         className="inline-block mt-4 text-sm text-green-600 hover:text-green-700 font-medium no-underline"

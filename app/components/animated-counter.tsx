@@ -55,7 +55,9 @@ export default function AnimatedCounter({
   return (
     <span ref={ref}>
       {prefix}
+
       {count.toLocaleString("en-IN")}
+
       {suffix}
     </span>
   );

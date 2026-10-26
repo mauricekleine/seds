@@ -1,13 +1,13 @@
-import { useState } from "react";
 import {
-  Tree,
+  Drop,
+  EnvelopeSimple,
+  GlobeHemisphereWest,
   GraduationCap,
   Handshake,
-  Drop,
   Student,
-  GlobeHemisphereWest,
-  EnvelopeSimple,
+  Tree,
 } from "phosphor-react";
+import { useState } from "react";
 
 const impactTiers = [
   {
@@ -65,18 +65,19 @@ export default function DonationCalculator() {
   const activeTier = getActiveTier(amount);
 
   return (
-      <section className="py-12 bg-surface-secondary">
-        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-          <div className="text-center mb-8">
-            <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
-              See Your Impact
-            </h2>
-            <p className="text-content-secondary max-w-xl mx-auto m-0">
-              Move the slider to see how your donation can make a difference
-            </p>
-          </div>
+    <section className="py-12 bg-surface-secondary">
+      <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+        <div className="text-center mb-8">
+          <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
+            See Your Impact
+          </h2>
 
-          <div className="bg-surface-primary border border-outline rounded-lg shadow-sm p-6 md:p-8">
+          <p className="text-content-secondary max-w-xl mx-auto m-0">
+            Move the slider to see how your donation can make a difference
+          </p>
+        </div>
+
+        <div className="bg-surface-primary border border-outline rounded-lg shadow-sm p-6 md:p-8">
           <div className="text-center mb-6">
             <span className="text-4xl md:text-5xl font-display text-green-600">
               {formatINR(amount)}
@@ -93,8 +94,10 @@ export default function DonationCalculator() {
             className="w-full h-2 bg-surface-tertiary rounded-lg appearance-none cursor-pointer accent-green-600 mb-2"
             aria-label="Donation amount"
           />
+
           <div className="flex justify-between text-xs text-content-tertiary mb-8">
             <span>{formatINR(500)}</span>
+
             <span>{formatINR(50000)}</span>
           </div>
 
@@ -102,10 +105,12 @@ export default function DonationCalculator() {
             <div className="text-green-600 flex-shrink-0 mt-0.5">
               {activeTier.icon}
             </div>
+
             <div>
               <p className="font-semibold text-content-primary text-lg m-0">
                 {activeTier.label}
               </p>
+
               <p className="text-content-secondary text-sm m-0 mt-1">
                 {activeTier.description}
               </p>

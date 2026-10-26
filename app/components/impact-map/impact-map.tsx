@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { mandals } from "./map-data";
-import type { Mandal } from "./map-data";
-import MandalModal from "./mandal-modal";
+
+import MandalModal from "~/components/impact-map/mandal-modal";
+import { mandals } from "~/components/impact-map/map-data";
+import type { Mandal } from "~/components/impact-map/map-data";
 
 type Props = {
   compact?: boolean;
@@ -11,10 +12,15 @@ export default function ImpactMap({ compact }: Props) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedMandal, setSelectedMandal] = useState<Mandal | null>(null);
 
-    return (
-      <>
-        <div className={compact ? "" : "bg-surface-primary border border-outline rounded-lg shadow-sm p-4 md:p-6"}>
-
+  return (
+    <>
+      <div
+        className={
+          compact
+            ? ""
+            : "bg-surface-primary border border-outline rounded-lg shadow-sm p-4 md:p-6"
+        }
+      >
         <svg
           viewBox="50 40 420 380"
           className="w-full max-w-md mx-auto block"
@@ -22,6 +28,7 @@ export default function ImpactMap({ compact }: Props) {
           aria-label="Map of SEDS impact areas across 5 mandals in Anantapur district"
         >
           <title>SEDS Impact Map - Anantapur District</title>
+
           {mandals.map((mandal) => {
             const isHovered = hoveredId === mandal.id;
             return (
@@ -52,6 +59,7 @@ export default function ImpactMap({ compact }: Props) {
                     }
                   }}
                 />
+
                 <text
                   x={getCentroid(mandal.svgPath).x}
                   y={getCentroid(mandal.svgPath).y}
@@ -64,6 +72,7 @@ export default function ImpactMap({ compact }: Props) {
                 >
                   {mandal.name}
                 </text>
+
                 <text
                   x={getCentroid(mandal.svgPath).x}
                   y={getCentroid(mandal.svgPath).y + 14}
@@ -81,12 +90,11 @@ export default function ImpactMap({ compact }: Props) {
           })}
         </svg>
 
-          {!compact && (
-            <p className="text-xs text-content-tertiary text-center mt-3 m-0">
-              Click on a region to explore SEDS programs and impact data
-            </p>
-          )}
-
+        {!compact && (
+          <p className="text-xs text-content-tertiary text-center mt-3 m-0">
+            Click on a region to explore SEDS programs and impact data
+          </p>
+        )}
       </div>
 
       {selectedMandal && (

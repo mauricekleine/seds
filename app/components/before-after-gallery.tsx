@@ -1,10 +1,12 @@
-import { useState, useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+
 import CompareImage from "~/components/compare-image";
 
 const comparisons = [
   {
     name: "checkdam",
-    caption: "Check dam construction restoring water tables in degraded terrain",
+    caption:
+      "Check dam construction restoring water tables in degraded terrain",
     leftYear: "Early 1980s",
     rightYear: "Late 1990s",
     narrative:
@@ -32,18 +34,15 @@ function BeforeAfterGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        setActiveIndex((i) => (i > 0 ? i - 1 : comparisons.length - 1));
-      } else if (e.key === "ArrowRight") {
-        setActiveIndex((i) => (i < comparisons.length - 1 ? i + 1 : 0));
-      } else if (e.key === "Escape") {
-        setIsFullscreen(false);
-      }
-    },
-    []
-  );
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "ArrowLeft") {
+      setActiveIndex((i) => (i > 0 ? i - 1 : comparisons.length - 1));
+    } else if (e.key === "ArrowRight") {
+      setActiveIndex((i) => (i < comparisons.length - 1 ? i + 1 : 0));
+    } else if (e.key === "Escape") {
+      setIsFullscreen(false);
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -71,6 +70,7 @@ function BeforeAfterGallery() {
             <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
               Transformation in Action
             </h2>
+
             <p className="text-content-secondary max-w-xl mx-auto m-0">
               Drag the slider to see how watershed restoration has transformed
               Anantapur's landscape. Use arrow keys to navigate.
@@ -88,13 +88,16 @@ function BeforeAfterGallery() {
                   leftYear={item.leftYear}
                   rightYear={item.rightYear}
                 />
+
                 <div className="px-4 py-3">
                   <p className="text-sm font-semibold text-content-primary m-0">
                     {item.caption}
                   </p>
+
                   <p className="text-xs text-content-tertiary m-0 mt-1">
                     {item.narrative}
                   </p>
+
                   <button
                     onClick={() => {
                       setActiveIndex(index);
@@ -124,6 +127,7 @@ function BeforeAfterGallery() {
           >
             <div className="flex justify-between items-center mb-4 px-2">
               <p className="text-white text-sm m-0">{current.caption}</p>
+
               <button
                 onClick={() => setIsFullscreen(false)}
                 className="text-white hover:text-white/70 text-2xl leading-none"
@@ -132,11 +136,13 @@ function BeforeAfterGallery() {
                 &times;
               </button>
             </div>
+
             <CompareImage
               name={current.name}
               leftYear={current.leftYear}
               rightYear={current.rightYear}
             />
+
             <div className="flex justify-center gap-2 mt-4">
               {comparisons.map((_, i) => (
                 <button

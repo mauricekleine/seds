@@ -1,4 +1,5 @@
-import { Leaf, GlobeHemisphereWest, Fire, House } from "phosphor-react";
+import { Fire, GlobeHemisphereWest, House, Leaf } from "phosphor-react";
+
 import AnimatedCounter from "~/components/animated-counter";
 
 const metrics = [
@@ -36,6 +37,7 @@ export default function CarbonCounter() {
           <h2 className="font-display text-2xl md:text-3xl text-white mb-3">
             Environmental Impact
           </h2>
+
           <p className="text-green-100 max-w-xl mx-auto m-0">
             Our CDM and reforestation programs are making a measurable
             difference in the fight against climate change
@@ -51,13 +53,15 @@ export default function CarbonCounter() {
               <div className="text-green-200 mb-2 flex justify-center">
                 {metric.icon}
               </div>
+
               <p className="font-display text-2xl md:text-3xl text-white m-0">
                 <AnimatedCounter
                   target={metric.target}
                   suffix={metric.suffix}
-                    duration={4000}
+                  duration={4000}
                 />
               </p>
+
               <p className="text-green-200 text-xs mt-1 m-0">{metric.label}</p>
             </div>
           ))}

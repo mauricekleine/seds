@@ -84,9 +84,10 @@ export default function UpdateDetail() {
   if (!update) {
     return (
       <div className="not-prose py-20 text-center">
-      <h1 className="font-display text-2xl text-content-primary mb-4">
-            Update Not Found
+        <h1 className="font-display text-2xl text-content-primary mb-4">
+          Update Not Found
         </h1>
+
         <Link
           to="/updates"
           className="text-green-600 hover:text-green-700 no-underline"
@@ -106,44 +107,54 @@ export default function UpdateDetail() {
             className="text-green-200 hover:text-white text-sm flex items-center gap-1 mb-4 no-underline"
           >
             <ArrowLeft className="w-4 h-4" />
-              All updates
-            </Link>
-            <h1 className="font-display text-2xl md:text-3xl text-white mb-3">
-              {update.title}
-            </h1>
-            <p className="text-green-100/80 text-sm mb-3 m-0">
-              This update highlights recent progress from the field and what it means for the communities we serve.
-            </p>
-            <div className="flex items-center gap-3 text-green-100 text-sm">
-              <span className="bg-green-500/30 px-2 py-0.5 rounded text-xs">
-                {update.category}
-              </span>
-            </div>
+            All updates
+          </Link>
+
+          <h1 className="font-display text-2xl md:text-3xl text-white mb-3">
+            {update.title}
+          </h1>
+
+          <p className="text-green-100/80 text-sm mb-3 m-0">
+            This update highlights recent progress from the field and what it
+            means for the communities we serve.
+          </p>
+
+          <div className="flex items-center gap-3 text-green-100 text-sm">
+            <span className="bg-green-500/30 px-2 py-0.5 rounded text-xs">
+              {update.category}
+            </span>
+          </div>
         </div>
       </section>
 
       <section className="py-10 bg-surface-primary">
-          <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
-            <div className="max-w-prose">
-              {update.body.map((paragraph, i) => (
-                <p key={i} className="text-content-secondary leading-relaxed mb-4">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+        <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0">
+          <div className="max-w-prose">
+            {update.body.map((paragraph, i) => (
+              <p
+                key={i}
+                className="text-content-secondary leading-relaxed mb-4"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
 
-            <div className="border-t border-outline mt-8 pt-6">
-              <div className="flex items-center justify-between">
-                <Link
-                  to="/updates"
-                  className="text-green-600 hover:text-green-700 text-sm font-medium no-underline"
-                >
-                  &larr; Back to updates
-                </Link>
-                <a
-                  href={`mailto:?subject=${encodeURIComponent(update.title)}&body=Read this update from SEDS`}
-                  className="flex items-center gap-1 text-content-tertiary hover:text-content-secondary text-sm no-underline"
-                >
+          <div className="border-t border-outline mt-8 pt-6">
+            <div className="flex items-center justify-between">
+              <Link
+                to="/updates"
+                className="text-green-600 hover:text-green-700 text-sm font-medium no-underline"
+              >
+                &larr; Back to updates
+              </Link>
+
+              <a
+                href={`mailto:?subject=${encodeURIComponent(
+                  update.title
+                )}&body=Read this update from SEDS`}
+                className="flex items-center gap-1 text-content-tertiary hover:text-content-secondary text-sm no-underline"
+              >
                 <ShareNetwork className="w-4 h-4" />
                 Share
               </a>

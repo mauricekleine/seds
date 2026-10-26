@@ -1,15 +1,15 @@
 import type { MetaFunction } from "@remix-run/node";
-import { useState } from "react";
 import { Link } from "@remix-run/react";
 import {
-  TreeStructure,
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle,
+  CloudSun,
   GraduationCap,
   Leaf,
-  CloudSun,
-  ArrowRight,
-  ArrowLeft,
-  CheckCircle,
+  TreeStructure,
 } from "phosphor-react";
+import { useState } from "react";
 
 export const meta: MetaFunction = () => ({
   title: "Find Your Program - SEDS",
@@ -185,7 +185,12 @@ const questions: Question[] = [
 ];
 
 function calculateResults(answers: Record<number, number>) {
-  const scores: Record<string, number> = { nrm: 0, lcf: 0, cdm: 0, education: 0 };
+  const scores: Record<string, number> = {
+    nrm: 0,
+    lcf: 0,
+    cdm: 0,
+    education: 0,
+  };
 
   for (const [qId, optionIdx] of Object.entries(answers)) {
     const question = questions.find((q) => q.id === Number(qId));
@@ -204,11 +209,34 @@ function calculateResults(answers: Record<number, number>) {
   }));
 }
 
-const colorMap: Record<string, { bg: string; text: string; ring: string; light: string }> = {
-  blue: { bg: "bg-blue-600", text: "text-blue-600", ring: "ring-blue-600", light: "bg-blue-50" },
-  amber: { bg: "bg-amber-600", text: "text-amber-600", ring: "ring-amber-600", light: "bg-amber-50" },
-  green: { bg: "bg-green-600", text: "text-green-600", ring: "ring-green-600", light: "bg-green-50" },
-  teal: { bg: "bg-teal-600", text: "text-teal-600", ring: "ring-teal-600", light: "bg-teal-50" },
+const colorMap: Record<
+  string,
+  { bg: string; text: string; ring: string; light: string }
+> = {
+  blue: {
+    bg: "bg-blue-600",
+    text: "text-blue-600",
+    ring: "ring-blue-600",
+    light: "bg-blue-50",
+  },
+  amber: {
+    bg: "bg-amber-600",
+    text: "text-amber-600",
+    ring: "ring-amber-600",
+    light: "bg-amber-50",
+  },
+  green: {
+    bg: "bg-green-600",
+    text: "text-green-600",
+    ring: "ring-green-600",
+    light: "bg-green-50",
+  },
+  teal: {
+    bg: "bg-teal-600",
+    text: "text-teal-600",
+    ring: "ring-teal-600",
+    light: "bg-teal-50",
+  },
 };
 
 export default function Quiz() {
@@ -258,12 +286,14 @@ export default function Quiz() {
       {/* Hero */}
       <section className="bg-green-600 py-12">
         <div className="container mx-auto lg:max-w-screen-md px-8 lg:px-0 text-center">
-            <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
-              Find the best way to support.
-            </h1>
-            <p className="text-green-100 max-w-2xl mx-auto m-0">
-              Answer a few quick questions to see which program aligns with your interests.
-            </p>
+          <h1 className="font-display text-3xl md:text-4xl text-white mb-4">
+            Find the best way to support.
+          </h1>
+
+          <p className="text-green-100 max-w-2xl mx-auto m-0">
+            Answer a few quick questions to see which program aligns with your
+            interests.
+          </p>
         </div>
       </section>
 
@@ -283,9 +313,11 @@ export default function Quiz() {
               <p className="text-sm text-content-tertiary m-0 mb-2">
                 Question {currentQuestion + 1} of {totalQuestions}
               </p>
+
               <h2 className="font-display text-xl md:text-2xl text-content-primary mb-6">
                 {questions[currentQuestion].question}
               </h2>
+
               <div className="space-y-3">
                 {questions[currentQuestion].options.map((option, idx) => {
                   const isSelected = currentAnswer === idx;
@@ -316,6 +348,7 @@ export default function Quiz() {
                   <ArrowLeft className="w-4 h-4" />
                   Back
                 </button>
+
                 <button
                   onClick={next}
                   disabled={currentAnswer === undefined}
@@ -324,6 +357,7 @@ export default function Quiz() {
                   {currentQuestion === totalQuestions - 1
                     ? "See Results"
                     : "Next"}
+
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -337,21 +371,25 @@ export default function Quiz() {
             <div className="max-w-xl mx-auto">
               {topResult && (
                 <div className="text-center mb-10">
-                    <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-100 px-4 py-2 rounded-full text-sm mb-4">
-                      <CheckCircle className="w-4 h-4" />
-                      Your match
-                    </div>
-                    <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
-                      {topResult.program.name}
-                    </h2>
-                    <p className="text-content-secondary m-0 mb-6">
-                      Based on your answers, this program is the best fit for how you want to make an impact.
-                    </p>
-                    <Link
-                      to={topResult.program.href}
-                      className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
-                    >
-                      Support this program
+                  <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-100 px-4 py-2 rounded-full text-sm mb-4">
+                    <CheckCircle className="w-4 h-4" />
+                    Your match
+                  </div>
+
+                  <h2 className="font-display text-2xl md:text-3xl text-content-primary mb-3">
+                    {topResult.program.name}
+                  </h2>
+
+                  <p className="text-content-secondary m-0 mb-6">
+                    Based on your answers, this program is the best fit for how
+                    you want to make an impact.
+                  </p>
+
+                  <Link
+                    to={topResult.program.href}
+                    className="inline-flex items-center gap-2 bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors no-underline"
+                  >
+                    Support this program
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -360,6 +398,7 @@ export default function Quiz() {
               <h3 className="font-display text-lg text-content-primary mb-4">
                 All Programs Ranked
               </h3>
+
               <div className="space-y-4">
                 {results.map(({ program, score }, idx) => {
                   const c = colorMap[program.color] ?? colorMap.green;
@@ -375,11 +414,14 @@ export default function Quiz() {
                         <span className="text-sm font-semibold text-content-tertiary w-5">
                           #{idx + 1}
                         </span>
+
                         <div className={c.text}>{program.icon}</div>
+
                         <span className="font-display text-content-primary text-sm">
                           {program.name}
                         </span>
                       </div>
+
                       <div className="ml-8">
                         <div className="w-full bg-surface-tertiary rounded-full h-2">
                           <div
@@ -387,6 +429,7 @@ export default function Quiz() {
                             style={{ width: `${pct}%` }}
                           />
                         </div>
+
                         <p className="text-xs text-content-tertiary m-0 mt-2">
                           {program.description}
                         </p>
@@ -403,6 +446,7 @@ export default function Quiz() {
                 >
                   Retake Quiz
                 </button>
+
                 <Link
                   to="/donate"
                   className="text-sm bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors no-underline text-center"

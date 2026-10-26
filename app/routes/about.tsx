@@ -71,8 +71,8 @@ const About = () => (
     <p>
       Today, SEDS supports long‑term development through education access,
       climate‑smart agriculture, and natural resource management across 350+
-      villages in 5 mandals of Anantapur district. In the words of Rajen,
-      "One follows the other, it happens so beautifully."
+      villages in 5 mandals of Anantapur district. In the words of Rajen, "One
+      follows the other, it happens so beautifully."
     </p>
   </Page>
 );
