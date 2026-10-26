@@ -20,3 +20,6 @@ overrides:
   # remark-mdx-frontmatter 1 pins vulnerable toml 3. Remove when Remix updates it.
   # TOML 5 rejects unsafe integers; authored MDX uses ordinary metadata values.
   'remark-mdx-frontmatter@1>toml': 5.0.1
+  # get-uri 6 pins basic-ftp 5. Remove when proxy-agent's get-uri accepts 6.
+  # FTP 6 retains Client.downloadTo and blocks separate transfer hosts by default.
+  'get-uri@6>basic-ftp': 6.2.3
