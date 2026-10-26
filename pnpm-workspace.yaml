@@ -23,3 +23,8 @@ overrides:
   # get-uri 6 pins basic-ftp 5. Remove when proxy-agent's get-uri accepts 6.
   # FTP 6 retains Client.downloadTo and blocks separate transfer hosts by default.
   'get-uri@6>basic-ftp': 6.2.3
+  # Vanilla Extract's optional processor pins vulnerable Vite 5.
+  # Keep its ViteNode peer on the compatible major; remove after integration updates.
+  '@vanilla-extract/integration@6>vite': 6.4.4
+  '@vanilla-extract/integration@6>vite-node': 3.2.4
+  'vite-node@3>vite': 6.4.4
