@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "~/navigation";
 
 import UpdateCard from "~/components/update-card";
 import type { Update } from "~/components/update-card";

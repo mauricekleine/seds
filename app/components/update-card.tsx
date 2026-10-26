@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "~/navigation";
 
 type Update = {
   title: string;

@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "~/navigation";
 import { Handshake } from "phosphor-react";
 
 import Card, { CardTitle } from "~/components/ui/card";

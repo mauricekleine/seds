@@ -2,18 +2,20 @@
   "name": "seds",
   "version": "1.0.0",
   "description": "The official website for SEDS (sedsngo.org)",
-  "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "npm run build:css && remix build",
+    "dev": "vite dev --host 127.0.0.1 --port 3000 --strictPort",
+    "build": "bun run build:css && bun run build:cloudflare",
     "build:css": "tailwindcss -m -i ./app.css -o app/app.css",
-    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
-    "dev:css": "tailwindcss -w -i ./app.css -o app/app.css",
-    "lint": "eslint ./app && prettier ./app --check",
-    "lint:fix": "eslint ./app --fix && prettier ./app --write",
-    "prepare": "husky install",
-    "start": "remix-serve build",
-    "typecheck": "tsc -b"
+    "build:cloudflare": "vite build --mode cloudflare && bun --check",
+    "typecheck": "bun --check",
+    "test": "bun test",
+    "lint": "bun fmt --check && oxlint app src tools test --ignore-path .gitignore --ignore-pattern src/routeTree.gen.ts",
+    "lint:fix": "bun fmt",
+    "deploy": "PATH=\"$HOME/.local/bin:$PATH\" cf deploy --prebuilt",
+    "deploy:verify": "bun tools/deploy-verify.ts",
+    "prepare": "husky",
+    "secrets:check": "bun tools/check-client-secrets.ts"
   },
   "repository": {
     "type": "git",
@@ -26,49 +28,46 @@
   },
   "homepage": "https://sedsngo.org",
   "dependencies": {
-    "@mailchimp/mailchimp_transactional": "~1.4.1",
-    "@remix-run/node": "~1.19.3",
-    "@remix-run/react": "~1.19.3",
-    "@remix-run/vercel": "~1.19.3",
     "@tailwindcss/typography": "~0.5.20",
-    "@vercel/node": "~2.15.10",
     "classnames": "~2.5.1",
-    "contentful": "~9.3.7",
-    "dotenv": "~16.6.1",
     "phosphor-react": "~1.4.1",
-    "react": "~18.3.1",
+    "react": "~19.3.0",
     "react-compare-image": "~3.5.23",
-    "react-dom": "~18.3.1",
+    "react-dom": "~19.3.0",
     "tailwindcss": "~3.4.19",
-    "yup": "~0.32.11"
+    "@tanstack/react-router": "1.170.42",
+    "@tanstack/react-start": "~1.168.60"
   },
   "devDependencies": {
-    "@remix-run/dev": "~1.19.3",
-    "@remix-run/eslint-config": "~1.19.3",
-    "@remix-run/serve": "~1.19.3",
+    "@cloudflare/vite-plugin": "~1.62.3",
     "@tailwindcss/forms": "~0.5.11",
-    "@types/node": "~18.19.130",
-    "@types/react": "~18.3.31",
-    "@types/react-dom": "~18.3.7",
-    "concurrently": "~7.6.0",
-    "eslint": "~8.57.1",
-    "eslint-config-prettier": "~8.10.2",
-    "eslint-plugin-import": "~2.32.0",
-    "eslint-plugin-unused-imports": "~2.0.0",
-    "husky": "~8.0.3",
-    "lint-staged": "~13.3.0",
+    "@types/bun": "~1.4.3",
+    "@types/node": "~26.6.3",
+    "@types/pngjs": "6.0.5",
+    "@types/react": "~19.3.0",
+    "@types/react-dom": "~19.3.0",
+    "@vitejs/plugin-react": "~6.1.1",
+    "cf": "1.0.0-beta.18",
+    "husky": "~9.1.7",
+    "oxlint": "1.89.0",
+    "pixelmatch": "8.0.0",
+    "playwright": "~1.58.2",
+    "pngjs": "7.0.0",
     "prettier": "~2.8.8",
-    "typescript": "~4.9.5",
-    "taze": "21.3.0"
+    "taze": "21.3.0",
+    "typescript": "7.0.2",
+    "vite": "~8.3.1"
   },
   "engines": {
-    "node": "24.x"
+    "bun": "1.4.4",
+    "node": "24.22.1"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
-  },
-  "packageManager": "pnpm@10.34.7"
+  "packageManager": "bun@1.4.4",
+  "type": "module",
+  "overrides": {
+    "postcss-selector-parser": "7.1.6",
+    "sharp": "0.35.5",
+    "undici": "7.30.1",
+    "zod": "4.6.6"
+  }
 }

@@ -1,0 +1,50 @@
+{
+  "template": "mauricekleine/app-template",
+  "template_sha": "291221a5304cb22b8e7e7b189075523a780e1fa7",
+  "target": "cloudflare",
+  "name": "seds",
+  "opt_out": {
+    "files": [
+      ".github/workflows/ci.yml",
+      ".github/workflows/registry-canary.yml",
+      ".gitignore",
+      "AGENTS.md",
+      "cloudflare.config.ts",
+      "components.json",
+      "public/_headers",
+      "src/serve.ts",
+      "src/shutdown.ts",
+      "test/fixtures/shutdown-hook.ts",
+      "test/serve.test.ts",
+      "test/shutdown.test.ts",
+      "test/static-site.test.ts",
+      "tools/a11y.ts",
+      "tools/build-info.ts",
+      "tools/registry-install.ts",
+      "tools/soliton-process.ts",
+      "tools/static-site.ts",
+      "tsconfig.json",
+      "vite.config.ts",
+      "bunfig.toml",
+      "src/components/superthread/",
+      "infra/soliton/",
+      ".husky/pre-commit"
+    ],
+    "package_json": [
+      "/scripts/build",
+      "/scripts/build:soliton",
+      "/scripts/start",
+      "/scripts/test:a11y",
+      "/scripts/registry:install",
+      "/dependencies/@base-ui~1react",
+      "/dependencies/@tailwindcss~1vite",
+      "/dependencies/class-variance-authority",
+      "/dependencies/cn",
+      "/dependencies/tailwindcss",
+      "/dependencies/tw-animate-css",
+      "/devDependencies/@axe-core~1playwright",
+      "/devDependencies/shadcn"
+    ]
+  },
+  "checks": ["bun install --frozen-lockfile", "bun run typecheck", "bun run build", "bun run test", "bun run lint"]
+}

@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "~/navigation";
 import { Coins, Handshake, ShareNetwork } from "phosphor-react";
 
 function CTASection() {
