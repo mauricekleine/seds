@@ -54,7 +54,7 @@ for (const kind of ["contact", "collaborate"] as const) {
       .mockResolvedValueOnce(Response.json([{ status: "sent" }]));
     expect(await inquiry(kind, fields)).toEqual({ success: true });
     const mail = JSON.parse(String(transport.mock.calls[1][1].body)).message;
-    expect(mail.to[0].email).toBe(kind === "contact" ? "info@sedsngo.org" : "info@setzenjio.org");
+    expect(mail.to[0].email).toBe("info@sedsngo.org");
     expect(mail.to[1].email).toBe(fields.email);
     expect(mail.html).toContain("Hello &lt;script&gt;");
     expect(mail.text).toBe(fields.message);

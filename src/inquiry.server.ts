@@ -22,7 +22,7 @@ export async function inquiry(kind: Kind, fields: Record<string, unknown>) {
       body: new URLSearchParams({ response: values.token, secret: captchaKey }),
     });
     if (!captcha.ok || !((await captcha.json()) as { success: boolean }).success) return { success: false };
-    const address = kind === "contact" ? "info@sedsngo.org" : "info@setzenjio.org";
+    const address = "info@sedsngo.org";
     const labels: Record<string, string> = {
       name: "Name",
       email: "Email",

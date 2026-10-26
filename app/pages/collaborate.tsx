@@ -50,7 +50,7 @@ const Collaborate = () => {
       {searchParams.get("error") ? (
         <div className="bg-red-500 px-4 py-2 text-white mt-4 rounded">
           Sorry — something went wrong. Please try again or email us directly at
-          info@setzenjio.org.
+          info@sedsngo.org.
         </div>
       ) : null}
 
