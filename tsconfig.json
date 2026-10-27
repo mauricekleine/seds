@@ -1,20 +1,19 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2019"],
-    "isolatedModules": true,
-    "esModuleInterop": true,
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "target": "ES2019",
     "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./app/*"]
-    },
+    "skipLibCheck": true,
     "noEmit": true,
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "allowImportingTsExtensions": true,
+    "types": ["vite/client", "bun"],
+    "paths": {
+      "~/*": ["./app/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src", "app", "tools", "test", "vite.config.ts", "cloudflare.config.ts", "taze.config.ts"]
 }

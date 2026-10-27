@@ -1,0 +1,13 @@
+; Complete TransIP API export: 10 records. Initially retain Vercel while Cloudflare activates.
+$ORIGIN sedsngo.org.
+$TTL 300
+@ 300 IN A 76.76.21.21
+@ 300 IN MX 1 aspmx.l.google.com.
+@ 300 IN MX 10 alt3.aspmx.l.google.com.
+@ 300 IN MX 10 alt4.aspmx.l.google.com.
+@ 300 IN MX 5 alt1.aspmx.l.google.com.
+@ 300 IN MX 5 alt2.aspmx.l.google.com.
+@ 300 IN TXT "mandrill_verify.E5CuAxDypLvr9_KsbUBEKg"
+@ 300 IN TXT "v=spf1 include:spf.mandrillapp.com ?all"
+mandrill._domainkey 300 IN TXT "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;"
+www 300 IN CNAME cname.vercel-dns.com.

@@ -1,4 +1,4 @@
-import { NavLink } from "@remix-run/react";
+import { NavLink } from "~/navigation";
 import classNames from "classnames";
 
 type Props = {

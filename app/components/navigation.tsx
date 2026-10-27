@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "~/navigation";
 
 import NavbarMd from "~/components/navbar-md";
 import NavbarSm from "~/components/navbar-sm";

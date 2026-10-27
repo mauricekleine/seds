@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "~/navigation";
 import { Drop, GraduationCap, Leaf, Sun } from "phosphor-react";
 
 type ProgramCardProps = {

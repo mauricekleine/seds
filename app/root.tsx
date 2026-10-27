@@ -1,21 +1,10 @@
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLocation,
-} from "@remix-run/react";
-
-import styles from "~/app.css";
+import { HeadContent, Outlet, Scripts, createRootRoute, useLocation } from "@tanstack/react-router";
+import styles from "./app.css?url";
 import Footer from "~/components/footer";
 import Navigation from "~/components/navigation";
 import StickyDonateButton from "~/components/sticky-donate-button";
-import { calculateSEDSYears } from "~/utils/seds-years";
 
-export const links: LinksFunction = () => [
+const links = () => [
   { rel: "stylesheet", href: styles },
   {
     rel: "icon",
@@ -63,23 +52,14 @@ export const links: LinksFunction = () => [
   { rel: "manifest", href: "/site.webmanifest" },
 ];
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  description: `SEDS (Social Education and Development Society) has been transforming rural communities in Andhra Pradesh through sustainable development, education, and environmental programs for over ${calculateSEDSYears()} years.`,
-  title: "SEDS - Social Education and Development Society",
-  viewport: "width=device-width,initial-scale=1",
-});
-
-export default function App() {
+function App() {
   const location = useLocation();
   const isHomepage = location.pathname === "/";
 
   return (
     <html className="font-sans font-normal" lang="en" suppressHydrationWarning>
       <head>
-        <Meta />
-
-        <Links />
+        <HeadContent />
 
         <script
           dangerouslySetInnerHTML={{
@@ -105,13 +85,7 @@ export default function App() {
           </main>
         )}
 
-        <script src="/seds-years.js"></script>
-
-        <ScrollRestoration />
-
         <Scripts />
-
-        <LiveReload />
 
         <StickyDonateButton />
 
@@ -120,3 +94,9 @@ export default function App() {
     </html>
   );
 }
+
+export default App;
+export const Route = createRootRoute({
+  component: App,
+  head: () => ({ meta: [{ charSet: "utf-8" }, { name: "viewport", content: "width=device-width,initial-scale=1" }], links: links() }),
+});

@@ -1,0 +1,9 @@
+[install]
+minimumReleaseAge = 259200
+
+[fmt]
+printWidth = 120
+ignorePatterns = ["app/**", "app.css", "public/**", "src/routeTree.gen.ts", "dist/**", ".cloudflare/**", "bun.lock"]
+
+[lint]
+ignorePatterns = ["src/routeTree.gen.ts", "dist/**", ".cloudflare/**"]
