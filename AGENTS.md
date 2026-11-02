@@ -14,4 +14,4 @@ The Bun version, runtime pins, taze and three-day release-age gate follow app-te
 
 Checks: bun run build, bun run typecheck, bun run test, bun run lint, bun run secrets:check and bun audit. Smoke the workers.dev preview, /healthz and /api/deploy.json; deploy:verify checks its exact commit SHA.
 
-Deployment and the attended cutover are documented in README.md and the migration PR.
+README.md documents deployment: a merge to `main` deploys through Workers Builds.

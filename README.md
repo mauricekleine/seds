@@ -16,7 +16,7 @@ This existing site adopts mauricekleine/app-template in place. `.mk/app.json` pi
 
 ## Deployment and domains
 
-`bun run deploy` deploys the prebuilt output as Worker `seds` through the `cf` wrapper, which maps this checkout to Maurice's Superthread account (`cd3869f6196b44d50b6ac4b77cb18511`) and its `superthread` profile. Deploys are attended; no deploy workflow is configured, and Vercel's Git integration is disabled. `DEPLOY_URL=https://sedsngo.org bun run deploy:verify <full-sha>` verifies the build identity; `/healthz` returns `{"status":"ok"}`. Workers Logs and Traces are enabled.
+`bun run deploy` deploys the prebuilt output as Worker `seds` through the `cf` wrapper, which maps this checkout to Maurice's Superthread account (`cd3869f6196b44d50b6ac4b77cb18511`) and its `superthread` profile. A merge to `main` deploys through Workers Builds in the Superthread account, which runs `bun install --frozen-lockfile && bun run build`, then `bun run deploy`; Vercel's Git integration is disabled. `DEPLOY_URL=https://sedsngo.org bun run deploy:verify <full-sha>` verifies the build identity; `/healthz` returns `{"status":"ok"}`. Workers Logs and Traces are enabled.
 
 `sedsngo.org` and `sedsngo.com` are zones in Superthread; TransIP stays the registrar and holds each domain's DS record. `cloudflare.config.ts` attaches `sedsngo.org` to the Worker as a custom domain. Zone rules handle the rest: `www.sedsngo.org`, `sedsngo.com` and `www.sedsngo.com` are proxied and redirect with 308 to `https://sedsngo.org`, keeping path and query, and Always Use HTTPS is on. Mail records (Google MX, SPF, Mandrill verification and DKIM) are DNS-only. `docs/migration/` keeps the TransIP export the zone was built from.
 
