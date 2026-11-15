@@ -1,6 +1,17 @@
 type Kind = "contact" | "collaborate";
 const escapeHtml = (value: string) =>
   value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]!);
+// Upper bounds no real inquiry reaches; the CAPTCHA token is Google's and stays unbounded.
+const limits: Record<string, number> = {
+  email: 254,
+  focus: 200,
+  message: 5000,
+  name: 200,
+  organization: 200,
+  phonenumber: 200,
+  role: 200,
+};
+const timeout = 10_000;
 export async function inquiry(kind: Kind, fields: Record<string, unknown>) {
   const required =
     kind === "collaborate"
@@ -12,6 +23,9 @@ export async function inquiry(kind: Kind, fields: Record<string, unknown>) {
     Object.entries(fields).map(([key, value]) => [key, typeof value === "string" ? value : ""]),
   );
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) return { success: false };
+  if (Object.entries(limits).some(([key, limit]) => (values[key]?.length ?? 0) > limit)) return { success: false };
+  // Name and email reach mail headers (subject, cc), so they must stay on one line.
+  if (/[\p{Cc}]/u.test(values.name + values.email)) return { success: false };
   const apiKey = process.env.MANDRILL_API_KEY;
   const captchaKey = process.env.RECAPTCHA_SECRET_KEY;
   // Fail closed when credentials are unavailable, including the unprovisioned preview.
@@ -20,6 +34,7 @@ export async function inquiry(kind: Kind, fields: Record<string, unknown>) {
     const captcha = await fetch("https://www.google.com/recaptcha/api/siteverify", {
       method: "POST",
       body: new URLSearchParams({ response: values.token, secret: captchaKey }),
+      signal: AbortSignal.timeout(timeout),
     });
     if (!captcha.ok || !((await captcha.json()) as { success: boolean }).success) return { success: false };
     const address = "info@sedsngo.org";
@@ -50,6 +65,7 @@ export async function inquiry(kind: Kind, fields: Record<string, unknown>) {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ key: apiKey, message }),
+      signal: AbortSignal.timeout(timeout),
     });
     if (!response.ok) return { success: false };
     const result = (await response.json()) as { status: string }[];

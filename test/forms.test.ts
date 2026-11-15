@@ -38,6 +38,32 @@ for (const kind of ["contact", "collaborate"] as const) {
       expect(await inquiry(kind, invalid)).toEqual({ success: false });
     expect(transport).not.toHaveBeenCalled();
   });
+  test(`${kind}: oversized fields and control characters in name or email are rejected before transport`, async () => {
+    for (const invalid of [
+      { ...fields, message: "x".repeat(5001) },
+      { ...fields, name: "x".repeat(201) },
+      { ...fields, email: `${"x".repeat(250)}@example.invalid` },
+      { ...fields, phonenumber: "1".repeat(201) },
+      { ...fields, name: "Example\r\nBcc: other@example.invalid" },
+      { ...fields, name: "Example\u0000" },
+      { ...fields, email: "sender@example.invalid\n" },
+    ])
+      expect(await inquiry(kind, invalid)).toEqual({ success: false });
+    expect(transport).not.toHaveBeenCalled();
+  });
+  test(`${kind}: a message at the length limit is still sent`, async () => {
+    transport
+      .mockResolvedValueOnce(Response.json({ success: true }))
+      .mockResolvedValueOnce(Response.json([{ status: "sent" }]));
+    expect(await inquiry(kind, { ...fields, message: "line\n".repeat(1000) })).toEqual({ success: true });
+  });
+  test(`${kind}: CAPTCHA and mail requests carry a timeout`, async () => {
+    transport
+      .mockResolvedValueOnce(Response.json({ success: true }))
+      .mockResolvedValueOnce(Response.json([{ status: "sent" }]));
+    await inquiry(kind, fields);
+    for (const [, init] of transport.mock.calls) expect(init.signal).toBeInstanceOf(AbortSignal);
+  });
   test(`${kind}: missing credentials fail without transport`, async () => {
     delete process.env.MANDRILL_API_KEY;
     expect(await inquiry(kind, fields)).toEqual({ success: false });
@@ -59,7 +85,7 @@ for (const kind of ["contact", "collaborate"] as const) {
     expect(mail.html).toContain("Hello &lt;script&gt;");
     expect(mail.text).toBe(fields.message);
   });
-  test(`${kind}: Mailchimp rejection, HTTP errors and network errors return error`, async () => {
+  test(`${kind}: Mandrill rejection, HTTP errors and network errors return error`, async () => {
     for (const failure of [
       Response.json([{ status: "rejected" }]),
       new Response("Unavailable", { status: 503 }),

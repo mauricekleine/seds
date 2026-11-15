@@ -66,8 +66,11 @@ const updatesData: Record<
   },
 };
 
+const findUpdate = (slug = "") =>
+  Object.hasOwn(updatesData, slug) ? updatesData[slug] : undefined;
+
 export const meta = ({ params }: { params: { slug?: string } }) => {
-  const update = updatesData[params.slug ?? ""];
+  const update = findUpdate(params.slug);
   return {
     title: update ? `${update.title} - SEDS` : "Update - SEDS",
     description: update
@@ -78,7 +81,7 @@ export const meta = ({ params }: { params: { slug?: string } }) => {
 
 export default function UpdateDetail() {
   const { slug } = useParams();
-  const update = updatesData[slug ?? ""];
+  const update = findUpdate(slug);
 
   if (!update) {
     return (
