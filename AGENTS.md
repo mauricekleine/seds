@@ -2,7 +2,7 @@
 
 SEDS is the public NGO website at sedsngo.org. Preserve its own design, copy, URLs and SEO metadata. Its fonts are Ubuntu and Open Sans, with green actions, blue links and the light/dark theme in app.css.
 
-The app runs TanStack Start on Bun and builds only for Cloudflare Workers. app/pages holds the page bodies; src/routes owns Start routes, heads, loaders and native POST handlers. src/functions.ts exposes server functions; Contentful and Mailchimp code lives in *.server.ts. app/navigation.tsx adapts shared link styling and form submission to Start.
+The app runs TanStack Start on Bun and builds only for Cloudflare Workers. app/pages holds the page bodies; src/routes owns Start routes, heads, loaders and native POST handlers. src/functions.ts exposes server functions; Contentful and Mandrill code lives in *.server.ts. app/navigation.tsx adapts shared link styling and form submission to Start.
 
 Use package.json for commands. Build before checking client assets with bun run secrets:check. Form tests stub fetch completely; verification never submits live forms. PREVIEW_URL=https://…workers.dev bun run parity compares every page and update with production at desktop and mobile widths, saving text, metadata, screenshots and diagnostics under /tmp/seds-migration/parity by default.
 

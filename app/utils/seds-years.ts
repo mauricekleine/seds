@@ -1,5 +1,4 @@
-// SEDS founding year - single source of truth for server-side calculations.
-// The client-side script (public/seds-years.js) has its own copy of this constant.
+// SEDS founding year - single source of truth for the year counts.
 export const SEDS_FOUNDING_YEAR = 1980;
 
 export function calculateSEDSYears(): number {

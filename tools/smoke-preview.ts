@@ -9,7 +9,7 @@ const context = await browser.newContext({ viewport: { width: 390, height: 900 }
 const page = await context.newPage();
 const errors: string[] = [];
 page.on("pageerror", (error) => errors.push(page.url() + ": " + error.message));
-// Without a CAPTCHA token the real server rejects before calling Google or Mailchimp,
+// Without a CAPTCHA token the real server rejects before calling Google or Mandrill,
 // even after production credentials have been provisioned. Never submit a token here.
 await page.route("https://www.google.com/recaptcha/**", (route) => route.abort());
 try {

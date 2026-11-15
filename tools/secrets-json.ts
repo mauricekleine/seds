@@ -1,5 +1,5 @@
-// Turn `op inject` output (KEY=value lines) into the JSON `cf workers secrets bulk` reads,
-// so secret values move through a pipe and never touch disk.
+// Turn `op inject` output (KEY=value lines) into the JSON `cf workers secrets bulk` reads.
+// upload-secrets.sh pipes the values in and writes this JSON to a private temporary file it removes on exit.
 const secrets: Record<string, { type: "secret_text"; text: string }> = {};
 for (const line of (await Bun.stdin.text()).split("\n")) {
   const match = /^([A-Z][A-Z0-9_]*)=(.*)$/.exec(line.trim());
