@@ -26,4 +26,7 @@ jobs:
       - run: bun run build
       - run: bun run test
       - run: bun run secrets:check
-      - run: bun audit
+      # GHSA-fc5q-39xc-vjpf (picomatch ReDoS, <= 4.0.7) has no patched release. picomatch arrives only
+      # through build tooling (Vite, TanStack Start, unplugin, tinyglobby, watchers) matching this repo's
+      # own globs. Drop the ignore when upstream publishes a fix.
+      - run: bun audit --ignore=GHSA-fc5q-39xc-vjpf
