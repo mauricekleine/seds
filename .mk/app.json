@@ -1,6 +1,6 @@
 {
   "template": "mauricekleine/app-template",
-  "template_sha": "aebe74c9e289f69286a5271a834124459dbd782b",
+  "template_sha": "2e471bd978c2c91a66ffaea065a8c7ddf6d57520",
   "target": "cloudflare",
   "name": "seds",
   "opt_out": {
