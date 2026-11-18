@@ -6,4 +6,4 @@ umask 077
 file=$(mktemp "${TMPDIR:-/tmp}/seds-secrets.XXXXXX")
 trap 'rm -f "$file"' EXIT
 op inject --account mauricekleine.1password.com -i .env.tpl | bun tools/secrets-json.ts >"$file"
-PATH="$HOME/.local/bin:$PATH" cf workers secrets bulk --worker seds --secrets "@$file"
+PATH="$HOME/.local/bin:$PATH" cf workers secrets bulk-edit --worker seds --secrets "@$file"

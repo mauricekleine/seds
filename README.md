@@ -24,7 +24,7 @@ This existing site adopts mauricekleine/app-template in place. `.mk/app.json` pi
 
 `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` read reports. `MANDRILL_API_KEY` and `RECAPTCHA_SECRET_KEY` serve contact and collaboration inquiries. Missing CMS credentials preserve the existing empty-reports fallback. Missing mail/CAPTCHA credentials fail the form safely with the existing error message.
 
-Production values live in the `SEDS` vault of Maurice's personal 1Password; `.env.tpl` references them. Upload or rotate them with `bun run deploy:secrets`: `tools/upload-secrets.sh` converts `op inject --account mauricekleine.1password.com` output with `tools/secrets-json.ts` into a private temporary file, removed on exit, for `cf workers secrets bulk`. Deploys keep them.
+Production values live in the `SEDS` vault of Maurice's personal 1Password; `.env.tpl` references them. Upload or rotate them with `bun run deploy:secrets`: `tools/upload-secrets.sh` converts `op inject --account mauricekleine.1password.com` output with `tools/secrets-json.ts` into a private temporary file, removed on exit, for `cf workers secrets bulk-edit`. Deploys keep them.
 
 Both forms send from and to info@sedsngo.org and CC the sender. The live collaboration form used info@setzenjio.org, a typo for a domain that does not exist; the migration corrects it. Server validation additionally rejects malformed email addresses, escapes user text in HTML, and treats Mandrill rejected/invalid recipients as failures. Production reCAPTCHA remains required; its site key rejects workers.dev hostnames, so test forms on sedsngo.org.
 
