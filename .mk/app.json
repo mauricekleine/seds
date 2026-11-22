@@ -3,6 +3,7 @@
   "template_sha": "3620c5cddcc6463b2f83b8260d0b4ca2c998ab57",
   "target": "cloudflare",
   "name": "seds",
+  "url": "https://sedsngo.org",
   "opt_out": {
     "files": [
       ".github/workflows/ci.yml",
