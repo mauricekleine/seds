@@ -1,6 +1,6 @@
 {
   "template": "mauricekleine/app-template",
-  "template_sha": "3620c5cddcc6463b2f83b8260d0b4ca2c998ab57",
+  "template_sha": "1962a7bc866f6b3c7e4dd6ebba2a284fa9f5d6e0",
   "target": "cloudflare",
   "name": "seds",
   "url": "https://sedsngo.org",
